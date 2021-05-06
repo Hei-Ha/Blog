@@ -27,9 +27,14 @@
         return fmt
     }
 
-    const dateNow = new Date() // 获取当前时间
-    const date = new Date('2020-01-01') // 获取指定时间
-    console.log(dateFormat(dateNow, 'YYYY-MM-dd'))
+    // 获取当月某天
+    const getMonthDay = function(days) {
+        // 当月第一天
+        new Date(new Date().getFullYear(), new Date().getMonth(), 1)
+        // 当月最后一天
+        new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0)
+    }
+
 </script>
 </body>
 </html>
