@@ -6,4 +6,4 @@
 - 基础 
     - [盒模型](https://github.com/Hei-Ha/Blog/issues/2)
 #### 工具方法
-- [date, utils](https://github.com/Hei-Ha/Blog/issues/3)
+- [date-utils](https://github.com/Hei-Ha/Blog/issues/3)
