@@ -2,6 +2,8 @@
 ### 目录： 
 #### 每日一题
 - [打印斐波那契数列](https://github.com/Hei-Ha/Blog/issues/1)
+- [冒泡排序](https://github.com/Hei-Ha/Blog/issues/4)
+- [选择排序](https://github.com/Hei-Ha/Blog/issues/5)
 #### CSS
 - 基础 
     - [盒模型](https://github.com/Hei-Ha/Blog/issues/2)
