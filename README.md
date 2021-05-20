@@ -5,6 +5,7 @@
 - [冒泡排序](https://github.com/Hei-Ha/Blog/issues/4)
 - [选择排序](https://github.com/Hei-Ha/Blog/issues/5)
 - [插入排序](https://github.com/Hei-Ha/Blog/issues/6)
+- [归并排序](https://github.com/Hei-Ha/Blog/issues/7)
 #### CSS
 - 基础 
     - [盒模型](https://github.com/Hei-Ha/Blog/issues/2)
