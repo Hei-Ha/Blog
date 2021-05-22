@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快速排序</title>
+</head>
+<body>
+<script type="application/javascript">
+    /**
+     * 原理解析：
+     * 快速排序就是采用分治法，把一个数组分为两个数组来处理。
+     *
+     * 思路：
+     * 1、选一个基准，将剩下的元素一次和基准元素比较大小，大的放右边，剩下的放左边。
+     * 2、将基准左边和右边的的数组分别，再次按照第一步进行处理，一次类推。
+     * 3、最终会返回一个长度的数组。（递归终结）
+     *
+     * */
+
+    // 代码：
+        // 方法一 ：
+    const arr = [8, 2, 6, 75, 9, 1, 5, 3]
+    const quickSort = function (arr) {
+        if (arr.length < 1) {
+            return arr
+        }
+        let left = []
+        let right = []
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] <= arr[0]) {
+                left.push(arr[i])
+            } else {
+                right.push(arr[i])
+            }
+        }
+        return quickSort(left).concat(arr[0]).concat(quickSort(right))
+    }
+    console.log(quickSort(arr))
+
+    // 方法一每次递归都会产生两个新数组，left 和 right
+    // 这样在空间上比较浪费
+    // 优化：
+
+
+
+</script>
+</body>
+</html>
