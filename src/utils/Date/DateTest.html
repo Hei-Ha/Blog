@@ -7,6 +7,8 @@
 <body>
 
 <script type="application/javascript">
+
+    // 格式化时间为制定格式：
     const dateFormat = function (date = new Date(), fmt) {
         let ret
         const opt = {
@@ -27,12 +29,24 @@
         return fmt
     }
 
-    // 获取当月某天
+    // 获取当月第一天和最后一天
     const getMonthDay = function(days) {
         // 当月第一天
         new Date(new Date().getFullYear(), new Date().getMonth(), 1)
         // 当月最后一天
         new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0)
+    }
+
+    // 判断两个给定时间的时间间隔是否小于一定天数
+    // 也可以 求两个时间的时间间隔（以天数为单位）
+    const timeInterval = (start, end, gap = 30) => {
+        if (!start || !end) {
+            return false
+        }
+        const s = new Date(start)
+        const e = new Date(end)
+        const g = Math.ceil((e - s) / 1000 / 86400) // Math.ceil 返回大于或者等于给定数字的最小整数（向上取正）
+        return g <= gap
     }
 
 </script>
