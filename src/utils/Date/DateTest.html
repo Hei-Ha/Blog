@@ -49,6 +49,14 @@
         return g <= gap
     }
 
+    // 判断两个时刻 ，间隔是否小于一年
+    export const aaa = function (start, end) {
+        const startTime = new Date(start)
+        startTime.setFullYear(startTime.getFullYear() + 1)
+        startTime.setDate(startTime.getDate() - 1)
+        return new Date(startTime.toLocaleDateString()).getTime() >= new Date(new Date(end).toLocaleDateString()).getTime()
+    }
+
 </script>
 </body>
 </html>
