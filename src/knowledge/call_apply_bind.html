@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>call_apply_bind</title>
+</head>
+<body>
+<script type="application/javascript">
+    var year = 2020
+    obj = {
+        year: 2021
+    }
+    const getDate = function (month, day) {
+        return `${this.year}-${month}-${day}`
+    }
+    console.log(getDate.call(null, 3, 1))
+    console.log(getDate.call(obj, 5, 2))
+    console.log(getDate.apply(obj, [6, 8]))
+    console.log(getDate.bind(obj)(7, 9))
+
+    // 手动实现 call
+    Function.prototype.call2 = function (context, ...args) {
+        // 此时的 this 指的是 getDate 这个函数，
+        context = (context === undefined || context === null) ? window : context
+        context.__fn = this // 把 this 存起来，以备后面调用
+        let result = context.__fn(...args)
+        delete context.__fn // 删除自己添加的属性
+        return result
+    }
+    // 调用 call2
+    console.log('-----call---------')
+    console.log(getDate.call2(obj, 9, 2))
+
+    // 手动实现 apply
+    Function.prototype.apply2 = function (context, args) {
+        context = (context === undefined || context === null) ? window : context
+        context.__fn = this
+        let result = context.__fn(...args)
+        delete context.__fn
+        return result
+    }
+    // 调用 apply2
+    console.log('----apply-----')
+    console.log(getDate.apply2(obj, [10, 1]))
+
+    // 手动实现 bind
+    Function.prototype.bind2 = function (context, ...args1) {
+        context = (context === undefined || context === null) ? window : context
+        let self = this
+        return function (...args2) {
+            context.__fn = self
+            let result = context.__fn(...[...args1, ...args2])
+            delete context.__fn
+            return result
+        }
+    }
+    // 调用 bind2
+    console.log('----bind----')
+    console.log(getDate.bind2(obj)(1, 9))
+
+</script>
+</body>
+</html>
