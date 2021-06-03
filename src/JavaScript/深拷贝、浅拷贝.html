@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深拷贝、浅拷贝</title>
+</head>
+<body>
+<script type="module">
+    // 深拷贝
+    // 深拷贝是指将一个对象从内存中完整的拷贝出来，并从内存中开辟一个新的地址存储新兑现，且新旧对象相互独立，互不影响。修改其中一个，不影响另一个。
+
+    // 原生 js 实现一个深拷贝
+    function deepClone (obj) {
+        if (typeof obj !== 'object') return obj
+        let newObj = Array.isArray(obj) ? [] : {}
+        for(let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                newObj[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]
+            }
+        }
+        return newObj
+    }
+    const aaa = {
+        a: 1,
+        b: [23, 56]
+    }
+    const bbb = deepClone(aaa)
+    bbb.b[0] = 99
+    console.log(aaa)
+    console.log(bbb)
+</script>
+</body>
+</html>
