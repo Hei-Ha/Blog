@@ -14,6 +14,8 @@
 #### 知识
 - js
     - [手写call、apply、bind](https://github.com/Hei-Ha/Blog/issues/9)
+    - [跨域](https://github.com/Hei-Ha/Blog/issues/13)
+    - [深拷贝、浅拷贝](https://github.com/Hei-Ha/Blog/issues/12)
 - 浏览器
     - [从输入 url 到 页面显示中间发生了什么，尽可能的详细](https://github.com/Hei-Ha/Blog/issues/10)
     - [内存泄漏场景 及 解决方法](https://github.com/Hei-Ha/Blog/issues/11)
