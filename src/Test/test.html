@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script type="application/javascript">
+    // 冒泡排序
+    const sort = function (arr) {
+        if (arr.length <= 1) return
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+                }
+            }
+        }
+        return arr
+    }
+    const testArray = [8, 9, 2, 372, 7, 78, 36, 19, 19, 37, 39, 47, 462, 97]
+    console.log(sort(testArray))
+</script>
+</body>
+</html>
