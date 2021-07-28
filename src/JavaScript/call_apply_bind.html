@@ -58,36 +58,6 @@
     console.log('----bind----')
     console.log(getDate.bind2(obj)(1, 9))
 
-    // 函数节流 —— 技能冷却
-
-    const fn = function () {}
-    let CD = false
-    button.onClick = function () {
-        if(CD) {
-            return
-        } else {
-            fn()
-            CD = true
-            setTimeout(() => {
-                CD = false
-            }, 5000)
-        }
-    }
-
-    // 函数节流 —— 送外卖
-    const fn = function () {}
-    let timeID = null
-    button.onClick = function () {
-        if(timeID) {
-            timeID = null
-        }
-        timeID = setTimeout(() => {
-            fn()
-            timeID = null
-        }, 5000)
-    }
-
-
     function fn (str) {
         return str.replace(/^\s+|\s+$/g, '')
     }

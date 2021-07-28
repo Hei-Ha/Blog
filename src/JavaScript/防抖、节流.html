@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>防抖、节流</title>
+</head>
+<body>
+
+<script>
+    // 函数防抖 —— 送外卖
+    const fn = function () {}
+    let timeID = null
+    button.onClick = function () {
+        if(timeID) {
+            timeID = null
+        }
+        timeID = setTimeout(() => {
+            fn()
+            timeID = null
+        }, 5000)
+    }
+
+
+    // 函数节流 —— 技能冷却
+    const fn = function () {}
+    let CD = false
+    button.onClick = function () {
+        if(CD) {
+            return
+        } else {
+            fn()
+            CD = true
+            setTimeout(() => {
+                CD = false
+            }, 5000)
+        }
+    }
+</script>
+</body>
+</html>
