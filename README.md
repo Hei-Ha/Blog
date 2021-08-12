@@ -31,7 +31,7 @@
       
 #### 工具方法
 - [date-utils](https://github.com/Hei-Ha/Blog/issues/3)
-- [基于 asiox 封装的导出]()
+- [基于 axios 封装的导出](https://github.com/Hei-Ha/Blog/issues/18)
 
 #### 框架
 - Vue
