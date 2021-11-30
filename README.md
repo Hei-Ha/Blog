@@ -3,7 +3,7 @@
 
 #### 知识
 - HTML 
-    - [`meta viewport` 是什么？]()
+    - [`meta viewport` 是什么？](https://github.com/Hei-Ha/Blog/issues/21)
     - [HTTP 状态码](https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81)
 
 - CSS 相关
@@ -17,6 +17,7 @@
     - [js 宏任务，微任务概念](https://www.cnblogs.com/leiting/p/13174545.html)
     - [手写 —— 防抖、节流](https://github.com/Hei-Ha/Blog/issues/16)
     - [正则实现 trim](https://github.com/Hei-Ha/Blog/issues/17)
+    - [原型和原型链](https://github.com/Hei-Ha/Blog/issues/22)
 - 浏览器
     - [从输入 url 到 页面显示中间发生了什么，尽可能的详细](https://github.com/Hei-Ha/Blog/issues/10)
     - [内存泄漏场景 及 解决方法](https://github.com/Hei-Ha/Blog/issues/11)

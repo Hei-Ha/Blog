@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型和原型链</title>
+</head>
+<body>
+<script>
+
+
+function Person() {}
+Person.prototype.name = '张三'
+// console.log(Person.prototype)
+const person1 = new Person()
+console.log(person1)
+// console.log(Object.getPrototypeOf(person1) === Person.prototype)
+</script>
+</body>
+</html>
