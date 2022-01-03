@@ -6,8 +6,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .all {
+            height: 50px;
+            width: 80%
+        }
+        .num1 {
+            background-color: #cccccc;
+        }
+        .num2 {
+            background-color: cadetblue;
+            position: relative;
+            top: 100px;
+        }
+        .num3 {
+            background-color: cornflowerblue;
+        }
+    </style>
 </head>
 <body>
+<div class="all num1">12</div>
+<div class="all num2">34</div>
+<div class="all num3">56</div>
 <script type="application/javascript">
     // 冒泡排序
     // const sort = function (arr) {
@@ -23,13 +43,33 @@
     // }
     // const testArray = [8, 9, 2, 372, 7, 78, 36, 19, 19, 37, 39, 47, 462, 97]
     // console.log(sort(testArray))
-    function sum(a, ...args) {
-        if(args.length === 0) return a;
-        let b = args.shift();
-        return a + sum(b, ...args);
+    // function sum(a, ...args) {
+    //     if(args.length === 0) return a;
+    //     let b = args.shift();
+    //     return a + sum(b, ...args);
+    // }
+    //
+    // console.log(sum(1,2,4))
+
+    let dagString = {
+        name: '1',
+        age: 2
     }
 
-    console.log(sum(1,2,4))
+    console.log(typeof JSON.stringify(dagString))
+    console.log(typeof JSON.parse(JSON.stringify(dagString)))
+    // function testFun(array) {
+    //     array['source'].forEach((item) => {
+    //         item["sample"] = item["sample"].map((res) => {
+    //             return {
+    //                 "value": res,
+    //                 "status": true
+    //             }
+    //         })
+    //     })
+    //     return array
+    // }
+    // console.log(testFun(dagString))
 </script>
 </body>
 </html>
