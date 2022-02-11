@@ -34,7 +34,7 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
   text-align: center;
 }
 ```
-<img src="/Users/wangchuang/Desktop/截屏2022-02-11 14.22.35.png" alt="截屏2022-02-11 14.22.35" style="zoom:25%;" />
+<img width="221" alt="截屏2022-02-11 15 23 32" src="https://user-images.githubusercontent.com/42307613/153556715-3122ac27-c52e-4912-b558-39f0eef3d0e2.png">
 
 2、利用伪元素
 
@@ -63,7 +63,8 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
   background-color: red;
 }
 ```
-<img src="/Users/wangchuang/Desktop/截屏2022-02-11 15.53.12.png" alt="截屏2022-02-11 15.53.12" style="zoom:25%;" />
+<img width="335" alt="截屏2022-02-11 15 53 12" src="https://user-images.githubusercontent.com/42307613/153556780-105cba35-b501-4079-9a90-976b1111c8f2.png">
+
 
 3、绝对定位 + 负 margin
 
@@ -90,7 +91,8 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
     margin-top: -50px;
 }
 ```
-<img src="/Users/wangchuang/Desktop/截屏2022-02-11 15.36.27.png" alt="截屏2022-02-11 15.36.27" style="zoom:25%;" />
+<img width="372" alt="截屏2022-02-11 15 36 27" src="https://user-images.githubusercontent.com/42307613/153556806-af341e8c-9a74-403a-b674-c672a7ce4526.png">
+
 
 4、transform: translate()
 
@@ -118,7 +120,8 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
   transform: translate(-50%, -50%);
 }
 ```
-<img src="/Users/wangchuang/Desktop/截屏2022-02-11 15.42.13.png" alt="截屏2022-02-11 15.42.13" style="zoom:25%;" />
+<img width="323" alt="截屏2022-02-11 15 42 13" src="https://user-images.githubusercontent.com/42307613/153556828-0ba5c847-8412-4631-a11a-b800c7281398.png">
+
 
 5、绝对定位 + margin: auto
 
@@ -147,7 +150,8 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
   margin: auto;
 }
 ```
-<img src="/Users/wangchuang/Desktop/截屏2022-02-11 15.46.37.png" alt="截屏2022-02-11 15.46.37" style="zoom:25%;" />
+<img width="386" alt="截屏2022-02-11 15 46 37" src="https://user-images.githubusercontent.com/42307613/153556866-d8c481e5-2faf-46d3-b2d4-f8e8a273b325.png">
+
 
 6、  flex
 
@@ -170,4 +174,6 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
   background-color: aqua;
 }
 ```
-<img src="/Users/wangchuang/Desktop/截屏2022-02-11 15.50.24.png" alt="截屏2022-02-11 15.50.24" style="zoom:25%;" />
+<img width="348" alt="截屏2022-02-11 15 50 24" src="https://user-images.githubusercontent.com/42307613/153557111-8bc3f24e-6dae-4f1c-9fda-75384597269c.png">
+
+
