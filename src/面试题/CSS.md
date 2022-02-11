@@ -177,3 +177,34 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
 <img width="348" alt="截屏2022-02-11 15 50 24" src="https://user-images.githubusercontent.com/42307613/153557111-8bc3f24e-6dae-4f1c-9fda-75384597269c.png">
 
 
+
+## CSS 选择器有哪些，优先级是怎么样的？
+
+大致遵循这样一个规则：
+优先级关系：内联样式 > ID 选择器 > 类选择器 = 属性选择器 = 伪类选择器 > 标签选择器 = 伪元素选择器
+
+1、选择器越具体，优先级越高。
+2、如果相同的优先级，后面的覆盖前面的。
+3、加 !important 的优先级最高，最好不要用
+
+## 如何清楚浮动
+1、给父元素加上这么一个类：
+```css
+.parent::after {
+    clear: both;
+    content: '';
+    display: block;
+}
+```
+2、使用 BFC
+ 触发 BFC 的方法请参考上面链接。
+
+## 说一下盒模型
+盒模型分两种：
+
+    一种是 `content-box`（标准盒模型），他的 width 属性指定的是 内容区域的宽度，如果加上padding, border 的话，实际宽度会大于给定的 width。
+    实际宽度计算方式 = 给定的 width + padding左右 + border左右
+
+    另一中是 `border-box`（IE 盒模型），它的实际宽度就是给定的宽度。
+    实际宽度计算方式 = 给定的 width
+
