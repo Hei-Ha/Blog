@@ -15,7 +15,7 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
 1、借助 table （父元素定宽高）
 
     这种方法父、子元素不需要设置宽高（这里设置宽高是为了截图效果）。
-```javascript
+```html
 <div class="parent">
       <div class="child">子元素</div>
 </div>
@@ -40,7 +40,7 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
 
     这种方法父、子元素不需要设置宽高（这里设置宽高是为了截图效果）。
     需要给伪元素设置高度撑满父元素。
-```javascript
+```html
 <div class="parent">
       <div class="child">利用伪元素</div>
 </div>
@@ -69,7 +69,7 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
 3、绝对定位 + 负 margin
 
     此种方法父元素和子元素都必须设置宽高
-```javascript
+```html
 <div class="parent">
     <div class="child">绝对定位 + 负margin</div>
 </div>
@@ -99,7 +99,7 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
     这种方法和 负margin 一样，就是把 负的margin 换成 transform: translate(-50%, -50%)，
     父元素需要规定宽高，子元素不用规定宽高。
 
-```javascript
+```html
 <div class="parent">
       <div class="child">绝对定位 + transform: translate(-50%, -50%)</div>
 </div>
@@ -127,7 +127,7 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
 
     这种方法父子元素都需要给定宽高。
 
-```javascript
+```html
  <div class="parent">
       <div class="child">绝对定位 + margin: auto</div>
 </div>
@@ -156,7 +156,7 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
 6、  flex
 
     flex 布局不需要给父元素、子元素设置宽高（此处父元素设置宽高是为了截图效果）。
-```javascript
+```html
 <div class="parent">
       <div class="child">flex</div>
 </div>
