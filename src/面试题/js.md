@@ -113,3 +113,86 @@ var test = function () {
 优点：简单、好用。
 缺点，闭包使用不当，会导致内存泄漏。
 解决办法：少用闭包，慎用闭包。
+
+
+手写代码题：
+## 如何实现一个类 
+```javascript
+ES5 
+function Dog1 (name) {
+    this.name = name
+    this.eyes = 2
+}
+
+Dog.prototype.say = function () {
+    console.log("汪")
+}
+Dog.prototype.run = function() {
+    conslle.log('跑')
+}
+
+const dog1 = new Dog1('第一个')
+
+ES6
+class Dog2 {
+    constructor(name) {
+        this.name = name
+        this.eyes = 2
+    }
+    
+    say() {
+        console.log('汪')
+    }
+    run () {
+        console.log('跑')
+    }
+}
+
+const dog2 = new Dog2('第二个')
+```
+
+## 如何实现继承
+不用 Class
+```javascript
+
+
+function Animal(legs) {
+    this.legsNumber = legs
+}
+
+// Dog 继承 Animal 
+function Dog(name) { 
+    Animal.call(this, 2) // Dog 继承 Animal 的属性
+    this.name = name
+}
+
+let emptyAnimal = function() {} // 生命一个空的函数，用来替换 Animal
+emptyAnimal.prototype = Animal.prototype // 将 Animal 函数体中的代码替换掉，因为在 Animal.call(this. 2) 中已经执行过了。 
+Dog.prototype = new emptyAnimal() // 将 emptyAnimal 的共有属性，赋值给 Dog，即形成原型链
+
+Dog.prototype.say = function () {
+    console.log(this.name)
+}
+```
+使用 Class
+```javascript
+class Animal {
+    constructor(legs) {
+        this.legsNumber = legs
+    }
+    
+    run() {
+        console.log('run')
+    }
+}
+
+class Dog extends Animal {
+    constructor(name) {
+        super(2)
+        this.name = name
+    }
+    say() {
+        console.log('say')
+    }
+}
+```
