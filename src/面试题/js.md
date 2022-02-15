@@ -272,3 +272,29 @@ const throttle = (fn, time) => {
     }
 }
 ```
+
+## 手写发布订阅
+```javascript
+
+const eventBus = {
+    map: {},
+    // 订阅事件
+    on: (name, fn) => {
+        eventBus.map[name] = eventBus.map[name] || []
+        eventBus.map[name].push(fn)
+    },
+    emit: (name, params) => {
+        if (!eventBus.map[name]) { return }
+        eventBus.map((item) => {
+            item(params)
+        })
+    },
+    off: (name, fn) => {
+        if (!eventBus.map[name]) { return }
+        const index = eventBus.map[name].indexOf(fn)
+        if (index < 0) { return }
+        eventBus.map[name].splice(index, 1)
+    }
+}
+
+```
