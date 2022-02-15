@@ -197,3 +197,78 @@ class Dog extends Animal {
 }
 ```
 
+## 手写 防抖、节流
+防抖：
+
+    使用场景：比如，当需要根据窗口大小调整页面内容的时候，如果用户不断的放大缩小页面，会导致不停的计算。
+            使用防抖函数，只有当用户停止调整页面窗口的时候，再去计算。
+```javascript
+function goBack() {
+    console.log('回到泉水')
+}
+
+const timer = null
+function B() {
+    if (timer) { // 如果回城被打断或者再次按回城键，则需要再次调用回城方法，从 0 开始回城
+        clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+        goBack()
+        timer = null
+    }, 3000)
+}
+
+// 防抖升级版：
+const debounce = (fn, time) => {
+    const timer = null
+    return () => {
+        if (timer) {
+            clearTimeout(timer)
+        } else {
+            timer = setTimeout(() => {
+                fn()
+                timer = null
+            }, time)
+        }
+    }
+}
+
+// 使用：
+const Back = debounce(B, 3000)
+```
+节流：技能 CD
+
+    使用场景：页面上某个按钮，3秒内只能点击一次。类似这样的功能的时候，需要用到节流。
+
+```javascript
+function shanXian() {
+    console.log('向指定方向闪现一段距离')
+}
+const isCD = false
+const timer = null
+function D() {
+    if (isCD) { return }
+    shanXian()
+    isCD = true
+    timer = setTimeout(() => {
+        isCD = false
+        timer = null
+    }, 3000)
+}
+
+// 节流升级版：
+// 能够将任意函数改为截流函数：
+const throttle = (fn, time) => {
+    const isCD = false
+    const timer = null
+    return () => {
+        if (isCD) { return }
+        fn()
+        isCD = true
+        timer = setTimeout(() => {
+            isCD = false
+            timer = null
+        }, time)
+    }
+}
+```
