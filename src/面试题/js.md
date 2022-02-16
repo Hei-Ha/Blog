@@ -316,3 +316,25 @@ XMLRequest.onreadystatechange = function () {
 }
 XMLRequest.send('{name: "zhangsan"}')
 ```
+## 手写 Promise.all
+```javascript
+
+Promise.all2 = (arrayList) => {
+    return new Promise((resolve, reject) => {
+        const result = []
+        let count = 0
+        arrayList.map((item, index) => {
+            item.then((data) => {
+                result[index] = data
+                count = count + 1
+                if (count === arrayList.length - 1) {
+                    resolve(result)
+                }
+            }, (reason) => {
+                reject(reason)
+            })
+        })
+    })
+}
+
+```
