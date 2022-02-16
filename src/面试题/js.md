@@ -338,3 +338,67 @@ Promise.all2 = (arrayList) => {
 }
 
 ```
+
+## 手写深拷贝
+
+    以下几种方法都可以实现深拷贝，各有各的优缺点，
+
+第一种：
+利用 JSON 方法
+```javascript
+// 假定 a 是要拷贝的对象
+const res = JSON.parse(JSON.stringify(a))
+```
+这种方法的缺点：
+1、不支持拷贝正则，Date，undefined,函数
+2、不支持环形引用
+
+第二种：
+使用递归
+1、递归
+2、判断类型，不用类型用不同的方法拷贝
+3、检查环形引用
+4、不拷贝继承过来的属性
+```javascript
+const deepClone = (param, mapData) => {
+    if (!mapData) {
+        // 将 mapData 映射作为参数传进函数体内，防止多次深拷贝创建的 mapData 相互影响，
+        mapData = new Map() 
+    }
+    if (param.get(param)) {
+        return mapData.get(param)
+    }
+    if (param instanceof Object) { // 如果 params 是对象需要单独处理
+        let result = undefined
+        if (param instanceof Function) { // 如果是函数
+            if (param.prototype) { // 如果是普通函数
+                result = function () { param.apply(this, arguments) }
+            } else { // 不是普通函数，是箭头函数（箭头函数没有 prototye 属性）
+                result = () => { param.call(undefined, ...arguments) }
+            }
+        } else if (param instanceof Array) { // 如果是数组
+            result = []
+        } else if (param instanceof Date) { // 如果是日期
+            result = new Date(param - 0) // 利用时间戳去重新生成一个日期
+        }else if (param instanceof RegExp) { // 如果是正则
+            // result = new RegExp(param)
+            result = new RegExp(param.source, a.flags)
+        } else { // 其他则视为普通对象
+            result = {}
+        }
+        // 在这里利用 mapData 去存储已经拷贝过的值，用来避免遇到 环形引用。
+        mapData.set(param, result)
+        
+        // 这里将其他属性，依次遍历重新拷贝一遍
+        // const keys = Object.keys(param)
+        for(let key in param) {
+            if (param.hasOwnProperty(key)) { // 只遍历 param 自己的可枚举属性，不遍历继承过来的属性
+                result[key] = deepClone(param[key], mapData)
+            }
+        }
+        return result
+    } else { // param 是基本数据类型
+        return param
+    }
+}
+```
