@@ -365,10 +365,10 @@ const deepClone = (param, mapData) => {
         // 将 mapData 映射作为参数传进函数体内，防止多次深拷贝创建的 mapData 相互影响，
         mapData = new Map() 
     }
-    if (param.get(param)) {
-        return mapData.get(param)
-    }
     if (param instanceof Object) { // 如果 params 是对象需要单独处理
+        if (mapData.get(param)) {
+            return mapData.get(param)
+        }
         let result = undefined
         if (param instanceof Function) { // 如果是函数
             if (param.prototype) { // 如果是普通函数
@@ -399,6 +399,18 @@ const deepClone = (param, mapData) => {
         return result
     } else { // param 是基本数据类型
         return param
+    }
+}
+```
+```javascript
+const a = {
+    one: [1,2,3,4, [9,8,7]],
+    two: function () {
+        console.log('two')
+    },
+    three: new Date(),
+    four: () => {
+        console.log('箭头函数')
     }
 }
 ```
