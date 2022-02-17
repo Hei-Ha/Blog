@@ -31,7 +31,7 @@
 - [date-utils](https://github.com/Hei-Ha/Blog/issues/3)
 - [基于 axios 封装的导出](https://github.com/Hei-Ha/Blog/issues/18)
 
-#### 每日一题
+#### 排序题
 - [打印斐波那契数列](https://github.com/Hei-Ha/Blog/issues/1)
 - [冒泡排序](https://github.com/Hei-Ha/Blog/issues/4)
 - [选择排序](https://github.com/Hei-Ha/Blog/issues/5)
