@@ -39,9 +39,42 @@ weiTuo(a, 'click', 'li', A)
 
 ```
 
-事件委托：
+事件委托： 
 好处：
 1、节省监听器，性能好
 2、动态监听，针对新加的Dom 元素，不用新加事件监听器
 缺点：
 调试的时候，不容易找到是哪个事件。
+
+## 手写可以拖拽的 div
+思路： 
+    监听鼠标按下事件，给 div 的坐标赋值
+    监听鼠标移动事件，获取鼠标移动的偏移量，在div 起始位置的坐标上加上鼠标的偏移量。就是移动后的div 坐标。
+    
+```javascript
+let div = document.getElementsByTagName('div')[0]
+let toMove = false
+let position = null
+div.addEventListener('mousedown', function(e) {
+    toMove = true // div 正在移动
+    position = [e.clientX, e.clientY]
+})
+
+
+document.addEventListener('mousemove', function(e) {
+    if (toMove === false ) { return } // 如果鼠标没有按下，则不获取鼠标的偏移量
+    const x = e.clientX
+    const y = e.clientY
+    const moveX = x - position[0]
+    const moveY = y - position[1]
+    const left = parseInt(div.style.left || 0)
+    const top = parseInt(div.style.top || 0)
+    div.style.left = left + moveX + 'px'
+    div.style.top = top + moveY + 'px'
+    position = [x, y]
+})
+
+document.addEventListener('mouseup', function(e) {
+    toMove = false
+})
+```
