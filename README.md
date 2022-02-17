@@ -38,6 +38,7 @@
 - [插入排序](https://github.com/Hei-Ha/Blog/issues/6)
 - [归并排序](https://github.com/Hei-Ha/Blog/issues/7)
 - [快速排序](https://github.com/Hei-Ha/Blog/issues/8)
+- [计数排序](https://github.com/Hei-Ha/Blog/issues/23)
 
 #### 力扣
 - 1、[两数之和](https://github.com/Hei-Ha/Blog/issues/19)
