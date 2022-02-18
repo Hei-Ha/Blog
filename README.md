@@ -15,7 +15,7 @@
     - [跨域](https://github.com/Hei-Ha/Blog/issues/13)
     - [深拷贝、浅拷贝](https://github.com/Hei-Ha/Blog/issues/12)
     - [js 宏任务，微任务概念](https://www.cnblogs.com/leiting/p/13174545.html)
-    - [手写 —— 防抖、节流](https://github.com/Hei-Ha/Blog/issues/16)
+    - [手写 —— 防抖(debounce)、节流(throttle)](https://github.com/Hei-Ha/Blog/issues/16)
     - [正则实现 trim](https://github.com/Hei-Ha/Blog/issues/17)
     - [原型和原型链](https://github.com/Hei-Ha/Blog/issues/22)
 - 浏览器
