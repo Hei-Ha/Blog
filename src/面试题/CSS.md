@@ -3,7 +3,7 @@
 BFC 是块级格式化上下文，具有 BFC 特性的元素可以看作是一个独立的容器，容器里面的元素在布局上不会影响外面的元素。
 BFC 的作用：
     1、防止 margin 合并。
-    2、清楚浮动。
+    2、清除浮动。
 BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)
     1、浮动元素（float：不是none）
     2、绝对定位的元素。（元素的定位属性是 absolute 或者 fixed）
