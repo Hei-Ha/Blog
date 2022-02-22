@@ -1,4 +1,4 @@
-## HTTP 常见状态码
+chuang.## HTTP 常见状态码
 
 
 ## GET 和 POST 的区别
@@ -23,6 +23,7 @@ GET 和 POST 本质的区别，是语意的区别，GET 是读，POST 是取。
 
 
 ##  HTTP 和 HTTPS 的区别
+
 
 HTTPS = HTTP + SSL/TLS（安全层）
 1、HTTP 是明文传输的，不安全。HTTPS 是加密传输的，比较安全，
