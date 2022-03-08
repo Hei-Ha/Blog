@@ -7,6 +7,7 @@ addEventListener 的第三个参数可以指定在哪个阶段触发事件 （tr
 可以使用 event.stopPropagation() 来组织捕获或者冒泡
 
 ## 手写事件委托
+
     MDN 的解释：
     Event 接口的只读属性 currentTarget 表示的，标识是当事件沿着 DOM 触发时事件的当前目标。
     它总是指向事件绑定的元素，而 Event.target 则是事件触发的元素。
