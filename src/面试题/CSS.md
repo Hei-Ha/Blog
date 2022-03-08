@@ -210,9 +210,10 @@ BFC 触发条件：[MDN 参考](https://developer.mozilla.org/zh-CN/docs/Web/Gui
 
 ## 回流、重回
 
-回流 (Reflow)：
+回流(重排) (Reflow)：
 
-    当 Render Tree 中部分或全部元素的尺寸、结构、或某些属性发生改变时，浏览器重新渲染部分或全部文档的过程称为回流。
+    当 Render Tree 中部分或全部元素的尺寸、结构、或某些属性发生改变时，
+    浏览器重新渲染部分或全部文档的过程称为回流。
     
 会导致回流的操作：
 ```text
