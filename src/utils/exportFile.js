@@ -40,7 +40,7 @@ import Axios from 'axios'
 // }
 
 export function download(method = 'post', address, params) {
-    const resUrl = `${window.location.protocol}//${window.location.host}/hhr-web${address}`
+    const resUrl = `${window.location.protocol}//${window.location.host}/${address}`
     Axios({
         method: method,
         url: resUrl,
