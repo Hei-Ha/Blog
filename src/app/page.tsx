@@ -1,5 +1,7 @@
+import Nav from '@/components/Nav';
+
 export default () => {
-    return <div className='bg-#CCCCCC'>
-        Home
+    return <div className='flex justify-center w-full flex-auto flex-col'>
+        内容向下排序
     </div>
 }

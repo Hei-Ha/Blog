@@ -1,5 +1,8 @@
 import { Metadata } from 'next';
-import '@/style/global.scss';
+import { Providers } from '@/app/providers';
+import '@/style/globals.scss';
+
+import GlobalLayout from '@/components/globalLayout';
 
 export const metadata: Metadata = {
     title: 'Blogs',
@@ -13,7 +16,11 @@ const Layout = (
     return (
         <html>
             <body>
-                {children}
+                <Providers>
+                    <GlobalLayout>
+                        {children}
+                    </GlobalLayout>
+                </Providers>
             </body>
         </html>
     )
