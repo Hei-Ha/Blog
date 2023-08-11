@@ -1,6 +1,4 @@
-const RootLayout = (
-    { children }: { children: React.ReactNode }
-) => {
+export default ({children}: { children: React.ReactNode }) => {
     return (
         <html>
             <body>
@@ -9,4 +7,3 @@ const RootLayout = (
         </html>
     )
 }
-export default RootLayout

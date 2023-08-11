@@ -1,3 +1,3 @@
 export default () => {
-    return <div>page</div>
+    return <div>page222</div>
 }
