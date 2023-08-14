@@ -1,4 +1,6 @@
-export default ({children}: { children: React.ReactNode }) => {
+const Layout = (
+    {children}: { children: React.ReactNode }
+) => {
     return (
         <html>
             <body>
@@ -7,3 +9,5 @@ export default ({children}: { children: React.ReactNode }) => {
         </html>
     )
 }
+
+export default Layout;
