@@ -15,7 +15,7 @@ const Layout = (
 ) => {
     return (
         <html>
-            <body>
+            <body className='bg-#f0f0f0'>
                 <Providers>
                     <GlobalLayout>
                         {children}

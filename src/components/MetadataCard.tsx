@@ -6,6 +6,7 @@ interface PropsType {
     metadata: {
         title: string;
         date: string;
+        summary: string;
     };
 }
 export default (props: PropsType) => {
@@ -17,18 +18,21 @@ export default (props: PropsType) => {
             isPressable={true}
             allowTextSelectionOnPress={true}
             isBlurred={true}
+            radius={'sm'}
             className='my-2'
         >
             <CardHeader>
-                {metadata.title}
+                <div className='text-#333333'>
+                    {metadata.title}
+                </div>
             </CardHeader>
             <Divider />
-            <CardBody>
-                {content}
+            <CardBody className='flex bg-#fbfbfb'>
+                <span>{metadata.summary}</span>
             </CardBody>
-            <Divider />
-            <CardFooter className={'flex justify-end'}>
-                {metadata.date}
+            <CardFooter className='flex flex-row justify-between'>
+                <span className='text-#333333'>阅读全文</span>
+                <span className='text-xs text-#a0a0a0'>写于：{metadata.date}</span>
             </CardFooter>
         </Card>
     </div>
