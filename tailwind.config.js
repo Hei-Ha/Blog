@@ -15,11 +15,26 @@ export default {
         extend: {
             colors: {
                 '#CCCCCC': '#CCCCCC',
-                '#8294C4': '#8294C4'
+                '#8294C4': '#8294C4',
+                '#f0f0f0': '#f0f0f0',
+                '#fbfbfb': '#fbfbfb',
+                '#333333': '#333333',
+                '#a0a0a0': '#a0a0a0',
             }
         },
     },
-    plugins: [nextui()],
+    plugins: [
+        nextui({
+            themes: {
+                light: {
+                    colors: {},
+                },
+                dark: {
+                    colors: {},
+                },
+            },
+        })
+    ],
     darkMode: "class"
 }
 

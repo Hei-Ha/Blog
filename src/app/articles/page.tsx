@@ -1,20 +1,32 @@
-import BlogCard from '@/components/Card';
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { MDXList } from '@src/utils/utils.client'
+import {BlogsContentList} from "@src/app/articles/constantType";
+import MetadataCard from '@src/components/MetadataCard';
 
 
-const getData = async () => {
-    const getData = await fetch('https://www.fastmock.site/mock/c740744be8f5c78b88c9b102e2e19ae6/blog/blog/test1')
-    return getData.json();
+const RenderMDX = (props) => {
+    return props.map((item) => {
+        return <MDXRemote source={item} />
+    })
 }
 
+
 export default async () => {
+    const data = await fetch('http://localhost:3000/articles/api');
+    const blogsContentList: BlogsContentList[] = await data.json();
     
-    const data = await getData();
-    
-    return <div className='w-full'>
-        <BlogCard
-        title={'你好'}
-        content={'hello'}
-        date={'20202'}
+    return <div>
+        <MDXList
+            RenderMDX={RenderMDX(blogsContentList)}
         />
+        {
+            blogsContentList.map((item, index) => {
+                return <MetadataCard
+                    key={index}
+                    content={item.content}
+                    metadata={item.data}
+                />
+            })
+        }
     </div>
 }
