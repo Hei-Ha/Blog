@@ -1,9 +1,15 @@
 import {Card, CardBody, CardFooter, CardHeader} from "@nextui-org/card";
 import {Divider} from "@nextui-org/divider";
 
-export default (
-    { title, content, date }: { title: string, content: string, date: string }
-) => {
+interface PropsType {
+    content: string;
+    metadata: {
+        title: string;
+        date: string;
+    };
+}
+export default (props: PropsType) => {
+    const {metadata, content} = props
     return <div className='w-full'>
         <Card
             fullWidth={true}
@@ -14,7 +20,7 @@ export default (
             className='my-2'
         >
             <CardHeader>
-                {title}
+                {metadata.title}
             </CardHeader>
             <Divider />
             <CardBody>
@@ -22,7 +28,7 @@ export default (
             </CardBody>
             <Divider />
             <CardFooter className={'flex justify-end'}>
-                {date}
+                {metadata.date}
             </CardFooter>
         </Card>
     </div>

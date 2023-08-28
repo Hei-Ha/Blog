@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import path from 'path';
 import { promises as fsPromises } from 'fs';
-
-// const currentFilePath = import.meta.url
+import matter from 'gray-matter';
 
 
 export const GET = async (request: Request) => {
@@ -13,7 +12,7 @@ export const GET = async (request: Request) => {
     for (let item of allBlogsNames) {
         const filePath = path.join(blogsDirectoryPath, item);
         const content = await fsPromises.readFile(filePath);
-        blogsList.push(content.toString());
+        blogsList.push(matter(content));
     }
     return NextResponse.json(blogsList);
 }
