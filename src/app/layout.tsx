@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import { Providers } from '@/app/providers';
-import '@/style/globals.scss';
+import { Providers } from '@src/app/providers';
+import '@src/style/globals.scss';
 
-import GlobalLayout from '@/components/globalLayout';
+import GlobalLayout from '@src/components/globalLayout';
 
 export const metadata: Metadata = {
     title: 'Blogs',

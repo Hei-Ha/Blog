@@ -1,4 +1,4 @@
-import Nav from '@/components/Nav';
+import Nav from '@src/components/Nav';
 
 const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
     return <section className='w-screen h-screen'>

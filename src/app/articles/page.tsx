@@ -1,7 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { MDXList } from '@/utils/utils.client'
-import {BlogsContentList} from "@/app/articles/constantType";
-import MetadataCard from '@/components/MetadataCard';
+import { MDXList } from '@src/utils/utils.client'
+import {BlogsContentList} from "@src/app/articles/constantType";
+import MetadataCard from '@src/components/MetadataCard';
 
 
 const RenderMDX = (props) => {
@@ -28,6 +28,5 @@ export default async () => {
                 />
             })
         }
-        
     </div>
 }
