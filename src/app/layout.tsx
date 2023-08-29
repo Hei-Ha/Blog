@@ -1,4 +1,5 @@
 import { Metadata} from 'next';
+import {Providers} from "./providers";
 
 
 import '@/style/global.style.css';
@@ -15,7 +16,10 @@ const Layout = (
     return (
         <html>
             <body>
-            {children}
+            <Providers>
+                {children}
+            </Providers>
+           
             </body>
         </html>
     )

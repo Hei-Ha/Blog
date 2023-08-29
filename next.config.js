@@ -1,9 +1,24 @@
-import withMDX from '@next/mdx'
+import withMDX from '@next/mdx';
 
-
-export default withMDX()({
-    distDir: 'dist',
+const nextConfig = {
+    pageExtensions: ['ts', 'tsx', 'mdx'],
     experimental: {
-        mdxRs: true
-    }
-})
+        mdxRs: true,
+    },
+}
+
+const MDXConfig = {
+    extension: /\.(md|mdx)$/,
+    options: {
+        remarkPlugins: [],
+        rehypePlugins: [],
+    },
+}
+
+const result = Object.assign(
+    {},
+    nextConfig,
+    MDXConfig,
+)
+
+export default withMDX()(result);
