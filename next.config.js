@@ -1,18 +1,24 @@
 import withMDX from '@next/mdx';
 
 const nextConfig = {
-    // webpack5: true,
-    // webpack: (config) => {
-    //     config.resolve.fallback = {
-    //         fs: false,
-    //         path: false,
-    //     };
-    //     return config;
-    // },
     pageExtensions: ['ts', 'tsx', 'mdx'],
     experimental: {
         mdxRs: true,
     },
 }
 
-export default withMDX()(nextConfig);
+const MDXConfig = {
+    extension: /\.(md|mdx)$/,
+    options: {
+        remarkPlugins: [],
+        rehypePlugins: [],
+    },
+}
+
+const result = Object.assign(
+    {},
+    nextConfig,
+    MDXConfig,
+)
+
+export default withMDX()(result);
