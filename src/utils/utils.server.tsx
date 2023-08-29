@@ -3,6 +3,8 @@
 //
 // export const RenderMDX = (props: BlogsMessageType[]) => {
 //     return props.map((item) => {
-//         return <MDXRemote source={item.fileContent.content} />
+//         return <div className={'nanna'}>
+//             <MDXRemote source={item.fileContent.content} />
+//         </div>
 //     })
 // }
