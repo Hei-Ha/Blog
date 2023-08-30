@@ -1,8 +1,8 @@
 {
     "name": "Blog",
     "version": "1.0.0",
-    "type": "module",
     "main": "index.js",
+    "type": "module",
     "repository": "git@github.com:Hei-Ha/Blog.git",
     "author": "wangchuang",
     "scripts": {

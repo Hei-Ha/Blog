@@ -1,5 +1,6 @@
 'use client'
-import Test from '@blogs/test.mdx'
-export const test = () => {
-    return <Test />
+import TestMDX from '@blogs/test2.mdx'
+
+export const RenderMDX = (props) => {
+    return <TestMDX />
 }

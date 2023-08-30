@@ -6,7 +6,7 @@ export default {
     content: {
         relative: true,
         files: [
-            "./src/**/*.{js,jsx,ts,tsx}",
+            "./src/**/*.{html,js,jsx,ts,tsx}",
             "./node_modules/@nextui-org/theme/dist/**/*.{js,jsx,ts,tsx}",
         ],
     },

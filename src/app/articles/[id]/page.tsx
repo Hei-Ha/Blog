@@ -1,6 +1,6 @@
 import querystring from 'querystring';
 import {MDXRemote} from "next-mdx-remote/rsc";
-import {RenderMDX} from "@src/utils/utils.server";
+
 export default async ({ params, searchParams}) => {
     // fetch URl: http://localhost:3000/articles/1/api?param=world&name=zhangsan&age=18
     

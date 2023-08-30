@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { Providers } from '@src/app/providers';
-import '@src/style/globals.scss';
+import '@src/style/global.css';
 
 import GlobalLayout from '@src/components/globalLayout';
 
