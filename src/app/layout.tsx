@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Providers } from '@src/app/providers';
+// import { Providers } from '@src/app/providers';
 import '@src/style/global.css';
 
 import GlobalLayout from '@src/components/globalLayout';
@@ -16,11 +16,9 @@ const Layout = (
     return (
         <html>
             <body className='bg-#f0f0f0'>
-                <Providers>
-                    <GlobalLayout>
-                        {children}
-                    </GlobalLayout>
-                </Providers>
+                <GlobalLayout>
+                    {children}
+                </GlobalLayout>
             </body>
         </html>
     )

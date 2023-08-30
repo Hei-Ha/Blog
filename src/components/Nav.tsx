@@ -75,7 +75,6 @@ export default () => {
     
     return (
         <Navbar
-            className='bg-#f0f0f0'
             isBordered={true}
             position={'sticky'}
             isMenuOpen={isMenuOpen}
