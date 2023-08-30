@@ -1,13 +1,9 @@
 import {Card, CardBody, CardFooter, CardHeader} from "@nextui-org/card";
-import {Divider} from "@nextui-org/divider";
+import {BlogMetadata} from "@src/app/articles/constantType";
 
 interface PropsType {
     content: string;
-    metadata: {
-        title: string;
-        date: string;
-        summary: string;
-    };
+    metadata: BlogMetadata;
 }
 export default (props: PropsType) => {
     const {metadata, content} = props

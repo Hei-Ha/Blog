@@ -7,6 +7,4 @@ const Providers = (
         {children}
     </NextUIProvider>
 }
-export {
-    Providers
-};
+export { Providers };

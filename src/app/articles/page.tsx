@@ -1,31 +1,23 @@
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { MDXList } from '@src/utils/utils.client'
-import {BlogsContentList} from "@src/app/articles/constantType";
+import { BlogsMessageType} from "@src/app/articles/constantType";
 import MetadataCard from '@src/components/MetadataCard';
-
-
-const RenderMDX = (props) => {
-    return props.map((item) => {
-        return <MDXRemote source={item} />
-    })
-}
+import Link from "next/link";
 
 
 export default async () => {
-    const data = await fetch('http://localhost:3000/articles/api');
-    const blogsContentList: BlogsContentList[] = await data.json();
+    // fetch URl: http://localhost:3000/articles/api
+    
+    const data = await fetch('http://localhost:3000/articles/api'); // 获取 article 目录中，所有的文件信息，包括文件内容。
+    const blogsMessageList: BlogsMessageType[] = await data.json();
     
     return <div>
-        <MDXList
-            RenderMDX={RenderMDX(blogsContentList)}
-        />
         {
-            blogsContentList.map((item, index) => {
-                return <MetadataCard
-                    key={index}
-                    content={item.content}
-                    metadata={item.data}
-                />
+            blogsMessageList.map((item, index) => {
+                return <Link href={{ pathname: `/articles/${index}`, query: { filename: item.filename, fileOther: 'aaa' }} } key={item.filepath}>
+                    <MetadataCard
+                        content={item.fileContent.content}
+                        metadata={item.fileContent.data}
+                    />
+                </Link>
             })
         }
     </div>

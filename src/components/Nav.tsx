@@ -29,19 +29,19 @@ export default () => {
         {
             title: '文章',
             icon: '',
-            path: 'articles',
+            path: '/articles',
         },
         {
             title: '算法题',
-            path: 'algorithm',
+            path: '/algorithm',
         },
         {
             title: 'Contact',
-            path: 'contact'
+            path: '/contact'
         },
         {
             title: '其他',
-            path: 'other',
+            path: '/other',
         },
     ]
     
