@@ -11,6 +11,7 @@ import {
 } from '@nextui-org/navbar'
 import Link from 'next/link';
 import { Avatar } from '@nextui-org/avatar';
+import {SwitchTheme} from "@src/components/SwitchTheme";
 
 
 
@@ -69,9 +70,6 @@ export default () => {
         })
     }
     
-    const avatar = () => {
-        return <Avatar name='Wang' />
-    }
     
     return (
         <Navbar
@@ -82,25 +80,26 @@ export default () => {
                 setIsMenuOpen(value);
             }}
         >
-            <NavbarContent className='lgScreens:hidden' justify='start'>
-                <NavbarMenuToggle />
-                <NavbarBrand className='flex justify-end'>
+            <NavbarContent justify='start'>
+                <NavbarBrand>
                     <Link href='/'>
-                        {avatar()}
+                        <Avatar name='Wang' />
                     </Link>
                 </NavbarBrand>
+            </NavbarContent>
+            
+            {/*小屏显示的内容*/}
+            <NavbarContent className='lgScreens:hidden' justify='end'>
+                <NavbarMenuToggle />
                 <NavbarMenu className='lgScreens:hidden'>
                     {...getSmMenus(menus)}
                 </NavbarMenu>
             </NavbarContent>
             
-            <NavbarContent className='smScreens:hidden' justify='center'>
-                <NavbarBrand>
-                    <Link href='/'>
-                        {avatar()}
-                    </Link>
-                </NavbarBrand>
+            {/*大屏显示的内容*/}
+            <NavbarContent className='smScreens:hidden' justify='end'>
                 {...getLgMenu(menus)}
+                <SwitchTheme />
             </NavbarContent>
         </Navbar>
     )

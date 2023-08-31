@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
-// import { Providers } from '@src/app/providers';
 import '@src/style/global.css';
+import GlobalLayout from "@src/components/globalLayout";
 
-import GlobalLayout from '@src/components/globalLayout';
 
 export const metadata: Metadata = {
     title: 'Blogs',
@@ -15,7 +14,7 @@ const Layout = (
 ) => {
     return (
         <html>
-            <body className='bg-#f0f0f0'>
+            <body>
                 <GlobalLayout>
                     {children}
                 </GlobalLayout>
