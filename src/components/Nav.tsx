@@ -59,15 +59,23 @@ export default () => {
     
     const getSmMenus = (menus: MenuType[]) => {
         if (menus.length === 0) return []
-        return menus.map((item, index) => {
-            return <NavbarMenuItem key={`${item.title}-${index}`}>
-                <Link className='text-#8294C4' href={item.path}>
-                    <span className='text-#8294C4'>
-                        {item.title}
-                    </span>
-                </Link>
-            </NavbarMenuItem>
-        })
+        return <div>
+            <div className='flex justify-end'>
+                <SwitchTheme />
+            </div>
+            {menus.map((item, index) => {
+                return <NavbarMenuItem key={`${item.title}-${index}`}>
+                    <Link className='text-#8294C4' href={item.path}>
+                        <span className='text-#8294C4'>
+                            {item.title}
+                        </span>
+                    </Link>
+                    <div>
+                    
+                    </div>
+                </NavbarMenuItem>
+            })}
+        </div>
     }
     
     
@@ -92,7 +100,7 @@ export default () => {
             <NavbarContent className='lgScreens:hidden' justify='end'>
                 <NavbarMenuToggle />
                 <NavbarMenu className='lgScreens:hidden'>
-                    {...getSmMenus(menus)}
+                    {getSmMenus(menus)}
                 </NavbarMenu>
             </NavbarContent>
             
