@@ -99,7 +99,9 @@ export default () => {
             {/*小屏显示的内容*/}
             <NavbarContent className='lgScreens:hidden' justify='end'>
                 <NavbarMenuToggle />
-                <NavbarMenu className='lgScreens:hidden'>
+                <NavbarMenu className='lgScreens:hidden' onClick={() => {
+                    setIsMenuOpen(false);
+                }}>
                     {getSmMenus(menus)}
                 </NavbarMenu>
             </NavbarContent>

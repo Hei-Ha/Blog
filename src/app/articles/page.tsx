@@ -1,5 +1,5 @@
 import { BlogsMessageType} from "@src/app/articles/constantType";
-import MetadataCard from '@src/components/MetadataCard';
+import CardList from '@src/components/CardList';
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,18 +14,12 @@ export default async () => {
         {
             blogsMessageList.map((item, index) => {
                 return <Link href={{ pathname: `/articles/${index}`, query: { filename: item.filename, fileOther: 'aaa' }} } key={item.filepath}>
-                    <MetadataCard
+                    <CardList
                         content={item.fileContent.content}
                         metadata={item.fileContent.data}
                     />
                 </Link>
             })
         }
-        {/*<Image*/}
-        {/*    width={100}*/}
-        {/*    height={100}*/}
-        {/*    alt={'sss'}*/}
-        {/*    src={'https://images-eight-tan.vercel.app/dark.svg'}*/}
-        {/*/>*/}
     </div>
 }
