@@ -12,6 +12,7 @@ import {
 import Link from 'next/link';
 import { Avatar } from '@nextui-org/avatar';
 import {SwitchTheme} from "@src/components/SwitchTheme";
+import Image from 'next/image'
 
 
 
@@ -70,9 +71,6 @@ export default () => {
                             {item.title}
                         </span>
                     </Link>
-                    <div>
-                    
-                    </div>
                 </NavbarMenuItem>
             })}
         </div>
@@ -91,7 +89,9 @@ export default () => {
             <NavbarContent justify='start'>
                 <NavbarBrand>
                     <Link href='/'>
-                        <Avatar name='Wang' />
+                        <Avatar
+                            src='https://images.wangchuang.space/Images/Blogs/Avatar.JPG'
+                            name='Wang' />
                     </Link>
                 </NavbarBrand>
             </NavbarContent>

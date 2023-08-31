@@ -1,6 +1,7 @@
 import { BlogsMessageType} from "@src/app/articles/constantType";
 import MetadataCard from '@src/components/MetadataCard';
 import Link from "next/link";
+import Image from "next/image";
 
 
 export default async () => {
@@ -20,5 +21,11 @@ export default async () => {
                 </Link>
             })
         }
+        {/*<Image*/}
+        {/*    width={100}*/}
+        {/*    height={100}*/}
+        {/*    alt={'sss'}*/}
+        {/*    src={'https://images-eight-tan.vercel.app/dark.svg'}*/}
+        {/*/>*/}
     </div>
 }
