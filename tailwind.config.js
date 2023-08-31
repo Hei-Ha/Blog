@@ -24,9 +24,11 @@ export default {
                 '#fbfbfb': '#fbfbfb',
                 '#333333': '#333333',
                 '#a0a0a0': '#a0a0a0',
+                '#0E21A0': '#0E21A0',
             }
         },
     },
+    darkMode: "class",
     plugins: [
         typography(),
         nextui({
@@ -40,5 +42,4 @@ export default {
             },
         })
     ],
-    darkMode: "class"
 }

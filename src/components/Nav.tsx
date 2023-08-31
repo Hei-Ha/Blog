@@ -11,6 +11,7 @@ import {
 } from '@nextui-org/navbar'
 import Link from 'next/link';
 import { Avatar } from '@nextui-org/avatar';
+import {SwitchTheme} from "@src/components/SwitchTheme";
 
 
 
@@ -58,24 +59,28 @@ export default () => {
     
     const getSmMenus = (menus: MenuType[]) => {
         if (menus.length === 0) return []
-        return menus.map((item, index) => {
-            return <NavbarMenuItem key={`${item.title}-${index}`}>
-                <Link className='text-#8294C4' href={item.path}>
-                    <span className='text-#8294C4'>
-                        {item.title}
-                    </span>
-                </Link>
-            </NavbarMenuItem>
-        })
+        return <div>
+            <div className='flex justify-end'>
+                <SwitchTheme />
+            </div>
+            {menus.map((item, index) => {
+                return <NavbarMenuItem key={`${item.title}-${index}`}>
+                    <Link className='text-#8294C4' href={item.path}>
+                        <span className='text-#8294C4'>
+                            {item.title}
+                        </span>
+                    </Link>
+                    <div>
+                    
+                    </div>
+                </NavbarMenuItem>
+            })}
+        </div>
     }
     
-    const avatar = () => {
-        return <Avatar name='Wang' />
-    }
     
     return (
         <Navbar
-            className='bg-#f0f0f0'
             isBordered={true}
             position={'sticky'}
             isMenuOpen={isMenuOpen}
@@ -83,25 +88,26 @@ export default () => {
                 setIsMenuOpen(value);
             }}
         >
-            <NavbarContent className='lgScreens:hidden' justify='start'>
-                <NavbarMenuToggle />
-                <NavbarBrand className='flex justify-end'>
+            <NavbarContent justify='start'>
+                <NavbarBrand>
                     <Link href='/'>
-                        {avatar()}
+                        <Avatar name='Wang' />
                     </Link>
                 </NavbarBrand>
+            </NavbarContent>
+            
+            {/*小屏显示的内容*/}
+            <NavbarContent className='lgScreens:hidden' justify='end'>
+                <NavbarMenuToggle />
                 <NavbarMenu className='lgScreens:hidden'>
-                    {...getSmMenus(menus)}
+                    {getSmMenus(menus)}
                 </NavbarMenu>
             </NavbarContent>
             
-            <NavbarContent className='smScreens:hidden' justify='center'>
-                <NavbarBrand>
-                    <Link href='/'>
-                        {avatar()}
-                    </Link>
-                </NavbarBrand>
+            {/*大屏显示的内容*/}
+            <NavbarContent className='smScreens:hidden' justify='end'>
                 {...getLgMenu(menus)}
+                <SwitchTheme />
             </NavbarContent>
         </Navbar>
     )
