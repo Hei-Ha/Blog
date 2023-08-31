@@ -25,7 +25,7 @@ export default (props: PropsType) => {
                     {metadata.title}
                 </h1>
             </CardHeader>
-            <CardBody className='flex bg-#fbfbfb text-#a0a0a0'>
+            <CardBody className='flex text-#a0a0a0'>
                 <span>{metadata.summary}</span>
             </CardBody>
             <CardFooter className='flex flex-row justify-between text-xs pb-6'>

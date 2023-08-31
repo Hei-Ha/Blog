@@ -25,6 +25,7 @@ export default {
                 '#333333': '#333333',
                 '#a0a0a0': '#a0a0a0',
                 '#0E21A0': '#0E21A0',
+                '#CAEDFF': '#CAEDFF',
             }
         },
     },

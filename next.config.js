@@ -1,6 +1,16 @@
 import withMDX from '@next/mdx';
 
 const nextConfig = {
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images.wangchuang.space',
+                port: '',
+                pathname: '/Images/Blogs/**',
+            }
+        ],
+    },
     pageExtensions: ['ts', 'tsx', 'mdx'],
     experimental: {
         mdxRs: true,
