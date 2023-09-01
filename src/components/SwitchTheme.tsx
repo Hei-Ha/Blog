@@ -5,7 +5,7 @@ import Image from 'next/image';
 import DarkImg from '@src/assets/dark.svg';
 import LightImg from '@src/assets/light.svg';
 
-export const SwitchTheme = () => {
+export default () => {
     const { theme, setTheme } = useTheme();
     return <Image
         src={theme === 'dark' ? LightImg : DarkImg}

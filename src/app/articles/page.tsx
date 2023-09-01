@@ -1,7 +1,6 @@
 import { BlogsMessageType} from "@src/app/articles/constantType";
 import CardList from '@src/components/CardList';
 import Link from "next/link";
-import Image from "next/image";
 
 
 export default async () => {

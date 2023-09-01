@@ -6,7 +6,7 @@ import matter from 'gray-matter';
 
 export const GET = async (request: Request) => {
     
-    const blogsDirectoryPath = path.join(process.cwd(), './blogs');
+    const blogsDirectoryPath = path.join(process.cwd(), './blogs/articles');
     const allBlogsNames = await fsPromises.readdir(blogsDirectoryPath);
     const blogsList = [];
     

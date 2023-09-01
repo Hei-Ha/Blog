@@ -1,0 +1,39 @@
+---
+id: 9
+title: 选择排序
+date: 2023-09-01
+summary: 选择排序实现。
+---
+
+### 选择排序
+
+```javascript
+ /**
+ * 基本原理：
+ * 对于数组 arr ，每次循环取剩余数组中最小的一个元素，和第一个元素互换位置。
+ *
+ * 解析：
+ * 第一次循环：
+ *  取出整个数组中最小的元素，和第一个元素互换位置。å
+ * 第二次循环：
+ *  取出 arr 中除第一个元素之外的所有元素中最小的元素（ 即： arr[1] 到 arr[arr.length - 1] ），和 arr[1] 互换位置
+ * 等等...
+ *
+ *
+ * */
+const arr = [8, 2, 6, 75, 9, 1, 5, 3]
+const sort = function (arr) {
+    for (let i = 0; i < arr.length; i++) { // i 表示的是当前循环的次数，可以用 i 获取到当前循环的第一个元素
+        let min = i
+        for (let j = i + 1; j < arr.length; j++) { // 内层 for 循环，是为了比较 arr[i] 和剩余元素的大小，最小的元素下标存起来
+            if (arr[min] > arr[j]) {
+                min = j
+            }
+        }
+        [arr[i], arr[min]] = [arr[min], arr[i]] // 将每次循环最小的元素和当前第一个元素互换位置
+    }
+    return arr
+}
+
+console.log(sort(arr))
+```
