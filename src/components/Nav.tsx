@@ -11,9 +11,7 @@ import {
 } from '@nextui-org/navbar'
 import { User } from '@nextui-org/user';
 import Link from 'next/link';
-import { Avatar } from '@nextui-org/avatar';
 import SwitchTheme from "@src/components/SwitchTheme";
-// import Image from 'next/image'
 
 
 
