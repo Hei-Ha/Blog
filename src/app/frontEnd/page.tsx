@@ -1,4 +1,6 @@
 import SideMenu from '@src/components/SideMenu';
+import {Tooltip} from "@nextui-org/tooltip";
+import { Button } from '@nextui-org/button';
 
 export const revalidate = 0
 export default async () => {
@@ -15,12 +17,15 @@ export default async () => {
     })
     
     
-    return <div className='bg-#0E21A0 pt-4'>
+    return <div className='bg-#0E21A0 py-4 flex'>
         <SideMenu
             menuMap={sideMenus}
         />
         <main>
-            content
+            
+            <Tooltip placement={'right'} content={'123'} className='text-xs'>
+                <Button>{123}</Button>
+            </Tooltip>
         </main>
     </div>
 }

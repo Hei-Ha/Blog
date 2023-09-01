@@ -39,19 +39,21 @@ export default (props: PropsType) => {
                         disallowEmptySelection={true}
                         selectionMode="single"
                         selectedKeys={selectedKeys}
-                        onSelectionChange={setSelectedKeys as any}
+                        onSelectionChange={(keys: Set<string>) => {
+                            setSelectedKeys(Array.from(keys.keys()));
+                        }}
                     >
                         {
                             menuMap.get(item).map((menu) => {
                                 return <ListboxItem
                                     key={menu}
+                                    textValue={menu}
                                 >
-                                    {menu}
+                                    <div className='text-xs w-full'>{menu}</div>
                                 </ListboxItem>
                             })
                         }
                     </Listbox>
-                    
                 </AccordionItem>
             })
         }
