@@ -5,15 +5,17 @@ import {useState} from "react";
 
 
 interface PropsType {
-    menuMap: Map<any, any>; // 菜单分类
+    menuMap: Map<string, string[]>; // 菜单分类
 }
 
 
 
 export default (props: PropsType) => {
-    const { menuMap } = props
+    const { menuMap } = props;
+    const defaultValue = menuMap.get(Array.from(menuMap.keys())[0])[0]; // 获取默认值
     
-    const [selectedKey, setSelectedKey] = useState<string>('text');
+    const [selectedKeys, setSelectedKeys] = useState<string[]>([defaultValue]);
+    
     
     return <Accordion
         className='w-64'
@@ -31,25 +33,25 @@ export default (props: PropsType) => {
                     title={item}
                 >
                     <Listbox
+                        defaultValue={defaultValue}
                         aria-label={`Single selection ${item}`}
                         variant="flat"
-                        disallowEmptySelection
+                        disallowEmptySelection={true}
                         selectionMode="single"
-                        selectedKeys={selectedKey}
-                        onSelectionChange={setSelectedKey as any}
+                        selectedKeys={selectedKeys}
+                        onSelectionChange={setSelectedKeys as any}
                     >
                         {
-                            menuMap.get(item).map(menu => {
-                                const listTitle = menu.split('.');
-                                listTitle.pop()
+                            menuMap.get(item).map((menu) => {
                                 return <ListboxItem
-                                    key={item + menu}
+                                    key={menu}
                                 >
-                                    {listTitle.join('')}
+                                    {menu}
                                 </ListboxItem>
                             })
                         }
                     </Listbox>
+                    
                 </AccordionItem>
             })
         }
