@@ -30,6 +30,11 @@ export default () => {
     
     const menus: MenuType[] = [
         {
+            title: '前端',
+            icon: '',
+            path: '/frontEnd'
+        },
+        {
             title: '文章',
             icon: '',
             path: '/articles',
@@ -80,6 +85,8 @@ export default () => {
     
     return (
         <Navbar
+            className='w-full'
+            maxWidth='2xl'
             isBordered={true}
             position={'sticky'}
             isMenuOpen={isMenuOpen}

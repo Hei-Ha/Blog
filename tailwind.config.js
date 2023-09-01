@@ -13,10 +13,13 @@ export default {
     },
     theme: {
         screens: {
-            'smScreens': { 'min': '0', 'max': '639px' },
-            'lgScreens': { 'min': '640px' }
+            'smScreens': {'min': '0', 'max': '639px'},
+            'lgScreens': {'min': '640px'}
         },
         extend: {
+            maxWidth: {
+                '8xl': '1500px',
+            },
             colors: {
                 '#CCCCCC': '#CCCCCC',
                 '#8294C4': '#8294C4',
