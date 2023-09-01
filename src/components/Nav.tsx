@@ -9,10 +9,11 @@ import {
     NavbarMenu,
     NavbarMenuItem
 } from '@nextui-org/navbar'
+import { User } from '@nextui-org/user';
 import Link from 'next/link';
 import { Avatar } from '@nextui-org/avatar';
-import {SwitchTheme} from "@src/components/SwitchTheme";
-import Image from 'next/image'
+import SwitchTheme from "@src/components/SwitchTheme";
+// import Image from 'next/image'
 
 
 
@@ -89,9 +90,13 @@ export default () => {
             <NavbarContent justify='start'>
                 <NavbarBrand>
                     <Link href='/'>
-                        <Avatar
-                            src='https://images.wangchuang.space/Images/Blogs/Avatar.JPG'
-                            name='Wang' />
+                        <User
+                            name='Wang'
+                            description='Front-end Development Engineer'
+                            avatarProps={{
+                                src: "https://images.wangchuang.space/Images/Blogs/Avatar.JPG"
+                            }}
+                        />
                     </Link>
                 </NavbarBrand>
             </NavbarContent>
