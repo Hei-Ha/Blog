@@ -5,7 +5,8 @@ export default (props) => {
             {props.sideMenus}
         </div>
         <div className='bg-pink-300 flex-auto'>
-            {props.articleContent}
+            {props.children}
+            {/*{props.articleContent}*/}
         </div>
     </div>
 }

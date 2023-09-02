@@ -14,5 +14,5 @@ export default async (props) => {
         sideMenus.set(item, value);
     })
     
-    return <SideMenu menuMap={sideMenus} />
+    return <SideMenu menuMap={sideMenusMap}  />
 }

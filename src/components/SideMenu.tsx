@@ -3,16 +3,15 @@ import {Accordion, AccordionItem} from "@nextui-org/accordion";
 import {Listbox, ListboxItem} from "@nextui-org/listbox";
 import {useState} from "react";
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 interface PropsType {
     menuMap: Map<string, string[]>; // 菜单分类
+    // test: any;
 }
 
 
 
 export default (props: PropsType) => {
-    const router = useRouter();
     
     const { menuMap } = props;
     const defaultValue = menuMap.get(Array.from(menuMap.keys())[0])[0]; // 获取默认值
@@ -47,15 +46,15 @@ export default (props: PropsType) => {
                     >
                         {
                             menuMap.get(item).map((menu) => {
+                                const fileTitle = menu.split('.');
+                                fileTitle.pop();
                                 return <ListboxItem
                                     key={menu}
                                     textValue={menu}
-                                    onClick={() => router.push(`/frontEnd/${item}`)}
                                 >
-                                    <div className='text-xs w-full'>{menu}</div>
-                                    {/*<Link href={{ pathname: `${window.location.href}/${item}`}}>*/}
-                                    {/*    <div className='text-xs w-full'>{menu}</div>*/}
-                                    {/*</Link>*/}
+                                    <Link href={{ pathname: `${window.location.origin}/frontEnd`, query: { categories: item, filename: menu} }}>
+                                        <div className='text-xs w-full'>{fileTitle.join()}</div>
+                                    </Link>
                                 </ListboxItem>
                             })
                         }
