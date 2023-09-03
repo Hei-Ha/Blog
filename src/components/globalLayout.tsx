@@ -19,7 +19,7 @@ const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
     return <NextUIProvider>
         <NextThemesProvider attribute='class'  themes={['dark', 'light']}>
             <Nav />
-            <div className='flex justify-center flex-col max-w-5xl mx-auto px-3'>
+            <div className='flex justify-center flex-col max-w-8xl mx-auto'>
                 {children}
             </div>
         </NextThemesProvider>

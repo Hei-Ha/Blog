@@ -11,9 +11,7 @@ import {
 } from '@nextui-org/navbar'
 import { User } from '@nextui-org/user';
 import Link from 'next/link';
-import { Avatar } from '@nextui-org/avatar';
 import SwitchTheme from "@src/components/SwitchTheme";
-// import Image from 'next/image'
 
 
 
@@ -29,6 +27,11 @@ export default () => {
     
     
     const menus: MenuType[] = [
+        {
+            title: '前端',
+            icon: '',
+            path: '/frontEnd'
+        },
         {
             title: '文章',
             icon: '',
@@ -80,6 +83,8 @@ export default () => {
     
     return (
         <Navbar
+            className='w-full'
+            maxWidth='2xl'
             isBordered={true}
             position={'sticky'}
             isMenuOpen={isMenuOpen}

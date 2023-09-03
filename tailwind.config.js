@@ -13,10 +13,13 @@ export default {
     },
     theme: {
         screens: {
-            'smScreens': { 'min': '0', 'max': '639px' },
-            'lgScreens': { 'min': '640px' }
+            'smScreens': {'min': '0', 'max': '639px'},
+            'lgScreens': {'min': '640px'}
         },
         extend: {
+            maxWidth: {
+                '8xl': '1500px',
+            },
             colors: {
                 '#CCCCCC': '#CCCCCC',
                 '#8294C4': '#8294C4',
@@ -26,6 +29,7 @@ export default {
                 '#a0a0a0': '#a0a0a0',
                 '#0E21A0': '#0E21A0',
                 '#CAEDFF': '#CAEDFF',
+                '#c4c5c6': '#c4c5c6',
             }
         },
     },
