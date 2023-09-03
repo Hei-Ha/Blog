@@ -1,6 +1,7 @@
-import {NextResponse} from "next/server";
+import {NextRequest, NextResponse} from "next/server";
 import path from "path";
-import { ReadDirectory } from "@src/utils/utils";
+import {ReadDirectory, ReadFile} from "@src/utils/utils";
+import matter from "gray-matter";
 
 
 export const GET = async () => {
@@ -17,4 +18,10 @@ export const GET = async () => {
     }
     
     return NextResponse.json(JSON.stringify(Array.from(map)));
+}
+
+export const POST = async (request: NextRequest) => {
+    const { category, filename } = await request.json();
+    const fileContent = await ReadFile(`./blogs/frontEnd/${decodeURI(category)}/${decodeURI(filename)}`);
+    return NextResponse.json(matter(fileContent))
 }

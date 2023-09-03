@@ -1,4 +1,6 @@
 import {promises as fsPromises} from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 export const ReadDirectory = async (path: string) => {
     const dirArr = await fsPromises.readdir(path);
@@ -10,4 +12,10 @@ export const ReadDirectory = async (path: string) => {
         dirArr.splice(dirArr.indexOf('images'), 1)
     }
     return dirArr
+}
+
+export const ReadFile = async (filepath) => {
+    const actualPath = path.join(process.cwd(), filepath);
+    const fileMsg = await fsPromises.readFile(actualPath);
+    return matter(fileMsg);
 }

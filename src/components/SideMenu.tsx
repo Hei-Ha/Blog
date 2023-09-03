@@ -3,13 +3,15 @@ import {Accordion, AccordionItem} from "@nextui-org/accordion";
 import {Listbox, ListboxItem} from "@nextui-org/listbox";
 import {useState} from "react";
 import Link from 'next/link';
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+
 
 interface PropsType {
     menuMap: Map<string, string[]>; // 菜单分类
 }
 
 export default (props: PropsType) => {
+    const router = useRouter();
     const urlMsg = useParams();
     const { menuMap } = props;
     
@@ -56,16 +58,22 @@ export default (props: PropsType) => {
                                 return <ListboxItem
                                     key={menu}
                                     textValue={menu}
+                                    onClick={() => {
+                                        router.push(
+                                            `${window.location.origin}/frontEnd/${item}/${menu}`,
+                                            { scroll: false }
+                                        )
+                                    }}
                                 >
-                                    
-                                    <Link
-                                        href={{
-                                            pathname: encodeURI(`${window.location.origin}/frontEnd/${item}/${menu}`),
-                                        }}
-                                        scroll={false}
-                                    >
-                                        <div className='text-xs w-full'>{fileTitle.join()}</div>
-                                    </Link>
+                                    <div className='text-xs w-full'>{fileTitle.join()}</div>
+                                    {/*<Link*/}
+                                    {/*    href={{*/}
+                                    {/*        pathname: encodeURI(`${window.location.origin}/frontEnd/${item}/${menu}`),*/}
+                                    {/*    }}*/}
+                                    {/*    scroll={false}*/}
+                                    {/*>*/}
+                                    {/*   */}
+                                    {/*</Link>*/}
                                 </ListboxItem>
                             })
                         }
