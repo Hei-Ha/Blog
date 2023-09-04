@@ -14,5 +14,8 @@ export default async (props) => {
         sideMenus.set(item, value);
     })
     
-    return <SideMenu menuMap={sideMenusMap}  />
+    return <div className='w-64 h-full overflow-y-scroll'
+    >
+        <SideMenu menuMap={sideMenusMap}  />
+    </div>
 }
