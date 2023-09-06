@@ -30,12 +30,7 @@ export default () => {
         {
             title: '前端',
             icon: '',
-            path: '/frontEnd'
-        },
-        {
-            title: '文章',
-            icon: '',
-            path: '/articles',
+            path: '/frontEnd/HTTP相关/HTTPS加密过程.md'
         },
         {
             title: '算法题',

@@ -14,8 +14,8 @@ export const ReadDirectory = async (path: string) => {
     return dirArr
 }
 
-export const ReadFile = async (filepath) => {
+export const ReadFileMsg = async (filepath) => {
     const actualPath = path.join(process.cwd(), filepath);
-    const fileMsg = await fsPromises.readFile(actualPath);
+    const fileMsg = await fsPromises.readFile(actualPath, 'utf-8');
     return matter(fileMsg);
 }

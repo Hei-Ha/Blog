@@ -4,6 +4,8 @@ export default (props) => {
     // const { source, ...rest } = props.data
     
     return <article className='prose'>
-        <MDXRemote {...props} />
+        <MDXRemote
+            {...props}
+        />
     </article>
 }

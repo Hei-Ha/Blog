@@ -7,7 +7,7 @@ export default (props) => {
             {props.sideMenus}
         </div>
         <div className='w-3/4'>
-            {props.articleContent}
+            {props.content}
         </div>
     </div>
 }
