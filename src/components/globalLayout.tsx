@@ -16,15 +16,16 @@ const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
         return null;
     }
     
-    return <NextUIProvider>
-        <NextThemesProvider attribute='class'  themes={['dark', 'light']}>
-            <div className='h-[calc(100vh)] w-[calc(100vw)]'>
+    return <div className='mx-auto h-[calc(100vh)] max-w-1200px min-w-500px'>
+        <NextUIProvider>
+            <NextThemesProvider attribute='class'  themes={['dark', 'light']}>
                 <Nav />
                 <div className='h-[calc(100vh-64px)] w-full overflow-hidden'>
                     {children}
                 </div>
-            </div>
-        </NextThemesProvider>
-    </NextUIProvider>
+            </NextThemesProvider>
+        </NextUIProvider>
+    </div>
+    
 }
 export default GlobalLayout;

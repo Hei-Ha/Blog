@@ -78,7 +78,7 @@ export default () => {
     
     return (
         <Navbar
-            className='w-full'
+            className='w-full bg-#f0f0f0'
             maxWidth='2xl'
             isBordered={true}
             position={'sticky'}

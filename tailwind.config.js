@@ -14,11 +14,25 @@ export default {
     theme: {
         screens: {
             'smScreens': {'min': '0', 'max': '639px'},
-            'lgScreens': {'min': '640px'}
+            'mdScreens': {'min': '640px', 'max': '1200px'},
+            'lgScreens': {'min': '1025px' },
         },
+        
         extend: {
             maxWidth: {
                 '8xl': '1500px',
+                '1200px': '1200px',
+                '370px': '370px',
+            },
+            minWidth: {
+                '500px': '500px',
+                '220px': '220px',
+            },
+            width: {
+            
+            },
+            height: {
+                '400px': '400px',
             },
             colors: {
                 '#CCCCCC': '#CCCCCC',
@@ -31,7 +45,9 @@ export default {
                 '#CAEDFF': '#CAEDFF',
                 '#c4c5c6': '#c4c5c6',
                 '#f6f6f7': '#f6f6f7',
-                '#ffffff': '#ffffff'
+                '#ffffff': '#ffffff',
+                '#707077': '#707077',
+                '#3c3c43': '#3c3c43',
             }
         },
     },
