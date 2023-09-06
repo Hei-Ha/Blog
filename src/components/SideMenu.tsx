@@ -28,7 +28,7 @@ export default (props: PropsType) => {
     
     
     
-    return <div className='w-full h-full pr-1 py-2 bg-#f0f0f0 rounded'>
+    return <div className='w-full h-full pr-1 py-2 bg-#f0f0f0 rounded overflow-y-scroll'>
         <Accordion
             className=''
             disallowEmptySelection={false}

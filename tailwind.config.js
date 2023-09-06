@@ -15,7 +15,7 @@ export default {
         screens: {
             'smScreens': {'min': '0', 'max': '639px'},
             'mdScreens': {'min': '640px', 'max': '1200px'},
-            'lgScreens': {'min': '1025px' },
+            'lgScreens': {'min': '1201px' },
         },
         
         extend: {
@@ -26,12 +26,13 @@ export default {
             },
             minWidth: {
                 '500px': '500px',
-                '220px': '220px',
+                '300px': '300px',
             },
             width: {
             
             },
             height: {
+                '500px': '500px',
                 '400px': '400px',
             },
             colors: {
@@ -49,6 +50,8 @@ export default {
                 '#707077': '#707077',
                 '#3c3c43': '#3c3c43',
                 '#3b3c43': '#3b3c43',
+                '#d4d4d9': '#d4d4d9',
+                '#E2C799': '#E2C799',
             }
         },
     },

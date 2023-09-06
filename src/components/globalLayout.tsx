@@ -16,11 +16,11 @@ const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
         return null;
     }
     
-    return <div className='mx-auto h-[calc(100vh)] max-w-1200px min-w-500px'>
+    return <div className='mx-auto min-h-[calc(100vh)] max-w-1200px min-w-300px'>
         <NextUIProvider>
             <NextThemesProvider attribute='class'  themes={['dark', 'light']}>
                 <Nav />
-                <div className='h-[calc(100vh-64px-16px)] w-full overflow-hidden pt-4'>
+                <div className='h-[calc(100vh-64px-16px)] w-full pt-4 overflow-y-scroll'>
                     {children}
                 </div>
             </NextThemesProvider>
