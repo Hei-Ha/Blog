@@ -1,6 +1,11 @@
 import {promises as fsPromises} from "fs";
 import path from "path";
 import matter from "gray-matter";
+import * as process from "process";
+
+export const getAPIUrl = () => {
+    return process.env.NODE_ENV === 'development' ? process.env.API_URL_DEVELOPMENT : process.env.API_URL_PRODUCTION
+}
 
 export const ReadDirectory = async (path: string) => {
     const dirArr = await fsPromises.readdir(path);
@@ -19,3 +24,4 @@ export const ReadFileMsg = async (filepath) => {
     const fileMsg = await fsPromises.readFile(actualPath, 'utf-8');
     return matter(fileMsg);
 }
+

@@ -1,10 +1,10 @@
 import SideMenu from '@src/components/SideMenu';
-import * as process from "process";
+import { getAPIUrl } from '@src/utils/utils'
 
-export const dynamic = 'force-dynamic';
 export const revalidate = 0
 export default async () => {
-    const getSideMenusListJson = await fetch(`${process.env.API_URL}/frontEnd/api`, {cache: 'no-cache'}).then(data => data.json());
+    
+    const getSideMenusListJson = await fetch(`${getAPIUrl()}/frontEnd/api`).then(data => data.json());
     const sideMenusMap: Map<string, string[]> = new Map(JSON.parse(getSideMenusListJson));
     const sideMenus: Map<string, string[]> = new Map();
     Array.from(sideMenusMap.keys()).forEach(item => {
