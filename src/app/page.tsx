@@ -9,12 +9,12 @@ export default () => {
    
     
     return <div className='flex justify-center w-full flex-auto flex-col'>
-        <section className='h-500px w-full flex justify-center items-center bg-#f0f0f0 '>
+        <section className='h-500px w-full flex justify-center items-center '>
             <div className='text-#3c3c43 text-5xl font-bold'>
                 东隅已逝，桑榆非晚。
             </div>
         </section>
-        <section className='mt-4 px-3'>
+        <section className='mt-4 px-3 mb-10'>
             <div className="grid grid-cols-3 mdScreens:grid-cols-2 smScreens:grid-cols-1 gap-4">
                 <Card className="bg-#fbfbfb p-4 rounded-lg cursor-pointer">
                     <Link href='/frontEnd/HTTP相关/HTTPS加密过程.md'>

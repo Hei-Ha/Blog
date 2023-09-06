@@ -28,16 +28,13 @@ export default () => {
     const router = useRouter();
     const params = useParams();
     const pathname = usePathname();
-    // const defaultSelected = params.fileMsg && params.fileMsg[0] ? params.fileMsg[0] : 'frontEnd'
+    // const defaultSelected = params.fi
+    // leMsg && params.fileMsg[0] ? params.fileMsg[0] : 'frontEnd'
+    const a = pathname.split('/')[1] || '';
+    console.log(pathname.split('/')[1] || '');
     
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const [curMenu,setCurMenu ] = useState<string>('');
-    
-    
-    useEffect(() => {
-        setCurMenu(pathname.split('/')[1] || 'frontEnd');
-    }, [])
-    
+    const [curMenu,setCurMenu ] = useState<string>(pathname.split('/')[1] || '');
     
     
     const menus: MenuType[] = [
@@ -64,8 +61,11 @@ export default () => {
         if (menus.length === 0) return []
         return menus.map((item, index) => {
             return <NavbarItem key={`${item.title}-${index}`} className={'mr-2'}>
-                <Link href={item.path}>
-                    <span className='text-#3b3c43'>
+                <Link
+                    href={item.path}
+                    onClick={() => setCurMenu(item.title)}
+                >
+                    <span className={`${curMenu === item.title ? 'text-#F79327' : 'text-#3b3c43'}`}>
                         {item.title}
                     </span>
                 </Link>
@@ -94,7 +94,7 @@ export default () => {
                     }}
                 >
                     <Link href={item.path}>
-                        <span className={`${curMenu === item.title ? 'text-#E2C799' : 'text-#3b3c43'}`}>
+                        <span className={`${curMenu === item.title ? 'text-#F79327' : 'text-#3b3c43'}`}>
                             {item.title}
                         </span>
                     </Link>
@@ -118,7 +118,7 @@ export default () => {
         >
             <NavbarContent justify='start'>
                 <NavbarBrand>
-                    <Link href='/'>
+                    <Link href='/' onClick={() => setCurMenu('')}>
                         <User
                             name='Wang'
                             description='Front-end Development Engineer'
