@@ -4,11 +4,9 @@ import * as process from "process";
 
 export default async ({params}) => {
     const { fileMsg } = params;
-    console.log('this is node_env', process.env.NODE_ENV);
     
     const blogMsg = await fetch(
         `${getAPIUrl()}/frontEnd/api`,
-        // `http/frontEnd/api`,
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -18,6 +16,7 @@ export default async ({params}) => {
                 category: fileMsg && fileMsg[0] ? fileMsg[0] : '',
                 filename: fileMsg && fileMsg[1] ? fileMsg[1] : '',
             }),
+            cache: 'no-cache'
         })
         .then(data => data.json())
         .catch((err) => {

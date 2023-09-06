@@ -6,8 +6,8 @@
     "repository": "git@github.com:Hei-Ha/Blog.git",
     "author": "wangchuang",
     "scripts": {
-        "dev": "next dev",
-        "start": "next start",
+        "dev": "next dev -p 3000",
+        "start": "next start -p 3001",
         "build": "next build"
     },
     "license": "MIT",
