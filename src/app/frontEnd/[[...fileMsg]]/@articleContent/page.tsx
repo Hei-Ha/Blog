@@ -1,10 +1,11 @@
 import RenderMDX from '@src/components/RenderMDX';
+import { getAPIUrl } from '@src/utils/utils'
 
 export default async ({params}) => {
     const { fileMsg } = params;
     
     const blogMsg = await fetch(
-        'http://localhost:3000/frontEnd/api',
+        `${getAPIUrl()}/frontEnd/api`,
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -13,9 +14,10 @@ export default async ({params}) => {
             body: JSON.stringify({
                 category: fileMsg && fileMsg[0] ? fileMsg[0] : '',
                 filename: fileMsg && fileMsg[1] ? fileMsg[1] : '',
-            })
+            }),
         })
-        .then(data => data.json());
+        .then(data => data.json())
+        
     
     return <div className='w-full h-full p-4 overflow-y-scroll bg-#fbfbfb rounded-xl'>
         <RenderMDX source={blogMsg?.content} />

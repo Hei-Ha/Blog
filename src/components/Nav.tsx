@@ -47,10 +47,10 @@ export default () => {
             title: '算法题',
             path: '/algorithm/sort/二分查找.mdx',
         },
-        {
-            title: 'Contact',
-            path: '/contact'
-        },
+        // {
+        //     title: 'Contact',
+        //     path: '/contact'
+        // },
         {
             title: '其他',
             path: '/other',

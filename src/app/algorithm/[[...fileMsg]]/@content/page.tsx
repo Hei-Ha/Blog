@@ -1,10 +1,11 @@
 import RenderMDX from '@src/components/RenderMDX';
+import { getAPIUrl } from '@src/utils/utils'
 
 export default async ({params}) => {
     const { fileMsg } = params;
     
     const blogMsg = await fetch(
-        'http://localhost:3000/algorithm/api',
+        `${getAPIUrl()}/algorithm/api`,
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
