@@ -11,8 +11,10 @@ import {
 } from '@nextui-org/navbar'
 import { User } from '@nextui-org/user';
 import Link from 'next/link';
+import { Listbox, ListboxItem } from '@nextui-org/listbox';
 import SwitchTheme from "@src/components/SwitchTheme";
-
+import { useRouter, usePathname, useParams } from "next/navigation";
+import { useEffect } from 'react'
 
 
 interface MenuType {
@@ -23,7 +25,16 @@ interface MenuType {
 }
 
 export default () => {
+    const router = useRouter();
+    const params = useParams();
+    const pathname = usePathname();
+    // const defaultSelected = params.fi
+    // leMsg && params.fileMsg[0] ? params.fileMsg[0] : 'frontEnd'
+    const a = pathname.split('/')[1] || '';
+    console.log(pathname.split('/')[1] || '');
+    
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [curMenu,setCurMenu ] = useState<string>(pathname.split('/')[1] || '');
     
     
     const menus: MenuType[] = [
@@ -34,7 +45,7 @@ export default () => {
         },
         {
             title: '算法题',
-            path: '/algorithm',
+            path: '/algorithm/sort/二分查找.mdx',
         },
         {
             title: 'Contact',
@@ -50,8 +61,13 @@ export default () => {
         if (menus.length === 0) return []
         return menus.map((item, index) => {
             return <NavbarItem key={`${item.title}-${index}`} className={'mr-2'}>
-                <Link className='text-#8294C4' href={item.path}>
-                    {item.title}
+                <Link
+                    href={item.path}
+                    onClick={() => setCurMenu(item.title)}
+                >
+                    <span className={`${curMenu === item.title ? 'text-#F79327' : 'text-#3b3c43'}`}>
+                        {item.title}
+                    </span>
                 </Link>
             </NavbarItem>
         })
@@ -59,26 +75,39 @@ export default () => {
     
     const getSmMenus = (menus: MenuType[]) => {
         if (menus.length === 0) return []
-        return <div>
-            <div className='flex justify-end'>
-                <SwitchTheme />
-            </div>
-            {menus.map((item, index) => {
-                return <NavbarMenuItem key={`${item.title}-${index}`}>
-                    <Link className='text-#8294C4' href={item.path}>
-                        <span className='text-#8294C4'>
+        
+        return <Listbox
+            aria-label={`Single menu`}
+            selectionMode={'single'}
+            selectedKeys={[curMenu]}
+        >
+            
+            {menus.map((item) => {
+                return <ListboxItem
+                    showDivider={true}
+                    key={item.path}
+                    textValue={item.title}
+                    onClick={() => {
+                        setCurMenu(item.title);
+                        router.push(item.path);
+                        setIsMenuOpen(false);
+                    }}
+                >
+                    <Link href={item.path}>
+                        <span className={`${curMenu === item.title ? 'text-#F79327' : 'text-#3b3c43'}`}>
                             {item.title}
                         </span>
                     </Link>
-                </NavbarMenuItem>
+                </ListboxItem>
             })}
-        </div>
+        </Listbox>
+        
     }
     
     
     return (
         <Navbar
-            className='w-full'
+            className='w-full bg-#f0f0f0'
             maxWidth='2xl'
             isBordered={true}
             position={'sticky'}
@@ -89,7 +118,7 @@ export default () => {
         >
             <NavbarContent justify='start'>
                 <NavbarBrand>
-                    <Link href='/'>
+                    <Link href='/' onClick={() => setCurMenu('')}>
                         <User
                             name='Wang'
                             description='Front-end Development Engineer'
@@ -102,9 +131,9 @@ export default () => {
             </NavbarContent>
             
             {/*小屏显示的内容*/}
-            <NavbarContent className='lgScreens:hidden' justify='end'>
+            <NavbarContent className='mdScreens:hidden lgScreens:hidden' justify='end'>
                 <NavbarMenuToggle />
-                <NavbarMenu className='lgScreens:hidden' onClick={() => {
+                <NavbarMenu className='' onClick={() => {
                     setIsMenuOpen(false);
                 }}>
                     {getSmMenus(menus)}
@@ -114,7 +143,6 @@ export default () => {
             {/*大屏显示的内容*/}
             <NavbarContent className='smScreens:hidden' justify='end'>
                 {...getLgMenu(menus)}
-                <SwitchTheme />
             </NavbarContent>
         </Navbar>
     )

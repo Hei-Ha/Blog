@@ -4,6 +4,7 @@ import {Listbox, ListboxItem} from "@nextui-org/listbox";
 import {useState} from "react";
 import Link from 'next/link';
 import { useParams, useRouter } from "next/navigation";
+import { Card, CardBody } from '@nextui-org/card'
 
 
 interface PropsType {
@@ -27,60 +28,63 @@ export default (props: PropsType) => {
     
     
     
-    return <Accordion
-        disallowEmptySelection={false}
-        defaultSelectedKeys='all'
-        variant="splitted"
-        selectionMode={'multiple'}
-        isCompact={true}
-        showDivider={true}
-    >
-        {
-            Array.from(menuMap.keys()).map(item => {
-                return <AccordionItem
-                    key={item}
-                    title={item}
-                >
-                    <Listbox
-                        defaultValue={defaultFilename}
-                        aria-label={`Single selection ${item}`}
-                        variant="flat"
-                        disallowEmptySelection={true}
-                        selectionMode="single"
-                        selectedKeys={selectedKeys}
-                        onSelectionChange={(keys: Set<string>) => {
-                            setSelectedKeys(Array.from(keys.keys()));
-                        }}
+    return <div className='w-full h-full pr-1 py-2 bg-#f0f0f0 rounded overflow-y-scroll'>
+        <Accordion
+            className=''
+            disallowEmptySelection={false}
+            defaultSelectedKeys='all'
+            variant="splitted"
+            selectionMode={'multiple'}
+            isCompact={true}
+            showDivider={false}
+        >
+            {
+                Array.from(menuMap.keys()).map(item => {
+                    return <AccordionItem
+                        key={item}
+                        title={item}
                     >
-                        {
-                            menuMap.get(item).map((menu) => {
-                                const fileTitle = menu.split('.');
-                                fileTitle.pop();
-                                return <ListboxItem
-                                    key={menu}
-                                    textValue={menu}
-                                    onClick={() => {
-                                        router.push(
-                                            `${window.location.origin}/${props.menuType}/${item}/${menu}`,
-                                            { scroll: false }
-                                        )
-                                    }}
-                                >
-                                    <div className='text-xs w-full'>{fileTitle.join()}</div>
-                                    {/*<Link*/}
-                                    {/*    href={{*/}
-                                    {/*        pathname: encodeURI(`${window.location.origin}/frontEnd/${item}/${menu}`),*/}
-                                    {/*    }}*/}
-                                    {/*    scroll={false}*/}
-                                    {/*>*/}
-                                    {/*   */}
-                                    {/*</Link>*/}
-                                </ListboxItem>
-                            })
-                        }
-                    </Listbox>
-                </AccordionItem>
-            })
-        }
-    </Accordion>
+                        <Listbox
+                            defaultValue={defaultFilename}
+                            aria-label={`Single selection ${item}`}
+                            variant="flat"
+                            disallowEmptySelection={true}
+                            selectionMode="single"
+                            selectedKeys={selectedKeys}
+                            onSelectionChange={(keys: Set<string>) => {
+                                setSelectedKeys(Array.from(keys.keys()));
+                            }}
+                        >
+                            {
+                                menuMap.get(item).map((menu) => {
+                                    const fileTitle = menu.split('.');
+                                    fileTitle.pop();
+                                    return <ListboxItem
+                                        key={menu}
+                                        textValue={menu}
+                                        onClick={() => {
+                                            router.push(
+                                                `${window.location.origin}/${props.menuType}/${item}/${menu}`,
+                                                { scroll: false }
+                                            )
+                                        }}
+                                    >
+                                        <div className='text-xs w-full'>{fileTitle.join()}</div>
+                                        {/*<Link*/}
+                                        {/*    href={{*/}
+                                        {/*        pathname: encodeURI(`${window.location.origin}/frontEnd/${item}/${menu}`),*/}
+                                        {/*    }}*/}
+                                        {/*    scroll={false}*/}
+                                        {/*>*/}
+                                        {/*   */}
+                                        {/*</Link>*/}
+                                    </ListboxItem>
+                                })
+                            }
+                        </Listbox>
+                    </AccordionItem>
+                })
+            }
+        </Accordion>
+    </div>
 }
