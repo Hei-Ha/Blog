@@ -1,12 +1,14 @@
 import RenderMDX from '@src/components/RenderMDX';
 import * as process from "process";
 
+export const dynamic = 'force-dynamic';
 export default async ({params}) => {
     console.log(3)
     const { fileMsg } = params;
     
     const blogMsg = await fetch(
         `${process.env.API_URL}/frontEnd/api`,
+        // `/frontEnd/api`,
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'

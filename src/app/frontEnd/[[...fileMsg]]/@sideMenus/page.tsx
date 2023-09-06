@@ -1,6 +1,7 @@
 import SideMenu from '@src/components/SideMenu';
 import * as process from "process";
 
+export const dynamic = 'force-dynamic';
 export const revalidate = 0
 export default async () => {
     const getSideMenusListJson = await fetch(`${process.env.API_URL}/frontEnd/api`, {cache: 'no-cache'}).then(data => data.json());
