@@ -1,11 +1,12 @@
 import RenderMDX from '@src/components/RenderMDX';
+import * as process from "process";
 
 export default async ({params}) => {
     console.log(3)
     const { fileMsg } = params;
     
     const blogMsg = await fetch(
-        'http://127.0.0.1:3000/frontEnd/api',
+        `http://${process.env.API_URL}:3000/frontEnd/api`,
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
