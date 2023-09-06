@@ -17,7 +17,7 @@ export default async ({params}) => {
         })
         .then(data => data.json());
     
-    return <div className='w-full h-full p-4 overflow-y-scroll'>
+    return <div className='w-full h-full p-4 overflow-y-scroll bg-#fbfbfb rounded-xl'>
         <RenderMDX source={blogMsg?.content} />
     </div>
 }

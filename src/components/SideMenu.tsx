@@ -28,12 +28,13 @@ export default (props: PropsType) => {
     
     
     return <Accordion
+        className='py-2 bg-#f0f0f0'
         disallowEmptySelection={false}
         defaultSelectedKeys='all'
         variant="splitted"
         selectionMode={'multiple'}
         isCompact={true}
-        showDivider={true}
+        showDivider={false}
     >
         {
             Array.from(menuMap.keys()).map(item => {

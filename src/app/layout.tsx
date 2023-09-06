@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import '@src/style/global.css';
 import GlobalLayout from "@src/components/globalLayout";
+import '@src/style/global.css';
 
 
 export const metadata: Metadata = {

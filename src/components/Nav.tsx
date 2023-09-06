@@ -50,8 +50,10 @@ export default () => {
         if (menus.length === 0) return []
         return menus.map((item, index) => {
             return <NavbarItem key={`${item.title}-${index}`} className={'mr-2'}>
-                <Link className='text-#8294C4' href={item.path}>
-                    {item.title}
+                <Link href={item.path}>
+                    <span className='text-#3b3c43'>
+                        {item.title}
+                    </span>
                 </Link>
             </NavbarItem>
         })
@@ -60,13 +62,13 @@ export default () => {
     const getSmMenus = (menus: MenuType[]) => {
         if (menus.length === 0) return []
         return <div>
-            <div className='flex justify-end'>
-                <SwitchTheme />
-            </div>
+            {/*<div className='flex justify-end'>*/}
+            {/*    <SwitchTheme />*/}
+            {/*</div>*/}
             {menus.map((item, index) => {
                 return <NavbarMenuItem key={`${item.title}-${index}`}>
-                    <Link className='text-#8294C4' href={item.path}>
-                        <span className='text-#8294C4'>
+                    <Link href={item.path}>
+                        <span className='text-#3b3c43'>
                             {item.title}
                         </span>
                     </Link>
@@ -114,7 +116,7 @@ export default () => {
             {/*大屏显示的内容*/}
             <NavbarContent className='smScreens:hidden' justify='end'>
                 {...getLgMenu(menus)}
-                <SwitchTheme />
+                {/*<SwitchTheme />*/}
             </NavbarContent>
         </Navbar>
     )
