@@ -4,7 +4,7 @@ export default async ({params}) => {
     const { fileMsg } = params;
     
     const blogMsg = await fetch(
-        'http://localhost:3000/algorithm/api',
+        'http://127.0.0.1:3000/algorithm/api',
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
