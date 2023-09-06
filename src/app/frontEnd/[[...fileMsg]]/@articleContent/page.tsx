@@ -4,11 +4,9 @@ import * as process from "process";
 
 export default async ({params}) => {
     const { fileMsg } = params;
-    console.log('this is node_env', process.env.NODE_ENV);
     
     const blogMsg = await fetch(
         `${getAPIUrl()}/frontEnd/api`,
-        // `http/frontEnd/api`,
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
