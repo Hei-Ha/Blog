@@ -8,6 +8,7 @@ export default async ({params}) => {
     
     const blogMsg = await fetch(
         `${getAPIUrl()}/frontEnd/api`,
+        // `http/frontEnd/api`,
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
