@@ -1,8 +1,7 @@
 import SideMenu from '@src/components/SideMenu';
-
 export const revalidate = 0
 export default async () => {
-    const getSideMenusListJson = await fetch('http://localhost:3000/frontEnd/api').then(data => data.json());
+    const getSideMenusListJson = await fetch('http://localhost:3000/algorithm/api').then(data => data.json());
     const sideMenusMap: Map<string, string[]> = new Map(JSON.parse(getSideMenusListJson));
     const sideMenus: Map<string, string[]> = new Map();
     Array.from(sideMenusMap.keys()).forEach(item => {
@@ -16,6 +15,6 @@ export default async () => {
     
     return <div className='w-64 h-full overflow-y-scroll'
     >
-        <SideMenu menuMap={sideMenusMap} menuType='frontEnd'  />
+        <SideMenu menuMap={sideMenusMap} menuType='algorithm' />
     </div>
 }

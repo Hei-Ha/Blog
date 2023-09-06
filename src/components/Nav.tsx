@@ -33,11 +33,6 @@ export default () => {
             path: '/frontEnd/HTTP相关/HTTPS加密过程.md'
         },
         {
-            title: '文章',
-            icon: '',
-            path: '/articles',
-        },
-        {
             title: '算法题',
             path: '/algorithm',
         },

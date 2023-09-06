@@ -8,6 +8,7 @@ import { useParams, useRouter } from "next/navigation";
 
 interface PropsType {
     menuMap: Map<string, string[]>; // 菜单分类
+    menuType: string;
 }
 
 export default (props: PropsType) => {
@@ -60,7 +61,7 @@ export default (props: PropsType) => {
                                     textValue={menu}
                                     onClick={() => {
                                         router.push(
-                                            `${window.location.origin}/frontEnd/${item}/${menu}`,
+                                            `${window.location.origin}/${props.menuType}/${item}/${menu}`,
                                             { scroll: false }
                                         )
                                     }}

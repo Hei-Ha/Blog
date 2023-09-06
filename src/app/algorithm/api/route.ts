@@ -1,26 +1,28 @@
-import { NextResponse } from "next/server";
+import {NextRequest, NextResponse} from "next/server";
 import path from 'path';
-import { promises as fsPromises } from 'fs';
-import matter from "gray-matter";
+import {ReadDirectory, ReadFileMsg} from "@src/utils/utils";
 
-export const GET = async () => {
+
+export const GET = async (request: Request) => {
+    const articlesBlogsPath = path.join(process.cwd(), './blogs/algorithm');
+    const directoryMenus = await ReadDirectory(articlesBlogsPath);
+    const map = new Map();
     
-    // 获取算法文件夹内所有的文件
-    const algorithmDirectoryPath = path.join(process.cwd(), './blogs/algorithm');
-    const filenames = await fsPromises.readdir(algorithmDirectoryPath);
-    
-    const blogsList = [];
-    
-    
-    for (let name of filenames) {
-        const filepath = path.join(algorithmDirectoryPath, name);
-        const fileContent = await fsPromises.readFile(filepath);
-        blogsList.push({
-            filename: name,
-            filepath: filepath,
-            fileContent: matter(fileContent),
-        });
+    for (let i = 0; i < directoryMenus.length; i++) {
+        if (directoryMenus[i] === '.DS_Store') continue ; // 删除 .DS_Store
+        const blogsPath = path.join(articlesBlogsPath, directoryMenus[i]);
+        const blogNames = await ReadDirectory(blogsPath);
+        map.set(directoryMenus[i], blogNames);
     }
     
-    return NextResponse.json(blogsList)
+    
+    return NextResponse.json(JSON.stringify(Array.from(map)));
+}
+
+export const POST = async (request: NextRequest) => {
+    const { category, filename } = await request.json();
+    
+    if (!category || !filename) return NextResponse.json({})
+    const fileMsg = await ReadFileMsg(`./blogs/algorithm/${decodeURI(category)}/${decodeURI(filename)}`);
+    return NextResponse.json(fileMsg)
 }
