@@ -3,6 +3,7 @@ import path from "path";
 import {ReadDirectory, ReadFileMsg} from "@src/utils/utils";
 
 export const GET = async () => {
+    console.log(1)
     const frontEndBlogsPath = path.join(process.cwd(), './blogs/frontEnd');
     
     const directoryMenus = await ReadDirectory(frontEndBlogsPath);
@@ -19,6 +20,7 @@ export const GET = async () => {
 }
 
 export const POST = async (request: NextRequest) => {
+    console.log(2)
     const { category, filename } = await request.json();
     if (!category || !filename) return NextResponse.json({})
     
