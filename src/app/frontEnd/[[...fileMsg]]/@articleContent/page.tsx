@@ -6,7 +6,7 @@ export default async ({params}) => {
     const { fileMsg } = params;
     
     const blogMsg = await fetch(
-        `http://${process.env.API_URL}:3000/frontEnd/api`,
+        `${process.env.API_URL}/frontEnd/api`,
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
