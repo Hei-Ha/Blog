@@ -5,7 +5,7 @@ export default async ({params}) => {
     const { fileMsg } = params;
     
     const blogMsg = await fetch(
-        'https://127.0.0.1:3000/frontEnd/api',
+        'http://127.0.0.1:3000/frontEnd/api',
         {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -14,7 +14,8 @@ export default async ({params}) => {
             body: JSON.stringify({
                 category: fileMsg && fileMsg[0] ? fileMsg[0] : '',
                 filename: fileMsg && fileMsg[1] ? fileMsg[1] : '',
-            })
+            }),
+            cache: 'no-cache'
         })
         .then(data => data.json())
         .catch((err) => {
