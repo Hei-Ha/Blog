@@ -16,6 +16,7 @@ export default async ({params}) => {
                 category: fileMsg && fileMsg[0] ? fileMsg[0] : '',
                 filename: fileMsg && fileMsg[1] ? fileMsg[1] : '',
             }),
+            cache: 'no-cache'
         })
         .then(data => data.json())
         .catch((err) => {
