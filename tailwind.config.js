@@ -27,6 +27,7 @@ export default {
             minWidth: {
                 '500px': '500px',
                 '300px': '300px',
+                '800px': '800px',
             },
             width: {
             
