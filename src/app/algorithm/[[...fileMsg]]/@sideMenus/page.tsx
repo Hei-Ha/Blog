@@ -22,7 +22,6 @@ export default async () => {
     
     return <div>
         <div className='mdScreens:hidden lgScreens:hidden'>
-            123
             <ModalMenu>
                 <SideMenu menuMap={sideMenusMap} menuType='algorithm' />
             </ModalMenu>
