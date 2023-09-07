@@ -30,8 +30,6 @@ export default () => {
     const pathname = usePathname();
     // const defaultSelected = params.fi
     // leMsg && params.fileMsg[0] ? params.fileMsg[0] : 'frontEnd'
-    const a = pathname.split('/')[1] || '';
-    console.log(pathname.split('/')[1] || '');
     
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [curMenu,setCurMenu ] = useState<string>(pathname.split('/')[1] || '');
