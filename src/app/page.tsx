@@ -9,9 +9,9 @@ export default () => {
    
     
     return <div className='flex justify-center w-full flex-auto flex-col'>
-        <section className='h-500px w-full flex justify-center items-center '>
-            <div className='text-#3c3c43 text-5xl font-bold'>
-                东隅已逝，桑榆非晚。
+        <section className='h-500px smScreens:h-400px w-full flex justify-center items-center '>
+            <div className='text-#3c3c43 text-5xl font-bold text-center smScreens:text-4xl'>
+                东隅已逝，桑榆非晚
             </div>
         </section>
         <section className='mt-4 px-3 mb-10'>
