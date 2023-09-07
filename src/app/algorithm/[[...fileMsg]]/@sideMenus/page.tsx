@@ -1,5 +1,6 @@
 import SideMenu from '@src/components/SideMenu';
 import { getAPIUrl } from '@src/utils/utils'
+import ModalMenu from "@src/components/ModalMenu";
 export const revalidate = 0
 export default async () => {
     const getSideMenusListJson = await fetch(
@@ -19,8 +20,15 @@ export default async () => {
         sideMenus.set(item, value);
     })
     
-    return <div className='w-64 h-full overflow-y-scroll'
-    >
-        <SideMenu menuMap={sideMenusMap} menuType='algorithm' />
+    return <div>
+        <div className='mdScreens:hidden lgScreens:hidden'>
+            123
+            <ModalMenu>
+                <SideMenu menuMap={sideMenusMap} menuType='algorithm' />
+            </ModalMenu>
+        </div>
+        <div className='w-64 h-full smScreens:hidden overflow-y-scroll'>
+            <SideMenu menuMap={sideMenusMap} menuType='algorithm' />
+        </div>
     </div>
 }

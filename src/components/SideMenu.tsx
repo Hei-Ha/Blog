@@ -10,6 +10,7 @@ import { Card, CardBody } from '@nextui-org/card'
 interface PropsType {
     menuMap: Map<string, string[]>; // 菜单分类
     menuType: string;
+    className?: string;
 }
 
 export default (props: PropsType) => {
@@ -28,9 +29,9 @@ export default (props: PropsType) => {
     
     
     
-    return <div className='w-full h-full pr-1 py-2 bg-#f0f0f0 rounded overflow-y-scroll'>
+    return <div className={`w-full h-full pr-1 py-2 bg-#f0f0f0 rounded ${props.className}`}>
         <Accordion
-            className=''
+            className='w-full'
             disallowEmptySelection={false}
             defaultSelectedKeys='all'
             variant="splitted"
@@ -45,6 +46,7 @@ export default (props: PropsType) => {
                         title={item}
                     >
                         <Listbox
+                            className='w-full'
                             defaultValue={defaultFilename}
                             aria-label={`Single selection ${item}`}
                             variant="flat"
