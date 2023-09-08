@@ -6,8 +6,6 @@ import Link from 'next/link';
 
 
 export default () => {
-   
-    
     return <div className='flex justify-center w-full flex-auto flex-col'>
         <section className='h-500px smScreens:h-400px w-full flex justify-center items-center '>
             <div className='text-#3c3c43 text-5xl font-bold text-center smScreens:text-4xl'>
