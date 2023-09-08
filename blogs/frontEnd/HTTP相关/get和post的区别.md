@@ -1,5 +1,6 @@
 ## GET 和 POST 的区别
-GET 和 POST 本质的区别，是语意的区别，GET 是读，POST 是取。
+
+[//]: # (GET 和 POST 没有本质的上区别，是语意的区别，GET 是读，POST 是取。)
 
 1、GET是幂等的，POST 不是幂等的。
 

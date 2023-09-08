@@ -71,15 +71,15 @@ export default (props: PropsType) => {
                                             )
                                         }}
                                     >
-                                        <div className='text-xs w-full'>{fileTitle.join()}</div>
-                                        {/*<Link*/}
-                                        {/*    href={{*/}
-                                        {/*        pathname: encodeURI(`${window.location.origin}/frontEnd/${item}/${menu}`),*/}
-                                        {/*    }}*/}
-                                        {/*    scroll={false}*/}
-                                        {/*>*/}
-                                        {/*   */}
-                                        {/*</Link>*/}
+                                        {/*<div className='text-xs w-full'>{fileTitle.join()}</div>*/}
+                                        <Link
+                                            href={{
+                                                pathname: encodeURI(`/frontEnd/${item}/${menu}`),
+                                            }}
+                                            scroll={false}
+                                        >
+                                            <div className='text-xs w-full'>{fileTitle.join()}</div>
+                                        </Link>
                                     </ListboxItem>
                                 })
                             }
