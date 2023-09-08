@@ -11,8 +11,8 @@ v-model 是 vue2 双向绑定的一个语法糖，具体是结合了： v-bind:v
 
 `v-on`是通过 `template`给 `Dom`添加监听事件， `Dom input`的值改变了，就回去更新 `data`。
 
-这种方法有两个弊端：
-1、动态创建的 data() 属性需要使用 Vue.set 来赋值，否则不会触发视图更新。（vue3 不需要）
+这种方法有两个弊端：  
+1、动态创建的 data() 属性需要使用 Vue.set 来赋值，否则不会触发视图更新。（vue3 不需要）  
 2、`Object.defineProperty` 需要提前递归的便利 `data` 才能做到响应式。 （vue3 不需要）
 
 ## Vue3 的双向绑定
