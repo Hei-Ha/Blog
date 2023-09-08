@@ -9,7 +9,7 @@ export default async (props) => {
     // const { source, ...rest } = props.data
     
     
-    return <article className={`prose lgScreens:prose smScreens:prose-sm`} >
+    return <article className={`prose lgScreens:prose smScreens:prose-sm pt-2`} >
         <MDXRemote {...props} components={useMDXComponents} options={{
             parseFrontmatter: true,
             mdxOptions: {
