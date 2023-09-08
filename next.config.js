@@ -1,6 +1,15 @@
 import withMDX from '@next/mdx';
 
+/** @type {import('next').NextConfig} */
+
 const nextConfig = {
+    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+    experimental: {
+        appDir: true,
+        mdxRs: true,
+    },
+    // Optionally, add any other Next.js config below
+    reactStrictMode: true,
     images: {
         remotePatterns: [
             {
@@ -11,24 +20,18 @@ const nextConfig = {
             }
         ],
     },
-    pageExtensions: ['ts', 'tsx', 'mdx'],
-    experimental: {
-        mdxRs: true,
-    },
 }
 
-const MDXConfig = {
+const MDXConfig = withMDX({
     extension: /\.(md|mdx)$/,
     options: {
         remarkPlugins: [],
         rehypePlugins: [],
+        providerImportSource: "@mdx-js/react",
     },
-}
+})
 
-const result = Object.assign(
-    {},
-    nextConfig,
-    MDXConfig,
-)
 
-export default withMDX()(result);
+
+// Merge MDX config with Next.js config
+export default MDXConfig(nextConfig);
