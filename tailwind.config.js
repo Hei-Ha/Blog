@@ -19,6 +19,18 @@ export default {
         },
         
         extend: {
+            typography: {
+                DEFAULT: {
+                    css: {
+                        // code: {
+                        //     fontWeight: '600',
+                        //     '&:hover': {
+                        //         color: '#3182ce',
+                        //     },
+                        // },
+                    },
+                },
+            },
             maxWidth: {
                 '8xl': '1500px',
                 '1200px': '1200px',
