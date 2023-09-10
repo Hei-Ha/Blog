@@ -7,16 +7,14 @@ summary: 归并排序的实现
 
 ### 归并排序
 
-```javascript
-/**
-     * 思路：
-     * 将要排序的数组均分为两个数组，（两个数组都由小到大排好序）
-     * 每次从两个数组中各取出第一个元素进行比较，
-     * 将较小的存起来，以此类推。
-     *
-     *
-     * */
+思路：
 
+- 1、将要排序的数组均分为两个数组，（两个数组都由小到大排好序）
+- 2、每次从两个数组中各取出第一个元素进行比较，
+- 3、将较小的存起来，以此类推。
+
+
+```javascript
     // 代码
     const arr = [8, 2, 6, 75, 9, 1, 5, 3]
     const guiBingSort = function (arr) {
@@ -32,7 +30,6 @@ summary: 归并排序的实现
         const middle = parseInt(arr.length / 2)
         return merge(guiBingSort(arr.slice(0, middle)), guiBingSort(arr.slice(middle)))
     }
-
 
     console.log(guiBingSort(arr))
 ```
