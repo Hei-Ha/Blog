@@ -1,8 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '@src/style/prism-atom-dark.css';
 @import "github.markdown-light.css";
+@import '@src/style/prism-atom-dark.css';
+
 
 * {
     margin: 0;

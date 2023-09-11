@@ -1,6 +1,4 @@
 import withMDX from '@next/mdx';
-import remarkGfm from 'remark-gfm';
-import remarkPrism from 'remark-prism';
 
 /** @type {import('next').NextConfig} */
 
@@ -27,7 +25,7 @@ const nextConfig = {
 const MDXConfig = withMDX({
     extension: /\.(md|mdx)?$/,
     options: {
-        remarkPlugins: [remarkGfm, remarkPrism],
+        remarkPlugins: [],
         rehypePlugins: [],
         providerImportSource: "@mdx-js/react",
     },

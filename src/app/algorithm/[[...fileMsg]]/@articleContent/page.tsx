@@ -1,6 +1,6 @@
 import RenderMDX from '@src/components/RenderMDX';
 import { getAPIUrl } from '@src/utils/utils'
-import RemarkMDX from "@src/components/RemarkMDX";
+
 
 export default async ({params}) => {
     const { fileMsg } = params;
@@ -21,7 +21,7 @@ export default async ({params}) => {
         .then(data => data.json());
     
     return <div className='w-full h-full p-4 overflow-y-scroll bg-#ffffff rounded-xl'>
-        {/*<RenderMDX source={blogMsg?.content} />*/}
-        <RemarkMDX source={blogMsg?.content} />
+        <RenderMDX source={blogMsg?.content} />
+        {/*<RemarkMDX source={blogMsg?.content} />*/}
     </div>
 }

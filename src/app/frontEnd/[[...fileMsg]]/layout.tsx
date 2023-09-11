@@ -8,7 +8,7 @@ export default (props) => {
             <div className='w-1/4 h-full flex justify-end min-w-min'>
                 {props.sideMenus}
             </div>
-            <div className='min-w-800px flex-auto'>
+            <div className='min-w-800px  max-w-3/4 flex-auto'>
                 {props.articleContent}
             </div>
         </div>
