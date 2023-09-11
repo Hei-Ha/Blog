@@ -20,7 +20,7 @@ const GlobalLayout = ({ children }: { children: React.ReactNode }) => {
         <NextUIProvider>
             <NextThemesProvider attribute='class' forcedTheme={'light'} themes={['dark', 'light']}>
                 <Nav />
-                <div className='h-[calc(100vh-64px-16px)] w-full'>
+                <div className='mdScreens:h-[calc(100vh-64px-16px)] lgScreens:h-[calc(100vh-64px-16px)] w-full'>
                     {children}
                 </div>
             </NextThemesProvider>
