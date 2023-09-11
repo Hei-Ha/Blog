@@ -23,7 +23,7 @@ export default async ({params}) => {
         })
     
     
-    return <div className='w-full h-full p-4 overflow-y-scroll bg-#ffffff rounded-xl'>
+    return <div className='w-full h-full flex-auto p-4 overflow-y-scroll bg-#ffffff rounded-xl'>
         <RenderMDX source={blogMsg?.content} />
         {/*<RemarkMDX source={blogMsg?.content} />*/}
     </div>
