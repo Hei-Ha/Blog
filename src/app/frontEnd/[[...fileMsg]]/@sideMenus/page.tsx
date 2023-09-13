@@ -12,15 +12,15 @@ export default async () => {
         })
         .then(data => data.json());
     const sideMenusMap: Map<string, string[]> = new Map(JSON.parse(getSideMenusListJson));
-    const sideMenus: Map<string, string[]> = new Map();
-    Array.from(sideMenusMap.keys()).forEach(item => {
-        const value = sideMenusMap.get(item).map(item => {
-            const value = item.split('.');
-            value.pop();
-            return value.join('');
-        })
-        sideMenus.set(item, value);
-    })
+    // const sideMenus: Map<string, string[]> = new Map();
+    // Array.from(sideMenusMap.keys()).forEach(item => {
+    //     const value = sideMenusMap.get(item).map(item => {
+    //         const value = item.split('.');
+    //         value.pop();
+    //         return value.join('');
+    //     })
+    //     sideMenus.set(item, value);
+    // })
     
     return <div>
         <div className='mdScreens:hidden lgScreens:hidden'>

@@ -9,16 +9,28 @@ export default async () => {
             cache: 'no-cache'
         })
         .then(data => data.json());
+    
     const sideMenusMap: Map<string, string[]> = new Map(JSON.parse(getSideMenusListJson));
-    const sideMenus: Map<string, string[]> = new Map();
-    Array.from(sideMenusMap.keys()).forEach(item => {
-        const value = sideMenusMap.get(item).map(item => {
-            const value = item.split('.');
-            value.pop();
-            return value.join('');
+    
+    // const sideMenus: Map<string, string[]> = new Map();
+    
+    // Array.from(sideMenusMap.keys()).forEach(item => {
+    //     const value = sideMenusMap.get(item).map(item => {
+    //         const value = item.split('.');
+    //         value.pop();
+    //         return value.join('');
+    //     })
+    //     sideMenus.set(item, value);
+    // })
+    
+    
+    if (sideMenusMap.get('leetCode')) {
+        const res = sideMenusMap.get('leetCode').sort((a, b) => {
+            return Number(a.split('-')[0]) - Number(b.split('-')[0])
         })
-        sideMenus.set(item, value);
-    })
+        sideMenusMap.set('leetCode', res);
+        console.log(sideMenusMap);
+    }
     
     return <div>
         <div className='mdScreens:hidden lgScreens:hidden'>

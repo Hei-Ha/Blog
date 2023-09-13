@@ -22,7 +22,7 @@ export const GET = async (request: Request) => {
 export const POST = async (request: NextRequest) => {
     const { category, filename } = await request.json();
     
-    if (!category || !filename) return NextResponse.json({})
+    if (!category || !filename) return NextResponse.json({});
     const fileMsg = await ReadFileMsg(`./blogs/algorithm/${decodeURI(category)}/${decodeURI(filename)}`);
     return NextResponse.json(fileMsg)
 }
