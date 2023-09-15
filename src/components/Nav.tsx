@@ -43,7 +43,7 @@ export default () => {
         },
         {
             title: '算法题',
-            path: '/algorithm/leetcode/1-两数之和.md',
+            path: '/algorithm/leetCode/1-两数之和.md',
         },
         {
             title: '其他',
