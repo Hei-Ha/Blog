@@ -2,6 +2,7 @@ import {NextRequest, NextResponse} from "next/server";
 import path from "path";
 import {ReadDirectory, ReadFileMsg} from "@src/utils/utils";
 
+export const revalidate = 0
 export const GET = async () => {
     const frontEndBlogsPath = path.join(process.cwd(), './blogs/frontEnd');
     
