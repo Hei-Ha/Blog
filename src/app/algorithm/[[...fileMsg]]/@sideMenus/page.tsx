@@ -29,7 +29,6 @@ export default async () => {
             return Number(a.split('-')[0]) - Number(b.split('-')[0])
         })
         sideMenusMap.set('leetCode', res);
-        console.log(sideMenusMap);
     }
     
     return <div>

@@ -29,7 +29,7 @@ export default () => {
                     </Link>
                 </Card>
                 <Card className="bg-#fbfbfb p-4 rounded-lg cursor-pointer">
-                    <Link href='/algorithm/sort/二分查找.mdx'>
+                    <Link href='/algorithm/leetCode/1-两数之和.md'>
                         <NextUIImage
                             alt="icon"
                             src="https://images.wangchuang.space/Images/Blogs/suanfa.svg"
