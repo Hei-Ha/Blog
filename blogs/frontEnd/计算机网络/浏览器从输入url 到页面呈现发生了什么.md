@@ -53,4 +53,4 @@
    3. 被动关闭方发送一个 FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。
    4. 主动关闭方收到 FIN 后，发送一个 ACK 给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。
 
-![四次挥手](https://ask.qcloudimg.com/http-save/yehe-4474523/cd2cb58d98ca10faed28f809eab5b461.png)
+![四次挥手](https://images.wangchuang.space/Images/Blogs/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png)
