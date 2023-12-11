@@ -14,7 +14,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'images.wangchuang.space',
+                hostname: 'static.wangchuang.space',
                 port: '',
                 pathname: '/Images/Blogs/**',
             }
