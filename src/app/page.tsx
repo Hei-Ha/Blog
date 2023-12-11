@@ -18,7 +18,7 @@ export default () => {
                     <Link href='/frontEnd/HTTP相关/HTTPS加密过程.md'>
                         <NextUIImage
                             alt="icon"
-                            src="https://images.wangchuang.space/Images/Blogs/frontEnd.svg"
+                            src="https://static.wangchuang.space/Images/Blogs/frontEnd.svg"
                             width={50}
                             height={50}
                         />
@@ -32,7 +32,7 @@ export default () => {
                     <Link href='/algorithm/leetCode/1-两数之和.md'>
                         <NextUIImage
                             alt="icon"
-                            src="https://images.wangchuang.space/Images/Blogs/suanfa.svg"
+                            src="https://static.wangchuang.space/Images/Blogs/suanfa.svg"
                             width={50}
                             height={50}
                         />
@@ -45,7 +45,7 @@ export default () => {
                 <Card className="bg-#fbfbfb p-4 rounded-lg cursor-pointer">
                     <NextUIImage
                         alt="icon"
-                        src="https://images.wangchuang.space/Images/Blogs/other2.svg"
+                        src="https://static.wangchuang.space/Images/Blogs/other2.svg"
                         width={50}
                         height={50}
                     />

@@ -117,7 +117,7 @@ export default () => {
                             name='Wang'
                             description='Front-end Development Engineer'
                             avatarProps={{
-                                src: "https://images.wangchuang.space/Images/Blogs/Avatar.JPG"
+                                src: "https://static.wangchuang.space/Images/Blogs/Avatar.JPG"
                             }}
                         />
                     </Link>

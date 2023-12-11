@@ -2,7 +2,7 @@
 
 ### 官网的生命周期图：
 
-![生命周期](https://images.wangchuang.space/Images/Blogs/React生命周期.jpeg)
+![生命周期](https://static.wangchuang.space/Images/Blogs/React生命周期.jpeg)
 
 由图可知，react 生命周期大致分为三个阶段
 1、挂载
