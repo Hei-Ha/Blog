@@ -7,8 +7,19 @@ module.exports = {
     ],
     theme: {
         extend: {
-            color: {
-                '#CCCCCC': '#CCCCCC'
+            colors: {
+                '#CCCCCC': '#CCCCCC',
+                '#FFFFFF': '#FFFFFF',
+                '#000000': '#000000',
+                '#f0f0f0': '#f0f0f0',
+                '#3c3c43': '#3c3c43',
+            },
+            height: {
+                '50px': '50px',
+                '48px': '48px',
+                '500px': '500px',
+                '300px': '300px',
+                '200px': '200px',
             }
         },
     },

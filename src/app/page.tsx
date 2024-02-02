@@ -1,16 +1,11 @@
-import React from 'react'
-import { Button } from '@nextui-org/button'
-import { ClientOrServer } from '../utils/utils'
+import React from "react";
+import Header from './components/Header'
+import Main from './components/Main'
 
 export default () => {
-
-    ClientOrServer('page')
-
-
-    return <div>
-        <Button color="primary">123123</Button>
-        <div className='#CCCCCC'>
-            12312
-        </div>
-    </div>
-}
+    
+    return <>
+        <Header/>
+        <Main />
+    </>;
+};

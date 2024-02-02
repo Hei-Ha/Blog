@@ -1,16 +1,13 @@
 import React from "react";
 import Provider from "./provider";
-import { ClientOrServer } from '../utils/utils'
-import '../style/global.css'
+import "../style/global.css";
 
 export default ({ children }: { children: React.ReactNode }) => {
-    ClientOrServer('layout')
-
-  return (
-    <html>
-      <body>
-        <Provider>{children}</Provider>
-      </body>
-    </html>
-  );
+    return (
+        <html className="bg-#f0f0f0 h-full w-full">
+            <body>
+                <Provider>{children}</Provider>
+            </body>
+        </html>
+    );
 };
