@@ -20,7 +20,7 @@
         "baseUrl": ".",
         "paths": {
             "@src/*": ["./src/*"],
-            "@blogs/*": ["./blogs/*"]
+            "@blogs/*": ["./src/blogs/*"]
         }
     },
     "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
