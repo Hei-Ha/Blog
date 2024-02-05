@@ -13,6 +13,7 @@ module.exports = {
                 '#000000': '#000000',
                 '#f0f0f0': '#f0f0f0',
                 '#3c3c43': '#3c3c43',
+                'pink': 'pink',
             },
             height: {
                 '50px': '50px',
@@ -20,7 +21,13 @@ module.exports = {
                 '500px': '500px',
                 '300px': '300px',
                 '200px': '200px',
-            }
+                '1500px': '1500px',
+            },
+            width: {
+                '300px': '300px',
+                '400px': '400px',
+                '500px': '500px',
+            },
         },
     },
     darkMode: "class",
