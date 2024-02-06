@@ -1,8 +1,7 @@
-import React from "react";
 import { getAPIUrl } from "@src/utils/utils";
-import SideMenu from "@src/app/components/SideMenu";
+import { SideMenuListType } from "@src/types/SideMenu/index";
 
-export default async () => {
+export const getMenuData = async () => {
     const frontEndFolder = await fetch(
         `${getAPIUrl()}/api/sideMenu?folderPath=frontEnd`,
         {
@@ -13,8 +12,8 @@ export default async () => {
         .then(response => response.json())
         .then(data => data.data);
 
-
-    const result = await Promise.all(frontEndFolder.folderContent.map(item => {
+    const result: SideMenuListType[] = await Promise.all(
+        frontEndFolder.folderContent.map(item => {
             return new Promise(async (resolve, reject) => {
                 fetch(
                     `${getAPIUrl()}/api/sideMenu?folderPath=frontEnd/${item}`,
@@ -30,8 +29,8 @@ export default async () => {
                         }
                     });
             });
-        }))
+        })
+    );
 
-
-    return <SideMenu listData={result} />;
+    return result
 };
