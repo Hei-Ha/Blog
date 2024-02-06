@@ -13,7 +13,7 @@ import { MenuItemList } from "./constants"
 
 export default () => {
     return (
-        <Navbar maxWidth="full" className="px-10">
+        <Navbar maxWidth="full" className="px-10 h-64px box-border border-b border-solid border-#e7e7e7">
             <NavbarBrand>
                 <User
                     className="font-bold"

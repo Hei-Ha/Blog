@@ -22,7 +22,7 @@ export default ({
                                     value={item}
                                     aria-label={item}
                                 >
-                                    {item}
+                                    {item.split('.')[0]}
                                 </ListboxItem>
                             );
                         })}
