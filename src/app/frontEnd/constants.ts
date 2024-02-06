@@ -24,9 +24,7 @@ export const getMenuData = async () => {
                 )
                     .then(response => response.json())
                     .then(data => {
-                        if (data.status === 200) {
-                            resolve(data.data);
-                        }
+                        resolve(data.data);
                     });
             });
         })

@@ -8,7 +8,7 @@ interface MenuItem {
 export const MenuItemList: MenuItem[] = [
     {
         title: "前端相关",
-        path: "/frontEnd",
+        path: "/frontEnd/Vue/Vue的Diff算法.md",
     },
     {
         title: "算法题",

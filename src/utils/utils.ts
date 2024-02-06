@@ -5,13 +5,13 @@ import Path from 'path';
  * 
  * 测试当前组件是服务端组件 or 客户端组件
  */
-export const ClientOrServer = (name: string) => {
-    if (typeof window === 'undefined') {
-        console.log('server component index', name)
-    } else {
-        console.log('client component index', name)
-    }
-}
+// export const ClientOrServer = (name: string) => {
+//     if (typeof window === 'undefined') {
+//         console.log('server component index', name)
+//     } else {
+//         console.log('client component index', name)
+//     }
+// }
 
 
 // 获取当前 url 前缀
@@ -41,8 +41,8 @@ export const readDirectory = async (path: string) => {
  * @param filepath 读取文件的路径
  * @returns  文件内容
  */
-export const ReadFileMsg = async (filepath) => {
-    const actualPath = Path.join(process.cwd(), filepath);
-    const fileMsg = await fsPromises.readFile(actualPath, 'utf-8');
+export const readFileContent = async (filepath) => {
+    // const actualPath = Path.join(process.cwd(), filepath);
+    const fileMsg = await fsPromises.readFile(filepath, 'utf-8');
     return fileMsg
 }

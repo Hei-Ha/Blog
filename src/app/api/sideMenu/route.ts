@@ -10,7 +10,6 @@ export const GET = async (request: NextRequest) => {
     const result = await readDirectory(folderFullPath)
 
     return NextResponse.json({
-        status: 200,
         data: {
             folderPath: folderPath,
             folderContent: result
