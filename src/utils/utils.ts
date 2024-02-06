@@ -1,4 +1,5 @@
 import {promises as fsPromises} from "fs";
+import Path from 'path';
 
 /**
  * 
@@ -13,6 +14,7 @@ export const ClientOrServer = (name: string) => {
 }
 
 
+// 获取当前 url 前缀
 export const getAPIUrl = () => {
     return process.env.NODE_ENV === 'development' ? process.env.API_URL_DEVELOPMENT : process.env.API_URL_PRODUCTION
 }
@@ -22,7 +24,6 @@ export const getAPIUrl = () => {
  * 获取给定 url 目录下所有的文件夹名称（只读一层）
  * return: string[]
  */
-
 export const readDirectory = async (path: string) => {
     const dirArr = await fsPromises.readdir(path);
     if (dirArr.indexOf('.DS_Store') >= 0) { // 排除 .DS_Store 文件夹
@@ -33,4 +34,15 @@ export const readDirectory = async (path: string) => {
         dirArr.splice(dirArr.indexOf('images'), 1)
     }
     return dirArr || []
+}
+
+/**
+ * 
+ * @param filepath 读取文件的路径
+ * @returns  文件内容
+ */
+export const ReadFileMsg = async (filepath) => {
+    const actualPath = Path.join(process.cwd(), filepath);
+    const fileMsg = await fsPromises.readFile(actualPath, 'utf-8');
+    return fileMsg
 }

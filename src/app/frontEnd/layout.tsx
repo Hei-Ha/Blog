@@ -11,7 +11,7 @@ export default async ({children}: { children: React.ReactNode }) => {
         <Header/>
         <div className="flex bg-#FFFFFF">
             <section
-                className="sideMenu w-300px overflow-scroll  sticky top-16 z-30 h-[calc(100vh-64px)] border-r border-solid border-#e7e7e7">
+                className="sideMenu w-300px overflow-auto  sticky top-16 z-30 h-[calc(100vh-64px)] border-r border-solid border-#e7e7e7">
                 <SideMenu listData={menuData} />;
             </section>
             <section className="overflow-auto flex-1">
