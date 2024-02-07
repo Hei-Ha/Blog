@@ -8,6 +8,13 @@ module.exports = {
     ],
     theme: {
         extend: {
+            typography: {
+                DEFAULT: {
+                    css: {
+                        maxWidth: '100%'
+                    }
+                }
+            },
             colors: {
                 '#CCCCCC': '#CCCCCC',
                 '#FFFFFF': '#FFFFFF',
@@ -30,6 +37,7 @@ module.exports = {
                 '300px': '300px',
                 '400px': '400px',
                 '500px': '500px',
+                '1200px': '1200px',
             },
         },
     },

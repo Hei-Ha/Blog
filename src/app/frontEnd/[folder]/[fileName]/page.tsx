@@ -17,9 +17,8 @@ export default async ({ params }) => {
             console.log(err);
         });
 
-
     return (
-        <article className="prose prose-neutral ">
+        <article className="prose w-1200px my-10">
             <RenderMDX sourceData={fileContent.content} />
         </article>
     );

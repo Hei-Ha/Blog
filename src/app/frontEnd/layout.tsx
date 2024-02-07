@@ -14,7 +14,7 @@ export default async ({children}: { children: React.ReactNode }) => {
                 className="sideMenu w-300px overflow-auto sticky top-16 z-30 h-[calc(100vh-64px)] border-r border-solid border-#e7e7e7">
                 <SideMenu listData={menuData} />;
             </section>
-            <section className="overflow-auto flex-1">
+            <section className="overflow-auto flex-1 flex justify-center ">
                 {children}
             </section>
         </div>
