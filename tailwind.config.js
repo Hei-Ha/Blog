@@ -11,7 +11,7 @@ module.exports = {
             typography: {
                 DEFAULT: {
                     css: {
-                        maxWidth: '100%'
+                        // maxWidth: '100%'
                     }
                 }
             },
@@ -45,5 +45,16 @@ module.exports = {
     plugins: [
         nextui(),
         typography(),
+        require('tailwind-highlightjs'),
     ],
+    safelist: [
+        {
+            pattern: /hljs+/,
+        },
+    ],
+    theme: {
+        hljs: {
+            theme: 'github-dark',
+        },
+    },
 }
