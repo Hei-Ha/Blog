@@ -18,6 +18,7 @@ module.exports = {
                     }
                 }
             },
+            // #d3e4fc
             colors: {
                 '#CCCCCC': '#CCCCCC',
                 '#FFFFFF': '#FFFFFF',
@@ -26,6 +27,7 @@ module.exports = {
                 '#3c3c43': '#3c3c43',
                 'pink': 'pink',
                 '#000000': '#000000',
+                '#d3e5fc': '#d3e5fc',
             },
             height: {
                 '50px': '50px',

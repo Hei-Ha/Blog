@@ -9,7 +9,7 @@ export default async ({children}: { children: React.ReactNode }) => {
 
     return <>
         <Header/>
-        <div className="flex">
+        <div className="flex bg-#FFFFFF">
             <div
                 className="w-280px sideMenuScroll overflow-auto sticky top-16 z-30 h-[calc(100vh-64px)] border-r border-solid border-#e7e7e7">
                 <SideMenu listData={menuData} />;

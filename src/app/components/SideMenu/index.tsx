@@ -2,39 +2,44 @@
 import { SideMenuListType } from "@src/types/SideMenu/index";
 import { Listbox, ListboxSection, ListboxItem } from "@nextui-org/listbox";
 import Link from "next/link";
-import { useState } from 'react'
+import { useState, useEffect } from "react";
 
 export default ({ listData }: { listData: SideMenuListType[] }) => {
-    const [selectKey, setSelectKey] = useState<string>('');
+    const [selectKey, setSelectKey] = useState<string>('HTTPS加密过程.md');
 
     return (
         <Listbox
-            selectedKeys={selectKey}
-            defaultSelectedKeys={'HTTPS加密过程.md'}
             label="sideMenuList"
+            className="p-0 pl-3"
+            selectedKeys={selectKey}
+            selectionMode="none"
             variant="flat"
             color="primary"
-            selectionMode="single"
             onAction={(key: string) => {
-                setSelectKey(key)
+                setSelectKey(key);
             }}
         >
             {listData.map(i => {
                 return (
                     <ListboxSection
+                        className="my-3"
                         title={i.folderPath.split("/")[1]}
                         key={i.folderPath}
+                        showDivider
                     >
                         {i.folderContent.map(item => {
                             return (
                                 <ListboxItem
+                                    className={`my-0.5 px-3 rounded-sm ${
+                                        selectKey === item ? "bg-#d3e5fc" : ""
+                                    }`}
                                     key={item}
                                     value={item}
                                     aria-label={item}
                                     shouldHighlightOnFocus={true}
                                 >
                                     <Link href={`/${i.folderPath}/${item}`}>
-                                        <div className="w-full">
+                                        <div className="w-full leading-7">
                                             {item.split(".")[0]}
                                         </div>
                                     </Link>
