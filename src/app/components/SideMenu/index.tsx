@@ -34,7 +34,7 @@ export default ({ listData }: { listData: SideMenuListType[] }) => {
                                     shouldHighlightOnFocus={true}
                                 >
                                     <Link href={`/${i.folderPath}/${item}`}>
-                                        <div className="w-full ">
+                                        <div className="w-full">
                                             {item.split(".")[0]}
                                         </div>
                                     </Link>

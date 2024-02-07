@@ -7,6 +7,9 @@ module.exports = {
         "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
+        hljs: {
+            theme: 'github-dark',
+        },
         extend: {
             typography: {
                 DEFAULT: {
@@ -34,6 +37,7 @@ module.exports = {
                 '1500px': '1500px',
             },
             width: {
+                '280px': '280px',
                 '300px': '300px',
                 '400px': '400px',
                 '500px': '500px',
@@ -52,9 +56,4 @@ module.exports = {
             pattern: /hljs+/,
         },
     ],
-    theme: {
-        hljs: {
-            theme: 'github-dark',
-        },
-    },
 }
