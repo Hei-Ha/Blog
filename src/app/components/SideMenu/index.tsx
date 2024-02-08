@@ -55,16 +55,17 @@ export default ( { listData }: { listData: SideMenuListType[] } ) => {
                                     shouldHighlightOnFocus={ true }
                                 >
                                     <Link href={ `/blog/${ i.blogTopic }/${ item }` }>
-                                        <Tooltip
-                                            color={ 'primary' }
-                                            content={ item.split( "." )[0] }
-                                            radius={ 'sm' }
-                                            placement={ 'top-end' }
-                                        >
-                                            <div className="w-full leading-7">
-                                                { item.split( "." )[0] }
-                                            </div>
-                                        </Tooltip>
+                                        <div className="w-full leading-7">
+                                            { item.split( "." )[0] }
+                                        </div>
+                                        {/*<Tooltip*/}
+                                        {/*    color={ 'primary' }*/}
+                                        {/*    content={ item.split( "." )[0] }*/}
+                                        {/*    radius={ 'sm' }*/}
+                                        {/*    placement={ 'top-end' }*/}
+                                        {/*>*/}
+                                        {/*    */}
+                                        {/*</Tooltip>*/}
                                     </Link>
                                 </ListboxItem>
                             );
