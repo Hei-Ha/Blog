@@ -9,7 +9,7 @@ export const GET = async (request: NextRequest) => {
 
     const blogTopic = searchParams.get('blogTopic')
 
-    const blogTopicFullPath = Path.join(process.cwd(), `./src/blogs/${blogTopic}`);
+    const blogTopicFullPath = Path.join(process.cwd(), `./blogs/${blogTopic}`);
     const result = await readDirectory(blogTopicFullPath);
 
     return NextResponse.json({
