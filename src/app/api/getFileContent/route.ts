@@ -5,12 +5,13 @@ import Path from "path";
 export const GET = async (request: NextRequest) => {
     const { searchParams } = request.nextUrl;
 
-    const folder = searchParams.get("folder");
+    const blogTopic = searchParams.get("blogTopic");
+    const folderName = searchParams.get("folderName");
     const fileName = searchParams.get("fileName");
 
     const filePath = Path.join(
         process.cwd(),
-        `./src/blogs/frontEnd/${folder}/${fileName}`
+        `./src/blogs/${blogTopic}/${folderName}/${fileName}`
     );
     const res = await readFileContent(filePath);
 

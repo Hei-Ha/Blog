@@ -3,15 +3,18 @@ import Path from "path";
 import {readDirectory } from '@src/utils/utils'
 
 export const GET = async (request: NextRequest) => {
-    const { searchParams } = request.nextUrl;
-    const folderPath = searchParams.get('folderPath')
 
-    const folderFullPath = Path.join(process.cwd(), `./src/blogs/${folderPath}`);
-    const result = await readDirectory(folderFullPath)
+
+    const { searchParams } = request.nextUrl;
+
+    const blogTopic = searchParams.get('blogTopic')
+
+    const blogTopicFullPath = Path.join(process.cwd(), `./src/blogs/${blogTopic}`);
+    const result = await readDirectory(blogTopicFullPath);
 
     return NextResponse.json({
         data: {
-            folderPath: folderPath,
+            blogTopic: blogTopic,
             folderContent: result
         }
     });

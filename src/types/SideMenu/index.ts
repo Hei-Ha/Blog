@@ -1,4 +1,4 @@
 export interface SideMenuListType {
-    folderPath: string;
+    blogTopic: string;
     folderContent: string[];
 }

@@ -2,11 +2,10 @@ import React from "react";
 import { getAPIUrl } from "@src/utils/utils";
 import RenderMDX from "@src/app/components/RenderMDX";
 
+
 export default async ({ params }) => {
     const fileContent = await fetch(
-        `${getAPIUrl()}/api/getFileContent?folder=${params.folder}&fileName=${
-            params.fileName
-        }`,
+        `${getAPIUrl()}/api/getFileContent?blogTopic=${params.blogTopic}&folderName=${params.folderName}&fileName=${params.fileName}`,
         {
             method: "get",
             cache: "no-cache",

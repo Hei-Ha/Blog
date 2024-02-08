@@ -2,7 +2,7 @@
 import { SideMenuListType } from "@src/types/SideMenu/index";
 import { Listbox, ListboxSection, ListboxItem } from "@nextui-org/listbox";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default ({ listData }: { listData: SideMenuListType[] }) => {
     const [selectKey, setSelectKey] = useState<string>('HTTPS加密过程.md');
@@ -23,8 +23,8 @@ export default ({ listData }: { listData: SideMenuListType[] }) => {
                 return (
                     <ListboxSection
                         className="my-3"
-                        title={i.folderPath.split("/")[1]}
-                        key={i.folderPath}
+                        title={i.blogTopic.split("/")[1]}
+                        key={i.blogTopic}
                         showDivider
                     >
                         {i.folderContent.map(item => {
@@ -38,7 +38,7 @@ export default ({ listData }: { listData: SideMenuListType[] }) => {
                                     aria-label={item}
                                     shouldHighlightOnFocus={true}
                                 >
-                                    <Link href={`/${i.folderPath}/${item}`}>
+                                    <Link href={`/${i.blogTopic}/${item}`}>
                                         <div className="w-full leading-7">
                                             {item.split(".")[0]}
                                         </div>

@@ -33,9 +33,9 @@ export default () => {
                         <NavbarItem key={item.path}>
                             <Link href={item.path}>{item.title}</Link>
                         </NavbarItem>
-                    );
+                    )
                 })}
             </NavbarContent>
         </Navbar>
-    );
+    )
 };

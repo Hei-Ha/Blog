@@ -1,9 +1,12 @@
 import { getAPIUrl } from "@src/utils/utils";
 import { SideMenuListType } from "@src/types/SideMenu/index";
 
-export const getMenuData = async () => {
-    const frontEndFolder = await fetch(
-        `${getAPIUrl()}/api/sideMenu?folderPath=frontEnd`,
+
+
+export const getMenuData = async (blogTopic: string) => {
+
+    const blogTopicFolder = await fetch(
+        `${getAPIUrl()}/api/sideMenu?blogTopic=${blogTopic}`,
         {
             method: "get",
             cache: "no-cache",
@@ -12,11 +15,12 @@ export const getMenuData = async () => {
         .then(response => response.json())
         .then(data => data.data);
 
+
     const result: SideMenuListType[] = await Promise.all(
-        frontEndFolder.folderContent.map(item => {
+        blogTopicFolder.folderContent.map(item => {
             return new Promise(async (resolve, reject) => {
                 fetch(
-                    `${getAPIUrl()}/api/sideMenu?folderPath=frontEnd/${item}`,
+                    `${getAPIUrl()}/api/sideMenu?blogTopic=${blogTopic}/${item}`,
                     {
                         method: "get",
                         cache: "no-cache",
@@ -29,6 +33,5 @@ export const getMenuData = async () => {
             });
         })
     );
-
     return result
 };
