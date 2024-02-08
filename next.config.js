@@ -1,15 +1,10 @@
-import withMDX from '@next/mdx';
+import withMDX from '@next/mdx'
+import rehypeHighlight from "rehype-highlight";
 
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    experimental: {
-        appDir: true,
-        mdxRs: true,
-    },
-    // Optionally, add any other Next.js config below
-    reactStrictMode: true,
+    pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
     images: {
         remotePatterns: [
             {
@@ -26,12 +21,9 @@ const MDXConfig = withMDX({
     extension: /\.(md|mdx)?$/,
     options: {
         remarkPlugins: [],
-        rehypePlugins: [],
+        rehypePlugins: [rehypeHighlight],
         providerImportSource: "@mdx-js/react",
     },
 })
 
-
-
-// Merge MDX config with Next.js config
 export default MDXConfig(nextConfig);

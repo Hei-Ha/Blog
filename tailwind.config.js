@@ -1,85 +1,62 @@
-/** @type {import('tailwindcss').Config} */
-
-import {nextui} from "@nextui-org/react";
+import { nextui } from '@nextui-org/react'
 import typography from '@tailwindcss/typography';
 
-export default {
-    content: {
-        relative: true,
-        files: [
-            "./src/**/*.{html,js,jsx,ts,tsx}",
-            "./node_modules/@nextui-org/theme/dist/**/*.{js,jsx,ts,tsx}",
-        ],
-    },
+module.exports = {
+    content: [
+        "./src/**/*.{js,ts,jsx,tsx,mdx}",
+        "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    ],
     theme: {
-        screens: {
-            'smScreens': {'min': '0', 'max': '639px'},
-            'mdScreens': {'min': '640px', 'max': '1200px'},
-            'lgScreens': {'min': '1201px' },
+        hljs: {
+            theme: 'github-dark',
         },
-        
         extend: {
             typography: {
                 DEFAULT: {
                     css: {
-                        // code: {
-                        //     fontWeight: '600',
-                        //     '&:hover': {
-                        //         color: '#3182ce',
-                        //     },
-                        // },
-                    },
-                },
+                        // maxWidth: '100%'
+                    }
+                }
             },
-            maxWidth: {
-                '8xl': '1500px',
-                '1200px': '1200px',
-                '370px': '370px',
-            },
-            minWidth: {
-                '500px': '500px',
-                '300px': '300px',
-                '800px': '800px',
-            },
-            width: {
-            
-            },
-            height: {
-                '500px': '500px',
-                '400px': '400px',
-            },
+            // #d3e4fc
             colors: {
                 '#CCCCCC': '#CCCCCC',
-                '#8294C4': '#8294C4',
+                '#FFFFFF': '#FFFFFF',
+                '#000000': '#000000',
                 '#f0f0f0': '#f0f0f0',
-                '#fbfbfb': '#fbfbfb',
-                '#333333': '#333333',
-                '#a0a0a0': '#a0a0a0',
-                '#0E21A0': '#0E21A0',
-                '#CAEDFF': '#CAEDFF',
-                '#c4c5c6': '#c4c5c6',
-                '#f6f6f7': '#f6f6f7',
-                '#ffffff': '#ffffff',
-                '#707077': '#707077',
                 '#3c3c43': '#3c3c43',
-                '#3b3c43': '#3b3c43',
-                '#d4d4d9': '#d4d4d9',
-                '#F79327': '#F79327',
-            }
+                'pink': 'pink',
+                '#000000': '#000000',
+                '#d3e5fc': '#d3e5fc',
+                '#2263ef': '#2263ef',
+            },
+            height: {
+                '50px': '50px',
+                '48px': '48px',
+                '64px': '64px',
+                '500px': '500px',
+                '300px': '300px',
+                '200px': '200px',
+                '1500px': '1500px',
+            },
+            width: {
+                '280px': '280px',
+                '300px': '300px',
+                '400px': '400px',
+                '500px': '500px',
+                '1200px': '1200px',
+            },
         },
     },
     darkMode: "class",
     plugins: [
+        nextui(),
         typography(),
-        nextui({
-            themes: {
-                light: {
-                    colors: {},
-                },
-                dark: {
-                    colors: {},
-                },
-            },
-        })
+        require('tailwind-highlightjs'),
+    ],
+    safelist: [
+        {
+            pattern: /hljs+/,
+        },
     ],
 }

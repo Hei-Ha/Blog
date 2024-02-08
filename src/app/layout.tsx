@@ -1,26 +1,13 @@
-import { Metadata } from 'next';
-import GlobalLayout from "@src/components/globalLayout";
-import '@src/style/global.css';
+import React from "react";
+import Provider from "./provider";
+import "../style/global.css";
 
-
-export const metadata: Metadata = {
-    title: 'Blogs',
-    icons: {
-        icon: '/blog.svg'
-    }
-}
-const Layout = (
-    { children }: { children: React.ReactNode }
-) => {
+export default ({ children }: { children: React.ReactNode }) => {
     return (
-        <html>
-            <body className='bg-#f0f0f0'>
-                <GlobalLayout>
-                    {children}
-                </GlobalLayout>
+        <html className="bg-#f0f0f0 h-full w-full">
+            <body>
+                <Provider>{children}</Provider>
             </body>
         </html>
-    )
-}
-
-export default Layout;
+    );
+};
