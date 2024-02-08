@@ -1,31 +1,31 @@
 "use client";
 import { SideMenuListType } from "@src/types/SideMenu";
-import { Listbox, ListboxSection, ListboxItem } from "@nextui-org/listbox";
+import { Tooltip, Listbox, ListboxSection, ListboxItem } from '@nextui-org/react'
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
-export default ({ listData }: { listData: SideMenuListType[] }) => {
+export default ( { listData }: { listData: SideMenuListType[] } ) => {
     const params = useParams<{
         blogTopic: string;
         foldername: string;
         fileName: string;
     }>();
     const urlPath = usePathname();
-
+    
     const [selectKey, setSelectKey] = useState<string>(
-        decodeURI(params.fileName)
+        decodeURI( params.fileName )
     );
-
-    useEffect(() => {
-        setSelectKey(decodeURI(params.fileName));
-    }, [urlPath]);
-
+    
+    useEffect( () => {
+        setSelectKey( decodeURI( params.fileName ) );
+    }, [urlPath] );
+    
     return (
         <Listbox
             label="sideMenuList"
             className="p-0 pl-3"
-            selectedKeys={selectKey}
+            selectedKeys={ selectKey }
             selectionMode="none"
             variant="flat"
             color="primary"
@@ -33,38 +33,45 @@ export default ({ listData }: { listData: SideMenuListType[] }) => {
             //     setSelectKey(key);
             // }}
         >
-            {listData.map(i => {
+            { listData.map( i => {
                 return (
                     <ListboxSection
                         className="my-3"
-                        title={i.blogTopic.split("/")[1]}
-                        key={i.blogTopic}
+                        title={ i.blogTopic.split( "/" )[1] }
+                        key={ i.blogTopic }
                         showDivider
                     >
-                        {i.folderContent.map(item => {
+                        { i.folderContent.map( item => {
                             return (
                                 <ListboxItem
-                                    className={`my-0.5 px-3 rounded-sm ${
+                                    className={ `my-0.5 px-3 rounded-sm ${
                                         selectKey === item
                                             ? "bg-#d3e5fc text-#2263ef"
                                             : ""
-                                    }`}
-                                    key={item}
-                                    value={item}
-                                    aria-label={item}
-                                    shouldHighlightOnFocus={true}
+                                    }` }
+                                    key={ item }
+                                    value={ item }
+                                    aria-label={ item }
+                                    shouldHighlightOnFocus={ true }
                                 >
-                                    <Link href={`/blog/${i.blogTopic}/${item}`}>
-                                        <div className="w-full leading-7">
-                                            {item.split(".")[0]}
-                                        </div>
+                                    <Link href={ `/blog/${ i.blogTopic }/${ item }` }>
+                                        <Tooltip
+                                            color={ 'primary' }
+                                            content={ item.split( "." )[0] }
+                                            radius={ 'sm' }
+                                            placement={ 'top-end' }
+                                        >
+                                            <div className="w-full leading-7">
+                                                { item.split( "." )[0] }
+                                            </div>
+                                        </Tooltip>
                                     </Link>
                                 </ListboxItem>
                             );
-                        })}
+                        } ) }
                     </ListboxSection>
                 );
-            })}
+            } ) }
         </Listbox>
     );
 };
