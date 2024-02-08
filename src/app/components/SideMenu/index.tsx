@@ -1,9 +1,9 @@
 "use client";
-import { SideMenuListType } from "@src/types/SideMenu/index";
+import { SideMenuListType } from "@src/types/SideMenu";
 import { Listbox, ListboxSection, ListboxItem } from "@nextui-org/listbox";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 export default ({ listData }: { listData: SideMenuListType[] }) => {
     const params = useParams<{
