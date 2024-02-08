@@ -28,6 +28,7 @@ module.exports = {
                 'pink': 'pink',
                 '#000000': '#000000',
                 '#d3e5fc': '#d3e5fc',
+                '#2263ef': '#2263ef',
             },
             height: {
                 '50px': '50px',

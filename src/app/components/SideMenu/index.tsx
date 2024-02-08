@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default ({ listData }: { listData: SideMenuListType[] }) => {
-    const [selectKey, setSelectKey] = useState<string>('HTTPS加密过程.md');
+
+    const [selectKey, setSelectKey] = useState<string>(listData[0].folderContent[0]);
 
     return (
         <Listbox
@@ -31,14 +32,14 @@ export default ({ listData }: { listData: SideMenuListType[] }) => {
                             return (
                                 <ListboxItem
                                     className={`my-0.5 px-3 rounded-sm ${
-                                        selectKey === item ? "bg-#d3e5fc" : ""
+                                        selectKey === item ? "bg-#d3e5fc text-#2263ef" : ""
                                     }`}
                                     key={item}
                                     value={item}
                                     aria-label={item}
                                     shouldHighlightOnFocus={true}
                                 >
-                                    <Link href={`/${i.blogTopic}/${item}`}>
+                                    <Link href={`/blog/${i.blogTopic}/${item}`}>
                                         <div className="w-full leading-7">
                                             {item.split(".")[0]}
                                         </div>
