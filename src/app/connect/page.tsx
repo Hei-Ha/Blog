@@ -1,3 +1,3 @@
 export default () => {
-    return <div>23123</div>
+    return <div>content me</div>
 }

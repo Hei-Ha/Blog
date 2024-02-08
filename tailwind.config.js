@@ -22,13 +22,13 @@ module.exports = {
             colors: {
                 '#CCCCCC': '#CCCCCC',
                 '#FFFFFF': '#FFFFFF',
-                '#000000': '#000000',
                 '#f0f0f0': '#f0f0f0',
                 '#3c3c43': '#3c3c43',
                 'pink': 'pink',
                 '#000000': '#000000',
                 '#d3e5fc': '#d3e5fc',
                 '#2263ef': '#2263ef',
+                '#70717a': '#70717a',
             },
             height: {
                 '50px': '50px',
