@@ -2,12 +2,24 @@
 import { SideMenuListType } from "@src/types/SideMenu/index";
 import { Listbox, ListboxSection, ListboxItem } from "@nextui-org/listbox";
 import Link from "next/link";
-import { useParams } from 'next/navigation'
-import { useState } from "react";
+import { useParams, usePathname } from "next/navigation";
+import { useState, useEffect, useMemo } from "react";
 
 export default ({ listData }: { listData: SideMenuListType[] }) => {
-    const params = useParams<{blogTopic: string; foldername: string; fileName: string; }>()
-    const [selectKey, setSelectKey] = useState<string>(decodeURI(params.fileName) || listData[0].folderContent[0]);
+    const params = useParams<{
+        blogTopic: string;
+        foldername: string;
+        fileName: string;
+    }>();
+    const urlPath = usePathname();
+
+    const [selectKey, setSelectKey] = useState<string>(
+        decodeURI(params.fileName)
+    );
+
+    useEffect(() => {
+        setSelectKey(decodeURI(params.fileName));
+    }, [urlPath]);
 
     return (
         <Listbox
@@ -17,9 +29,9 @@ export default ({ listData }: { listData: SideMenuListType[] }) => {
             selectionMode="none"
             variant="flat"
             color="primary"
-            onAction={(key: string) => {
-                setSelectKey(key);
-            }}
+            // onAction={(key: string) => {
+            //     setSelectKey(key);
+            // }}
         >
             {listData.map(i => {
                 return (
@@ -33,7 +45,9 @@ export default ({ listData }: { listData: SideMenuListType[] }) => {
                             return (
                                 <ListboxItem
                                     className={`my-0.5 px-3 rounded-sm ${
-                                        selectKey === item ? "bg-#d3e5fc text-#2263ef" : ""
+                                        selectKey === item
+                                            ? "bg-#d3e5fc text-#2263ef"
+                                            : ""
                                     }`}
                                     key={item}
                                     value={item}
