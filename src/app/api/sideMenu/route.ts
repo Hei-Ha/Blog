@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Path from "path";
-import {readDirectory } from '@src/utils/utils'
+import { readDirectory } from '@src/utils/utils'
 
 export const GET = async (request: NextRequest) => {
 
@@ -9,7 +9,7 @@ export const GET = async (request: NextRequest) => {
 
     const blogTopic = searchParams.get('blogTopic')
 
-    const blogTopicFullPath = Path.join(process.cwd(), `./blogs/${blogTopic}`);
+    const blogTopicFullPath = Path.join(process.cwd(), `./src/blogs/${blogTopic}`);
     const result = await readDirectory(blogTopicFullPath);
 
     return NextResponse.json({

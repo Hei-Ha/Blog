@@ -11,7 +11,7 @@ export const GET = async (request: NextRequest) => {
 
     const filePath = Path.join(
         process.cwd(),
-        `./blogs/${blogTopic}/${folderName}/${fileName}`
+        `./src/blogs/${blogTopic}/${folderName}/${fileName}`
     );
     const res = await readFileContent(filePath);
 
