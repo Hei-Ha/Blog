@@ -2,11 +2,12 @@
 import { SideMenuListType } from "@src/types/SideMenu/index";
 import { Listbox, ListboxSection, ListboxItem } from "@nextui-org/listbox";
 import Link from "next/link";
+import { useParams } from 'next/navigation'
 import { useState } from "react";
 
 export default ({ listData }: { listData: SideMenuListType[] }) => {
-
-    const [selectKey, setSelectKey] = useState<string>(listData[0].folderContent[0]);
+    const params = useParams<{blogTopic: string; foldername: string; fileName: string; }>()
+    const [selectKey, setSelectKey] = useState<string>(decodeURI(params.fileName) || listData[0].folderContent[0]);
 
     return (
         <Listbox
