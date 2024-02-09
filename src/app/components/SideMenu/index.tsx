@@ -36,7 +36,7 @@ export default ( { listData }: { listData: SideMenuListType[] } ) => {
             { listData.map( i => {
                 return (
                     <ListboxSection
-                        className="my-3"
+                        className="my-3 p-0"
                         title={ i.blogTopic.split( "/" )[1] }
                         key={ i.blogTopic }
                         showDivider
@@ -44,7 +44,7 @@ export default ( { listData }: { listData: SideMenuListType[] } ) => {
                         { i.folderContent.map( item => {
                             return (
                                 <ListboxItem
-                                    className={ `my-0.5 px-3 rounded-sm ${
+                                    className={ `p-0 my-0.5 rounded-sm ${
                                         selectKey === item
                                             ? "bg-#d3e5fc text-#2263ef"
                                             : ""
@@ -54,18 +54,13 @@ export default ( { listData }: { listData: SideMenuListType[] } ) => {
                                     aria-label={ item }
                                     shouldHighlightOnFocus={ true }
                                 >
-                                    <Link href={ `/blog/${ i.blogTopic }/${ item }` }>
+                                    <Link
+                                        className={ 'block px-3 py-1.5' }
+                                        href={ `/blog/${ i.blogTopic }/${ item }` }
+                                    >
                                         <div className="w-full leading-7">
                                             { item.split( "." )[0] }
                                         </div>
-                                        {/*<Tooltip*/}
-                                        {/*    color={ 'primary' }*/}
-                                        {/*    content={ item.split( "." )[0] }*/}
-                                        {/*    radius={ 'sm' }*/}
-                                        {/*    placement={ 'top-end' }*/}
-                                        {/*>*/}
-                                        {/*    */}
-                                        {/*</Tooltip>*/}
                                     </Link>
                                 </ListboxItem>
                             );
