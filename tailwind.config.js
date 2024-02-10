@@ -1,7 +1,10 @@
 import { nextui } from '@nextui-org/react'
 import typography from '@tailwindcss/typography';
+import TailwindHighlight from 'tailwind-highlightjs';
 
-module.exports = {
+
+
+export default {
     content: [
         "./src/**/*.{js,ts,jsx,tsx,mdx}",
         "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
@@ -11,13 +14,6 @@ module.exports = {
             theme: 'github-dark',
         },
         extend: {
-            typography: {
-                DEFAULT: {
-                    css: {
-                        // maxWidth: '100%'
-                    }
-                }
-            },
             // #d3e4fc
             colors: {
                 '#CCCCCC': '#CCCCCC',
@@ -50,9 +46,25 @@ module.exports = {
     },
     darkMode: "class",
     plugins: [
-        nextui(),
+        nextui({
+            prefix: "nextUI",
+            addCommonColors: false,
+            defaultTheme: "light", // default theme from the themes object
+            defaultExtendTheme: "light", // default theme to extend on custom themes
+            layout: {},
+            themes: {
+                light: {
+                    layout: {},
+                    colors: {},
+                },
+                dark: {
+                    layout: {},
+                    colors: {},
+                },
+            },
+        }),
         typography(),
-        require('tailwind-highlightjs'),
+        TailwindHighlight,
     ],
     safelist: [
         {
