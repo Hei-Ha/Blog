@@ -14,7 +14,6 @@ export default {
             theme: 'github-dark',
         },
         extend: {
-            // #d3e4fc
             colors: {
                 '#CCCCCC': '#CCCCCC',
                 '#FFFFFF': '#FFFFFF',
@@ -46,23 +45,7 @@ export default {
     },
     darkMode: "class",
     plugins: [
-        nextui({
-            prefix: "nextUI",
-            addCommonColors: false,
-            defaultTheme: "light", // default theme from the themes object
-            defaultExtendTheme: "light", // default theme to extend on custom themes
-            layout: {},
-            themes: {
-                light: {
-                    layout: {},
-                    colors: {},
-                },
-                dark: {
-                    layout: {},
-                    colors: {},
-                },
-            },
-        }),
+        nextui(),
         typography(),
         TailwindHighlight,
     ],
