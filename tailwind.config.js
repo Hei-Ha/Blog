@@ -1,6 +1,8 @@
 import { nextui } from '@nextui-org/react'
 import typography from '@tailwindcss/typography';
 import TailwindHighlight from 'tailwind-highlightjs';
+// import darkStyle from './src/style/theme/dark.scss'
+// import lightStyle from './src/style/theme/light.scss'
 
 
 
@@ -45,7 +47,31 @@ export default {
     },
     darkMode: "class",
     plugins: [
-        nextui(),
+        nextui({
+            // addCommonColors: true,
+            themes: {
+                dark: {
+                    colors: {
+                        background: '#242424',
+                        foreground: '#9c9c9c',
+                        primary: {
+                            foreground: "#FFFFFF",
+                            DEFAULT: "#006FEE",
+                        }
+                    }
+                },
+                light: {
+                    colors: {
+                        background: '#fff',
+                        foreground: '#666',
+                        primary: {
+                            foreground: "#fff",
+                            DEFAULT: "#0052d9",
+                        }
+                    }
+                }
+            }
+        }),
         typography(),
         TailwindHighlight,
     ],

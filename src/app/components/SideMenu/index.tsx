@@ -44,11 +44,8 @@ export default ( { listData }: { listData: SideMenuListType[] } ) => {
                         { i.folderContent.map( item => {
                             return (
                                 <ListboxItem
-                                    className={ `p-0 my-0.5 rounded-sm ${
-                                        selectKey === item
-                                            ? "bg-#d3e5fc text-#2263ef"
-                                            : ""
-                                    }` }
+                                    className={ `p-0 my-0.5 rounded-sm ` }
+                                    // ${ selectKey === item ? "bg-#d3e5fc text-#2263ef" : "" }
                                     key={ item }
                                     value={ item }
                                     aria-label={ item }
