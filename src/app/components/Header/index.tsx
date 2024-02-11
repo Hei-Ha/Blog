@@ -19,7 +19,7 @@ export default () => {
     const switchTheme = useStore( state => state.actions.switchTheme )
     
     return (
-        <Navbar maxWidth="full" className="px-10 h-64px box-border border-b border-solid border-#e7e7e7">
+        <Navbar maxWidth="full" className="px-10 h-[64px] box-border border-b border-solid border-#e7e7e7">
             <NavbarBrand>
                 <Link href={ '/' }>
                     <User
