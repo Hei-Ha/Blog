@@ -10,7 +10,7 @@ export default async ( { params, children } ) => {
     
     return <>
         <div className="flex">
-            <div className="w-280px sideMenuScroll overflow-auto sticky top-16 z-30 h-[calc(100vh-64px)] border-r border-solid border-#e7e7e7">
+            <div className="sm:hidden w-280px sideMenuScroll overflow-auto sticky top-16 z-30 h-[calc(100vh-64px)] border-r border-solid border-#e7e7e7">
                 <SideMenu listData={menuData} />
             </div>
             <section className="overflow-auto flex-1 flex justify-center">
