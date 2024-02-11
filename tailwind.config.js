@@ -1,7 +1,8 @@
 import { nextui } from '@nextui-org/react'
-import typography from '@tailwindcss/typography';
+import Typography from '@tailwindcss/typography';
+import TailwindHighlight from 'tailwind-highlightjs';
 
-module.exports = {
+export default {
     content: [
         "./src/**/*.{js,ts,jsx,tsx,mdx}",
         "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
@@ -11,14 +12,15 @@ module.exports = {
             theme: 'github-dark',
         },
         extend: {
-            typography: {
+            typography: ( { theme } ) => ( {
                 DEFAULT: {
                     css: {
-                        // maxWidth: '100%'
+                        'invert-color': 'rgba(255, 255, 255, 0.9)',
+                        '--tw-prose-invert-headings': '#eaeaea',
+                        '--tw-prose-invert-bold': '#e8e8e8',
                     }
                 }
-            },
-            // #d3e4fc
+            } ),
             colors: {
                 '#CCCCCC': '#CCCCCC',
                 '#FFFFFF': '#FFFFFF',
@@ -50,9 +52,33 @@ module.exports = {
     },
     darkMode: "class",
     plugins: [
-        nextui(),
-        typography(),
-        require('tailwind-highlightjs'),
+        nextui( {
+            themes: {
+                light: {
+                    colors: {
+                        background: '#fff',
+                        foreground: '#000',
+                        primary: {
+                            foreground: "#fff",
+                            DEFAULT: "#0052d9",
+                        }
+                    }
+                },
+                dark: {
+                    colors: {
+                        background: '#242424',
+                        foreground: '#9c9c9c',
+                        primary: {
+                            foreground: "#fff",
+                            DEFAULT: "#006FEE",
+                        }
+                    }
+                },
+            }
+        } ),
+        Typography(),
+        TailwindHighlight,
+    
     ],
     safelist: [
         {

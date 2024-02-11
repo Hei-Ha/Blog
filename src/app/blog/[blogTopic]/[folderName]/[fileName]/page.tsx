@@ -17,7 +17,7 @@ export default async ({params}) => {
         });
 
     return (
-        <article className="prose w-1200px my-10">
+        <article className="prose dark:prose-invert w-1200px my-10">
             <RenderMDX sourceData={fileContent.content || ''}/>
         </article>
     );

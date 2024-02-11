@@ -1,0 +1,167 @@
+:root[theme-mode="dark"] {
+    --blog-brand-color-1: #1b2f51;
+    --blog-brand-color-2: #173463;
+    --blog-brand-color-3: #143975;
+    --blog-brand-color-4: #103d88;
+    --blog-brand-color-5: #0d429a;
+    --blog-brand-color-6: #054bbe;
+    --blog-brand-color-7: #2667d4;
+    --blog-brand-color-8: #4582e6;
+    --blog-brand-color-9: #699ef5;
+    --blog-brand-color-10: #96bbf8;
+    --blog-warning-color-1: #4f2a1d;
+    --blog-warning-color-2: #582f21;
+    --blog-warning-color-3: #733c23;
+    --blog-warning-color-4: #a75d2b;
+    --blog-warning-color-5: #cf6e2d;
+    --blog-warning-color-6: #dc7633;
+    --blog-warning-color-7: #e8935c;
+    --blog-warning-color-8: #ecbf91;
+    --blog-warning-color-9: #eed7bf;
+    --blog-warning-color-10: #f3e9dc;
+    --blog-error-color-1: #472324;
+    --blog-error-color-2: #5e2a2d;
+    --blog-error-color-3: #703439;
+    --blog-error-color-4: #83383e;
+    --blog-error-color-5: #a03f46;
+    --blog-error-color-6: #c64751;
+    --blog-error-color-7: #de6670;
+    --blog-error-color-8: #ec888e;
+    --blog-error-color-9: #edb1b6;
+    --blog-error-color-10: #eeced0;
+    --blog-success-color-1: #193a2a;
+    --blog-success-color-2: #1a4230;
+    --blog-success-color-3: #17533d;
+    --blog-success-color-4: #0d7a55;
+    --blog-success-color-5: #059465;
+    --blog-success-color-6: #43af8a;
+    --blog-success-color-7: #46bf96;
+    --blog-success-color-8: #80d2b6;
+    --blog-success-color-9: #b4e1d3;
+    --blog-success-color-10: #deede8;
+    --blog-gray-color-1: #f3f3f3;
+    --blog-gray-color-2: #eee;
+    --blog-gray-color-3: #e8e8e8;
+    --blog-gray-color-4: #ddd;
+    --blog-gray-color-5: #c6c6c6;
+    --blog-gray-color-6: #a6a6a6;
+    --blog-gray-color-7: #8b8b8b;
+    --blog-gray-color-8: #777;
+    --blog-gray-color-9: #5e5e5e;
+    --blog-gray-color-10: #4b4b4b;
+    --blog-gray-color-11: #393939;
+    --blog-gray-color-12: #2c2c2c;
+    --blog-gray-color-13: #242424;
+    --blog-gray-color-14: #181818;
+
+    // 文字 & 图标 颜色
+    --blog-font-white-1: rgba(255, 255, 255, 90%);
+    --blog-font-white-2: rgba(255, 255, 255, 55%);
+    --blog-font-white-3: rgba(255, 255, 255, 35%);
+    --blog-font-white-4: rgba(255, 255, 255, 22%);
+    --blog-font-gray-1: rgba(0, 0, 0, 90%);
+    --blog-font-gray-2: rgba(0, 0, 0, 60%);
+    --blog-font-gray-3: rgba(0, 0, 0, 40%);
+    --blog-font-gray-4: rgba(0, 0, 0, 26%);
+
+    // 基础颜色
+    --blog-brand-color: var(--blog-brand-color-8);     // 色彩-品牌-可操作
+    --blog-warning-color: var(--blog-warning-color-5); // 色彩-功能-警告
+    --blog-error-color: var(--blog-error-color-6);     // 色彩-功能-失败
+    --blog-success-color: var(--blog-success-color-5); // 色彩-功能-成功
+
+    // 基础颜色的扩展 用于 hover / 聚焦 / 禁用 / 点击 等状态
+    --blog-brand-color-hover: var(--blog-brand-color-7);     // hover态
+    --blog-brand-color-focus: var(--blog-brand-color-2);     // focus态，包括鼠标和键盘
+    --blog-brand-color-active: var(--blog-brand-color-9);    // 点击态
+    --blog-brand-color-disabled: var(--blog-brand-color-3);  // 禁用态
+    --blog-brand-color-light: var(--blog-brand-color-1);     // 浅色的选中态
+    --blog-brand-color-light-hover: var(--blog-brand-color-2);
+
+    // 警告色扩展
+    --blog-warning-color-hover: var(--blog-warning-color-4);
+    --blog-warning-color-focus: var(--blog-warning-color-2);
+    --blog-warning-color-active: var(--blog-warning-color-6);
+    --blog-warning-color-disabled: var(--blog-warning-color-3);
+    --blog-warning-color-light: var(--blog-warning-color-1);
+    --blog-warning-color-light-hover: var(--blog-warning-color-2);
+
+    // 失败/错误色扩展
+    --blog-error-color-hover: var(--blog-error-color-5);
+    --blog-error-color-focus: var(--blog-error-color-2);
+    --blog-error-color-active: var(--blog-error-color-7);
+    --blog-error-color-disabled: var(--blog-error-color-3);
+    --blog-error-color-light: var(--blog-error-color-1);
+    --blog-error-color-light-hover: var(--blog-error-color-2);
+
+    // 成功色扩展
+    --blog-success-color-hover: var(--blog-success-color-4);
+    --blog-success-color-focus: var(--blog-success-color-2);
+    --blog-success-color-active: var(--blog-success-color-6);
+    --blog-success-color-disabled: var(--blog-success-color-3);
+    --blog-success-color-light: var(--blog-success-color-1);
+    --blog-success-color-light-hover: var(--blog-success-color-2);
+
+    // 遮罩
+    --blog-mask-active: rgba(0, 0, 0, 40%); // 遮罩-弹出
+    --blog-mask-disabled: rgba(0, 0, 0, 60%); // 遮罩-禁用
+
+    // 背景色
+    --blog-bg-color-page: var(--blog-gray-color-14);                        // 色彩 - page
+    --blog-bg-color-container: var(--blog-gray-color-13);                   // 色彩 - 容器
+    --blog-bg-color-container-hover: var(--blog-gray-color-12);             // 色彩 - 容器 - hover
+    --blog-bg-color-container-active: var(--blog-gray-color-10);            // 色彩 - 容器 - active
+    --blog-bg-color-container-select: var(--blog-gray-color-9);             // 色彩 - 容器 - select
+    --blog-bg-color-secondarycontainer: var(--blog-gray-color-12);          // 色彩 - 次级容器
+    --blog-bg-color-secondarycontainer-hover: var(--blog-gray-color-11);    // 色彩 - 次级容器 - hover
+    --blog-bg-color-secondarycontainer-active: var(--blog-gray-color-9);   // 色彩 - 次级容器 - active
+    --blog-bg-color-component: var(--blog-gray-color-11);                   // 色彩  - 组件
+    --blog-bg-color-component-hover: var(--blog-gray-color-10);             // 色彩 - 组件 - hover
+    --blog-bg-color-component-active: var(--blog-gray-color-9);             // 色彩 - 组件 - active
+    --blog-bg-color-secondarycomponent: var(--blog-gray-color-10);          // 色彩 - 次级组件
+    --blog-bg-color-secondarycomponent-hover: var(--blog-gray-color-9);    // 色彩 - 次级组件 - hover
+    --blog-bg-color-secondarycomponent-active: var(--blog-gray-color-8);   // 色彩 - 次级组件 - active
+    --blog-bg-color-component-disabled: var(--blog-gray-color-12);          // 色彩 - 组件 - disabled
+
+    // 特殊组件背景色，目前只用于 button、input 组件多主题场景，浅色主题下固定为白色，深色主题下为 transparent 适配背景颜色
+    --blog-bg-color-specialcomponent: transparent;
+
+    // 文本颜色
+    --blog-text-color-primary: var(--blog-font-white-1);      // 色彩-文字-主要
+    --blog-text-color-secondary: var(--blog-font-white-2);    // 色彩-文字-次要
+    --blog-text-color-placeholder: var(--blog-font-white-3);  // 色彩-文字-占位符/说明
+    --blog-text-color-disabled: var(--blog-font-white-4);    // 色彩-文字-禁用
+    --blog-text-color-anti: #fff;                      // 色彩-文字-反色
+    --blog-text-color-brand: var(--blog-brand-color-8);           // 色彩-文字-品牌
+    --blog-text-color-link: var(--blog-brand-color-8);            // 色彩-文字-链接
+
+    // 分割线
+    --blog-border-level-1-color: var(--blog-gray-color-11);
+    --blog-component-stroke: var(--blog-gray-color-11);
+    // 边框
+    --blog-border-level-2-color: var(--blog-gray-color-9);
+    --blog-component-border: var(--blog-gray-color-9);
+
+    // 基础/下层 投影 hover 使用的组件包括：表格 /
+    --blog-shadow-1: 0 4px 6px rgba(0, 0, 0, 6%), 0 1px 10px rgba(0, 0, 0, 8%), 0 2px 4px rgba(0, 0, 0, 12%);
+    // 中层投影 下拉 使用的组件包括：下拉菜单 / 气泡确认框 / 选择器 /
+    --blog-shadow-2: 0 8px 10px rgba(0, 0, 0, 12%), 0 3px 14px rgba(0, 0, 0, 10%), 0 5px 5px rgba(0, 0, 0, 16%);
+    // 上层投影（警示/弹窗）使用的组件包括：全局提示 / 消息通知
+    --blog-shadow-3: 0 16px 24px rgba(0, 0, 0, 14%), 0 6px 30px rgba(0, 0, 0, 12%), 0 8px 10px rgba(0, 0, 0, 20%);
+    // 内投影 用于弹窗类组件（气泡确认框 / 全局提示 / 消息通知）的内描边
+
+    --blog-shadow-inset-top: inset 0 .5px 0 #5e5e5e;
+    --blog-shadow-inset-right: inset .5px 0 0 #5e5e5e;
+    --blog-shadow-inset-bottom: inset 0 -.5px 0 #5e5e5e;
+    --blog-shadow-inset-left: inset -.5px 0 0 #5e5e5e;
+
+    // table 特定阴影
+    --blog-table-shadow-color: rgba(0, 0, 0, 55%);
+
+    // 滚动条颜色
+    --blog-scrollbar-color: rgba(255, 255, 255, 10%);
+    // 滚动条悬浮颜色（ hover ）
+    --blog-scrollbar-hover-color: rgba(255, 255, 255, 30%);
+    // 滚动条轨道颜色，不能是带透明度，否则纵向滚动时，横向滚动条会穿透
+    --blog-scroll-track-color: #333;
+}

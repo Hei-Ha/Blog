@@ -1,6 +1,6 @@
 "use client";
 import { SideMenuListType } from "@src/types/SideMenu";
-import { Tooltip, Listbox, ListboxSection, ListboxItem } from '@nextui-org/react'
+import { Tooltip, Button, Listbox, ListboxSection, ListboxItem } from '@nextui-org/react'
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -44,11 +44,8 @@ export default ( { listData }: { listData: SideMenuListType[] } ) => {
                         { i.folderContent.map( item => {
                             return (
                                 <ListboxItem
-                                    className={ `p-0 my-0.5 rounded-sm ${
-                                        selectKey === item
-                                            ? "bg-#d3e5fc text-#2263ef"
-                                            : ""
-                                    }` }
+                                    className={ `p-0 my-0.5 rounded-sm ` }
+                                    // ${ selectKey === item ? "bg-#d3e5fc text-#2263ef" : "" }
                                     key={ item }
                                     value={ item }
                                     aria-label={ item }
