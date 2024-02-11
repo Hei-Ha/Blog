@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./theme/light.scss";
+@import "./theme/dark.scss";
+
 html {
     padding: 0;
     margin: 0;

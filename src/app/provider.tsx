@@ -9,8 +9,7 @@ export default ({ children }: { children: React.ReactNode }) => {
 
     return <NextUIProvider>
         <main
-            style={{  background: 'var(--td-warning-color-5)' }}
-            // className={`${theme} text-foreground bg-background`}
+            className={`${theme} text-foreground bg-background`}
         >
             {children}
         </main>
