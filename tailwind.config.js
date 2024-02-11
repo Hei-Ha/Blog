@@ -1,5 +1,5 @@
 import { nextui } from '@nextui-org/react'
-import typography from '@tailwindcss/typography';
+import Typography from '@tailwindcss/typography';
 import TailwindHighlight from 'tailwind-highlightjs';
 
 export default {
@@ -12,6 +12,15 @@ export default {
             theme: 'github-dark',
         },
         extend: {
+            typography: ( { theme } ) => ( {
+                DEFAULT: {
+                    css: {
+                        'invert-color': 'rgba(255, 255, 255, 0.9)',
+                        '--tw-prose-invert-headings': '#eaeaea',
+                        '--tw-prose-invert-bold': '#e8e8e8',
+                    }
+                }
+            } ),
             colors: {
                 '#CCCCCC': '#CCCCCC',
                 '#FFFFFF': '#FFFFFF',
@@ -43,7 +52,7 @@ export default {
     },
     darkMode: "class",
     plugins: [
-        nextui({
+        nextui( {
             themes: {
                 light: {
                     colors: {
@@ -66,9 +75,10 @@ export default {
                     }
                 },
             }
-        }),
-        typography(),
+        } ),
+        Typography(),
         TailwindHighlight,
+    
     ],
     safelist: [
         {
