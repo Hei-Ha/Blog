@@ -10,20 +10,20 @@ html {
     margin: 0;
 }
 
-.sideMenuScroll {
-    ::-webkit-scrollbar {
-        width: 12px;
-        height: 0;
-        background: transparent;
-    }
-    ::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        border-radius: 6px;
-        border: 4px solid transparent;
-        background-clip: content-box;
-        background-color: rgba(0, 0, 0, 0.14);
-    }
+.sideMenuScroll::-webkit-scrollbar {
+    width: 12px;
+    height: 0;
+    background: transparent;
 }
+.sideMenuScroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.sideMenuScroll::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+    background-color: rgba(0, 0, 0, 0.14);
+}
+
