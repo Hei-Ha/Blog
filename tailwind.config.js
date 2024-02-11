@@ -11,6 +11,19 @@ export default {
         hljs: {
             theme: 'github-dark',
         },
+        screens: {
+            'sm': { 'max': '767px' },
+            // => @media (min-width: 640px and max-width: 767px) { ... }
+            
+            'md': { 'min': '768px', 'max': '1279px' },
+            // => @media (min-width: 768px and max-width: 1023px) { ... }
+            
+            'lg': { 'min': '1280px' },
+            // => @media (min-width: 1024px and max-width: 1279px) { ... }
+            
+            // => @media (min-width: 1280px and max-width: 1535px) { ... }
+            
+        },
         extend: {
             typography: ( { theme } ) => ( {
                 DEFAULT: {
@@ -31,6 +44,7 @@ export default {
                 '#d3e5fc': '#d3e5fc',
                 '#2263ef': '#2263ef',
                 '#70717a': '#70717a',
+                '#e7e7e7': '#e7e7e7',
             },
             height: {
                 '50px': '50px',
@@ -40,6 +54,9 @@ export default {
                 '300px': '300px',
                 '200px': '200px',
                 '1500px': '1500px',
+            },
+            minWidth: {
+                '375px': '375px',
             },
             width: {
                 '280px': '280px',

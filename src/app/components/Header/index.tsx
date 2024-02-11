@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
     Navbar,
     NavbarBrand,
@@ -7,6 +7,10 @@ import {
     NavbarItem,
     User,
     Switch,
+    NavbarMenu,
+    NavbarMenuItem,
+    NavbarMenuToggle,
+    Button,
 } from "@nextui-org/react";
 import Link from 'next/link';
 import { MenuItemList } from "../constants"
@@ -18,20 +22,24 @@ import { useStore } from '@src/store'
 export default () => {
     const switchTheme = useStore( state => state.actions.switchTheme )
     
-    return (
-        <Navbar maxWidth="full" className="px-10 h-[64px] box-border border-b border-solid border-#e7e7e7">
-            <NavbarBrand>
-                <Link href={ '/' }>
-                    <User
-                        className="font-bold"
-                        name="Wang"
-                        description="Front-end Development Engineer"
-                        avatarProps={ {
-                            src: "https://static.wangchuang.space/Images/Blogs/Avatar.JPG",
-                        } }
-                    />
-                </Link>
-            </NavbarBrand>
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>( false );
+    
+    return <>
+        <Navbar maxWidth="full" isBordered className="sm:hidden h-[64px] box-border px-10">
+            <NavbarContent>
+                <NavbarBrand>
+                    <Link href={ '/' }>
+                        <User
+                            className="font-bold"
+                            name="Wang"
+                            description="Front-end Development Engineer"
+                            avatarProps={ {
+                                src: "https://static.wangchuang.space/Images/Blogs/Avatar.JPG",
+                            } }
+                        />
+                    </Link>
+                </NavbarBrand>
+            </NavbarContent>
             
             <NavbarContent justify='end'>
                 { MenuItemList.map( ( item ) => {
@@ -58,5 +66,59 @@ export default () => {
                 />
             </NavbarContent>
         </Navbar>
-    )
+        <Navbar
+            maxWidth="full"
+            className='md:hidden lg:hidden'
+            isMenuOpen={isMenuOpen}
+        >
+            <NavbarContent>
+                <NavbarBrand>
+                    <Link href={ '/' }>
+                        <User
+                            name="Wang"
+                            description="Front-end Development Engineer"
+                            avatarProps={ {
+                                src: "https://static.wangchuang.space/Images/Blogs/Avatar.JPG",
+                            } }
+                        />
+                    </Link>
+                </NavbarBrand>
+                <NavbarMenuToggle
+                    aria-label={ isMenuOpen ? "Close menu" : "Open menu" }
+                    onChange={(isSelected) => {
+                        setIsMenuOpen(isSelected)
+                    }}
+                />
+            </NavbarContent>
+            
+            <NavbarMenu onClick={() => setIsMenuOpen(false)}>
+                <NavbarMenuItem className={ 'flex flex-row-reverse' }>
+                    <Switch
+                        size="sm"
+                        color="default"
+                        className='rounded-md'
+                        onValueChange={ ( isSelected ) => switchTheme( isSelected ? 'dark' : 'light' ) }
+                        thumbIcon={ ( { isSelected, className } ) => (
+                            isSelected ? (
+                                <MoonIcon className={ className } />
+                            ) : (
+                                <SunIcon className={ className } />
+                            )
+                        )
+                        }
+                    />
+                </NavbarMenuItem>
+                
+                { MenuItemList.map( item => {
+                    return <NavbarMenuItem key={ item.path }>
+                        <Link href={ item.path }>
+                            <div className={ 'text-base' }>
+                                { item.title }
+                            </div>
+                        </Link>
+                    </NavbarMenuItem>
+                } ) }
+            </NavbarMenu>
+        </Navbar>
+    </>
 };
