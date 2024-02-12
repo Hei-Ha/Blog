@@ -1,8 +1,6 @@
 import { getAPIUrl } from "@src/utils/utils";
 import { SideMenuListType } from "@src/types/SideMenu/index";
 
-
-
 export const getMenuData = async (blogTopic: string) => {
 
     const blogTopicFolder = await fetch(

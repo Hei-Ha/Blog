@@ -47,7 +47,7 @@ export default {
                 '#e7e7e7': '#e7e7e7',
             },
             height: {
-                '50px': '50px',
+                '32px': '32px',
                 '48px': '48px',
                 '64px': '64px',
                 '500px': '500px',
