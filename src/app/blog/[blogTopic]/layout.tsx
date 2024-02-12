@@ -13,9 +13,9 @@ export default async ( { params, children } ) => {
             <div className="sm:hidden w-280px sideMenuScroll overflow-auto sticky top-16 z-30 h-[calc(100vh-64px)] border-r border-solid border-#e7e7e7">
                 <SideMenu listData={menuData} />
             </div>
-            <section className={'flex flex-col flex-1'}>
-                <TopicList listData={menuData} className={'py-3 text-sm md:hidden lg:hidden'} />
-                <div className="overflow-auto flex-1 flex justify-center">
+            <section className={'flex flex-col flex-1 items-center'}>
+                <TopicList listData={menuData} className={'w-full py-3 text-sm md:hidden lg:hidden'} />
+                <div className="sm:w-[100vw]">
                     {children}
                 </div>
             </section>
