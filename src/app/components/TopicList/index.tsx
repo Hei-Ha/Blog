@@ -16,24 +16,6 @@ import Link from 'next/link';
 export default ( { listData, className }: { listData: SideMenuListType[], className?: string, } ) => {
     const [isOpen, setIsOpen] = useState( false );
     
-    const items = [
-        {
-            key: "new",
-            label: "New file",
-        },
-        {
-            key: "copy",
-            label: "Copy link",
-        },
-        {
-            key: "edit",
-            label: "Edit file",
-        },
-        {
-            key: "delete",
-            label: "Delete file",
-        }
-    ];
     const ContentAccordion = () => {
         return <Accordion
             selectionMode={ 'single' }
@@ -55,9 +37,9 @@ export default ( { listData, className }: { listData: SideMenuListType[], classN
                                     shouldHighlightOnFocus={ true }
                                 >
                                     <Link
-                                        onClick={() => setIsOpen(false)}
+                                        onClick={ () => setIsOpen( false ) }
                                         className={ 'block px-3 py-1.5' }
-                                        href={ `/blog/${item.blogTopic}/${i}` }
+                                        href={ `/blog/${ item.blogTopic }/${ i }` }
                                     >
                                         { i.split( '.' )[0] }
                                     </Link>
@@ -70,12 +52,14 @@ export default ( { listData, className }: { listData: SideMenuListType[], classN
         </Accordion>
     }
     
-    const ModalList = () => {
-        return <Modal
+    return <div className={ `${ className } flex flex-row-reverse px-3 box-border border-y border-solid border-#4b4b4b` }>
+        <div onClick={ () => setIsOpen( true ) }>Menu</div>
+        <Modal
             radius={ 'sm' }
             isOpen={ isOpen }
             placement={ 'top' }
             onOpenChange={ setIsOpen }
+            onClose={ () => setIsOpen }
         >
             <ModalContent>
                 <ModalBody className={ 'py-8' }>
@@ -83,11 +67,5 @@ export default ( { listData, className }: { listData: SideMenuListType[], classN
                 </ModalBody>
             </ModalContent>
         </Modal>
-    }
-    return <div className={ `${ className } flex flex-row-reverse bg-pink px-3` }>
-        <Button size={ 'sm' } color={ 'primary' } onPress={ () => {
-            setIsOpen( true )
-        } }>click</Button>
-        <ModalList />
     </div>
 }

@@ -20,7 +20,18 @@ import { useStore } from '@src/store'
 
 export default () => {
     const switchTheme = useStore( state => state.actions.switchTheme )
+    const theme = useStore(state => state.theme)
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>( false );
+    
+    
+    useEffect(() => {
+        if ( localStorage.getItem('localTheme') ) {
+            switchTheme(localStorage.getItem('localTheme'))
+        } else if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+            switchTheme('dark');
+            localStorage.setItem('localTheme', 'dark')
+        }
+    }, [])
     
     return <>
         <Navbar maxWidth="full" isBordered className="sm:hidden h-[64px] box-border px-10">
@@ -51,6 +62,7 @@ export default () => {
                     size="sm"
                     color="default"
                     className='rounded-md'
+                    isSelected={ theme === 'dark' }
                     onValueChange={ ( isSelected ) => switchTheme( isSelected ? 'dark' : 'light' ) }
                     thumbIcon={ ( { isSelected, className } ) => (
                         isSelected ? (
@@ -60,7 +72,6 @@ export default () => {
                         )
                     )
                     }
-                
                 />
             </NavbarContent>
         </Navbar>
@@ -90,23 +101,6 @@ export default () => {
             </NavbarContent>
             
             <NavbarMenu onClick={() => setIsMenuOpen(false)}>
-                <NavbarMenuItem className={ 'flex flex-row-reverse' }>
-                    <Switch
-                        size="sm"
-                        color="default"
-                        className='rounded-md'
-                        onValueChange={ ( isSelected ) => switchTheme( isSelected ? 'dark' : 'light' ) }
-                        thumbIcon={ ( { isSelected, className } ) => (
-                            isSelected ? (
-                                <MoonIcon className={ className } />
-                            ) : (
-                                <SunIcon className={ className } />
-                            )
-                        )
-                        }
-                    />
-                </NavbarMenuItem>
-                
                 { MenuItemList.map( item => {
                     return <NavbarMenuItem key={ item.path }>
                         <Link href={ item.path }>
@@ -116,6 +110,26 @@ export default () => {
                         </Link>
                     </NavbarMenuItem>
                 } ) }
+                
+                <NavbarMenuItem className={ 'flex flex-row-reverse justify-center' }>
+                    <Switch
+                        size="sm"
+                        color="default"
+                        className='rounded-md'
+                        isSelected={theme === 'dark'}
+                        onValueChange={ ( isSelected ) => switchTheme( isSelected ? 'dark' : 'light' ) }
+                        thumbIcon={ ( { isSelected, className } ) => (
+                            isSelected ? (
+                                <MoonIcon className={ className } />
+                            ) : (
+                                <SunIcon className={ className } />
+                            )
+                        )
+                        }
+                    >主题</Switch>
+                </NavbarMenuItem>
+                
+                
             </NavbarMenu>
         </Navbar>
     </>
