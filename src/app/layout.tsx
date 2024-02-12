@@ -5,7 +5,7 @@ import Header from "@src/app/components/Header";
 
 export default async ({ children }: { children: React.ReactNode }) => {
     return (
-        <html className="h-full w-full min-w-375px">
+        <html className="min-w-375px">
             <body>
                 <Provider>
                     <Header />

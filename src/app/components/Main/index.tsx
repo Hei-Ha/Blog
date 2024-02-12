@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export default () => {
     return (
-        <section className={'flex flex-col grow h-[calc(100vh-64px)]'}>
+        <section className={'flex flex-col flex-1 min-h-[calc(100vh-64px)]'}>
             <h2 className="md:h-400px lg:h-500px flex shrink-0 justify-center items-center text-#3c3c43 text-5xl font-bold sm:h-200px sm:text-3xl">
                 东隅已逝，桑榆非晚
             </h2>

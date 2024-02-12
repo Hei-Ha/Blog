@@ -8,9 +8,7 @@ export default ({ children }: { children: React.ReactNode }) => {
     const theme = useStore((state) => state.theme)
 
     return <NextUIProvider>
-        <main
-            className={`${theme} text-foreground bg-background`}
-        >
+        <main className={`${theme} text-foreground bg-background`}>
             {children}
         </main>
     </NextUIProvider>;
