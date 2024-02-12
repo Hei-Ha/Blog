@@ -1,5 +1,5 @@
-"use client"
-import React from "react";
+'use client'
+import React, { useState, useEffect } from "react";
 import {
     Navbar,
     NavbarBrand,
@@ -7,31 +7,48 @@ import {
     NavbarItem,
     User,
     Switch,
+    NavbarMenu,
+    NavbarMenuItem,
+    NavbarMenuToggle,
 } from "@nextui-org/react";
 import Link from 'next/link';
 import { MenuItemList } from "../constants"
-import SunIcon from './SunIcon'
-import MoonIcon from './MoonIcon'
+import SunIcon from './components/SunIcon'
+import MoonIcon from './components/MoonIcon'
 import { useStore } from '@src/store'
 
 
 export default () => {
     const switchTheme = useStore( state => state.actions.switchTheme )
+    const theme = useStore(state => state.theme)
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>( false );
     
-    return (
-        <Navbar maxWidth="full" className="px-10 h-[64px] box-border border-b border-solid border-#e7e7e7">
-            <NavbarBrand>
-                <Link href={ '/' }>
-                    <User
-                        className="font-bold"
-                        name="Wang"
-                        description="Front-end Development Engineer"
-                        avatarProps={ {
-                            src: "https://static.wangchuang.space/Images/Blogs/Avatar.JPG",
-                        } }
-                    />
-                </Link>
-            </NavbarBrand>
+    
+    useEffect(() => {
+        if ( localStorage.getItem('localTheme') ) {
+            switchTheme(localStorage.getItem('localTheme'))
+        } else if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+            switchTheme('dark');
+            localStorage.setItem('localTheme', 'dark')
+        }
+    }, [])
+    
+    return <>
+        <Navbar maxWidth="full" isBordered className="sm:hidden h-[64px] box-border px-10">
+            <NavbarContent>
+                <NavbarBrand>
+                    <Link href={ '/' }>
+                        <User
+                            className="font-bold"
+                            name="Wang"
+                            description="Front-end Development Engineer"
+                            avatarProps={ {
+                                src: "https://static.wangchuang.space/Images/Blogs/Avatar.JPG",
+                            } }
+                        />
+                    </Link>
+                </NavbarBrand>
+            </NavbarContent>
             
             <NavbarContent justify='end'>
                 { MenuItemList.map( ( item ) => {
@@ -45,6 +62,7 @@ export default () => {
                     size="sm"
                     color="default"
                     className='rounded-md'
+                    isSelected={ theme === 'dark' }
                     onValueChange={ ( isSelected ) => switchTheme( isSelected ? 'dark' : 'light' ) }
                     thumbIcon={ ( { isSelected, className } ) => (
                         isSelected ? (
@@ -54,9 +72,63 @@ export default () => {
                         )
                     )
                     }
-                
                 />
             </NavbarContent>
         </Navbar>
-    )
-};
+        <Navbar
+            maxWidth="full"
+            className='md:hidden lg:hidden'
+            isMenuOpen={isMenuOpen}
+        >
+            <NavbarContent>
+                <NavbarBrand>
+                    <Link href={ '/' }>
+                        <User
+                            name="Wang"
+                            description="Front-end Development Engineer"
+                            avatarProps={ {
+                                src: "https://static.wangchuang.space/Images/Blogs/Avatar.JPG",
+                            } }
+                        />
+                    </Link>
+                </NavbarBrand>
+                <NavbarMenuToggle
+                    aria-label={ isMenuOpen ? "Close menu" : "Open menu" }
+                    onChange={(isSelected) => {
+                        setIsMenuOpen(isSelected)
+                    }}
+                />
+            </NavbarContent>
+            
+            <NavbarMenu onClick={() => setIsMenuOpen(false)}>
+                { MenuItemList.map( item => {
+                    return <NavbarMenuItem key={ item.path }>
+                        <Link href={ item.path }>
+                            <div className={ 'text-base' }>
+                                { item.title }
+                            </div>
+                        </Link>
+                    </NavbarMenuItem>
+                } ) }
+                
+                <NavbarMenuItem className={ 'flex flex-row-reverse justify-center' }>
+                    <Switch
+                        size="sm"
+                        color="default"
+                        className='rounded-md'
+                        isSelected={theme === 'dark'}
+                        onValueChange={ ( isSelected ) => switchTheme( isSelected ? 'dark' : 'light' ) }
+                        thumbIcon={ ( { isSelected, className } ) => (
+                            isSelected ? (
+                                <MoonIcon className={ className } />
+                            ) : (
+                                <SunIcon className={ className } />
+                            )
+                        )
+                        }
+                    >主题</Switch>
+                </NavbarMenuItem>
+            </NavbarMenu>
+        </Navbar>
+    </>
+}

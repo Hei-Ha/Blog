@@ -3,12 +3,12 @@ import Provider from "./provider";
 import "@src/style/global.scss";
 import Header from "@src/app/components/Header";
 
-export default ({ children }: { children: React.ReactNode }) => {
+export default async ({ children }: { children: React.ReactNode }) => {
     return (
-        <html className="h-full w-full">
+        <html className="min-w-375px">
             <body>
                 <Provider>
-                    <Header/>
+                    <Header />
                     {children}
                 </Provider>
             </body>
