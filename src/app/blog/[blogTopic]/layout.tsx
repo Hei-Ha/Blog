@@ -15,7 +15,7 @@ export default async ( { params, children } ) => {
             </div>
             <section className={'flex flex-col flex-1 items-center'}>
                 <TopicList listData={menuData} className={'w-full py-3 text-sm md:hidden lg:hidden'} />
-                <div className="sm:w-[100vw] sm:min-h-[calc(100vh-110px)]">
+                <div className="articleContent sm:w-[100vw] sm:min-h-[calc(100vh-110px)]">
                     {children}
                 </div>
             </section>

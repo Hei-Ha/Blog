@@ -5,7 +5,7 @@ import Header from "@src/app/components/Header";
 
 export default async ({ children }: { children: React.ReactNode }) => {
     return (
-        <html className="min-w-375px">
+        <html className="min-w-375px" style={{ background: 'var(--blog-bg-color-page)'}}>
             <body>
                 <Provider>
                     <Header />
