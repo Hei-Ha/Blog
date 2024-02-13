@@ -12,10 +12,7 @@ export default ( { listData }: { listData: SideMenuListType[] } ) => {
         fileName: string;
     }>();
     const urlPath = usePathname();
-    
-    const [selectKey, setSelectKey] = useState<string>(
-        decodeURI( params.fileName )
-    );
+    const [selectKey, setSelectKey] = useState<string>( decodeURI( params.fileName ) );
     
     useEffect( () => {
         setSelectKey( decodeURI( params.fileName ) );
@@ -29,9 +26,6 @@ export default ( { listData }: { listData: SideMenuListType[] } ) => {
             selectionMode="none"
             variant="flat"
             color="primary"
-            // onAction={(key: string) => {
-            //     setSelectKey(key);
-            // }}
         >
             { listData.map( i => {
                 return (
@@ -44,8 +38,7 @@ export default ( { listData }: { listData: SideMenuListType[] } ) => {
                         { i.folderContent.map( item => {
                             return (
                                 <ListboxItem
-                                    className={ `p-0 my-0.5 rounded-sm ` }
-                                    // ${ selectKey === item ? "bg-#d3e5fc text-#2263ef" : "" }
+                                    className={ `p-0 my-0.5 rounded-sm ${ selectKey === item ? "text-#2263ef" : "" }` }
                                     key={ item }
                                     value={ item }
                                     aria-label={ item }
