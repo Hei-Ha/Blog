@@ -55,6 +55,7 @@ export default ( { listData, className }: { listData: SideMenuListType[], classN
     return <div className={ `${ className } flex flex-row-reverse px-3 box-border border-y border-solid border-#4b4b4b` }>
         <div onClick={ () => setIsOpen( true ) }>Menu</div>
         <Modal
+            portalContainer={document.getElementsByClassName('articleContent')[0]}
             radius={ 'sm' }
             isOpen={ isOpen }
             placement={ 'top' }
