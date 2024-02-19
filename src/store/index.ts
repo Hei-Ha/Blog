@@ -1,6 +1,5 @@
 import { create } from 'zustand'
 
-
 interface StoreType {
     theme: 'light' | 'dark';
     actions: {
@@ -10,7 +9,7 @@ interface StoreType {
 
 
 export const useStore = create<StoreType>((set, get) => ({
-    theme: 'dark',
+    theme: 'light',
     actions: {
         switchTheme: (params) => set((state) => {
             localStorage.setItem('localTheme', params)
