@@ -8,12 +8,12 @@ export default () => {
     return (
         <section className={'flex flex-col flex-1 min-h-[100vh] items-center'}>
             <Avatar size='lg' className={'md:hidden lg:hidden w-20 h-20 mx-auto mt-20'} name="Wang" src={'https://static.wangchuang.space/Images/Blogs/Avatar.JPG'} />
-            <h2 className="md:h-400px lg:h-500px flex shrink-0 justify-center items-center text-#3c3c43 text-5xl font-bold sm:h-150px sm:text-3xl">
+            <h2 className="md:h-400px lg:h-500px flex flex-col shrink-0 justify-center items-center text-#3c3c43 text-5xl font-bold sm:h-150px sm:text-3xl">
                 东隅已逝，桑榆非晚
+                <a target='_blank' href={'https://github.com/Hei-Ha'} className='mt-10'>
+                    <GithubIcon />
+                </a>
             </h2>
-            <a target='_blank' href={'https://github.com/Hei-Ha'} className='mb-10'>
-                <GithubIcon />
-            </a>
             <div className="px-20 flex justify-center sm:flex-col sm:px-0">
                 {MainCardList.map( item => {
                     return (
