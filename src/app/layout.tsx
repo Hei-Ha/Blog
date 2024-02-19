@@ -1,7 +1,7 @@
 import React from "react";
 import Provider from "./provider";
 import "@src/style/global.scss";
-// import Header from "@src/app/components/Header";
+import '@icon-park/react/styles/index.css'
 
 export default async ({ children }: { children: React.ReactNode }) => {
     return (
