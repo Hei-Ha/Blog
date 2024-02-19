@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { SideMenuListType } from "@src/types/SideMenu";
 import {
     Accordion,
@@ -15,6 +15,11 @@ import Link from 'next/link';
 
 export default ( { listData, className }: { listData: SideMenuListType[], className?: string, } ) => {
     const [isOpen, setIsOpen] = useState( false );
+    const modalContainer = useRef<Element | null>(null);
+    
+    useEffect(() => {
+        modalContainer.current = document.getElementsByClassName('articleContent')[0]
+    }, [])
     
     const ContentAccordion = () => {
         return <Accordion
@@ -55,7 +60,7 @@ export default ( { listData, className }: { listData: SideMenuListType[], classN
     return <div className={ `${ className } flex flex-row-reverse px-3 box-border border-y border-solid border-#4b4b4b` }>
         <div onClick={ () => setIsOpen( true ) }>Menu</div>
         <Modal
-            portalContainer={document.getElementsByClassName('articleContent')[0]}
+            portalContainer={modalContainer.current}
             radius={ 'sm' }
             isOpen={ isOpen }
             placement={ 'top' }

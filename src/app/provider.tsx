@@ -14,8 +14,7 @@ export default ( { children }: { children: React.ReactNode } ) => {
         } else if ( window.matchMedia( '(prefers-color-scheme: dark)' ).matches ) {
             switchTheme( 'dark' );
         }
-
-    }, [] )
+    }, [])
     
     return <NextUIProvider>
         <main className={ `${ theme } text-foreground bg-background` }>
