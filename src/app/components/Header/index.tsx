@@ -24,15 +24,6 @@ export default () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>( false );
     
     
-    useEffect(() => {
-        if ( localStorage.getItem('localTheme') ) {
-            switchTheme(localStorage.getItem('localTheme'))
-        } else if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
-            switchTheme('dark');
-            localStorage.setItem('localTheme', 'dark')
-        }
-    }, [])
-    
     return <>
         <Navbar maxWidth="full" isBordered className="sm:hidden h-[64px] box-border px-10">
             <NavbarContent>

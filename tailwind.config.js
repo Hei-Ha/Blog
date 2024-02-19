@@ -51,6 +51,7 @@ export default {
                 '400px': '400px',
                 '300px': '300px',
                 '200px': '200px',
+                '150px': '150px',
                 '1500px': '1500px',
             },
             minWidth: {
