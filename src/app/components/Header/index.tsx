@@ -16,6 +16,7 @@ import { MenuItemList } from "../constants"
 import SunIcon from './components/SunIcon'
 import MoonIcon from './components/MoonIcon'
 import { useStore } from '@src/store'
+import { GithubIcon } from "@src/app/components/Icons";
 
 
 export default () => {
@@ -49,6 +50,9 @@ export default () => {
                         </NavbarItem>
                     )
                 } ) }
+                <a target='_blank' href={'https://github.com/Hei-Ha'}>
+                    <GithubIcon size={'21'} />
+                </a>
                 <Switch
                     size="sm"
                     color="default"
