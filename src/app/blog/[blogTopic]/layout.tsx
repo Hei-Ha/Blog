@@ -2,6 +2,7 @@ import React from "react";
 import SideMenu from "@src/app/components/SideMenu";
 import { getMenuData } from './constants'
 import TopicList from '@src/app/components/TopicList'
+import Header from "@src/app/components/Header";
 
 
 export default async ( { params, children } ) => {
@@ -12,6 +13,7 @@ export default async ( { params, children } ) => {
     })
     
     return <>
+        <Header />
         <div className="flex flex-1">
             <div className="sm:hidden w-280px sideMenuScroll overflow-auto sticky top-16 z-30 h-[calc(100vh-64px)] border-r border-solid border-#e7e7e7">
                 <SideMenu listData={menuData} />

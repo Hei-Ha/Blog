@@ -29,7 +29,6 @@ export default () => {
             switchTheme(localStorage.getItem('localTheme'))
         } else if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
             switchTheme('dark');
-            localStorage.setItem('localTheme', 'dark')
         }
     }, [])
     

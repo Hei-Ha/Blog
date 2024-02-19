@@ -10,9 +10,10 @@ interface StoreType {
 
 
 export const useStore = create<StoreType>((set, get) => ({
-    theme: 'light',
+    theme: 'dark',
     actions: {
         switchTheme: (params) => set((state) => {
+            localStorage.setItem('localTheme', params)
             return {
                 theme: params
             }
