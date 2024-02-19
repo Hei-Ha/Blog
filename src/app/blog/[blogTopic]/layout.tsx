@@ -7,6 +7,9 @@ import TopicList from '@src/app/components/TopicList'
 export default async ( { params, children } ) => {
     
     const menuData = await getMenuData( params.blogTopic );
+    menuData.forEach(item => {
+        item.folderContent.sort((a, b) => Number(a.split('-')[0]) - Number(b.split('-')[0]))
+    })
     
     return <>
         <div className="flex flex-1">

@@ -30,6 +30,7 @@ export default () => {
                                         className="object-fit rounded-xl w-300px h-200px"
                                         alt={item.title}
                                         src={item.imageUrl}
+                                        priority={true}
                                     />
                                 </CardBody>
                             </Card>
