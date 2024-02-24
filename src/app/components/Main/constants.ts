@@ -17,7 +17,7 @@ export const MainCardList: MainCardType[] = [
         title: '算法',
         description: '刷过的算法题目',
         imageUrl: 'https://static.wangchuang.space/Images/Blogs/other/arithmeticCard.jpg',
-        path: '/blog/algorithm/leetCode/1-两数之和.md',
+        path: '/blog/algorithm/leetCode/1-两数之和.mdx',
     },
     // { title: '其它', description: '其它记录', imageUrl: 'https://static.wangchuang.space/Images/Blogs/other/arithmeticCard.jpg'},
 ]
