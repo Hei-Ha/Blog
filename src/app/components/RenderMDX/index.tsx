@@ -1,5 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
+import { useMDXComponents } from '@src/app/components/RenderMDX/mdx-components';
+import { Button } from '@nextui-org/react'
 
 export default async ({ sourceData }) => {
     const options = {
@@ -11,5 +13,11 @@ export default async ({ sourceData }) => {
         },
     };
 
-    return <MDXRemote source={sourceData} options={options} />;
+    return <MDXRemote
+        source={sourceData}
+        options={options}
+        components={useMDXComponents({
+            Button
+        })}
+    />;
 };
