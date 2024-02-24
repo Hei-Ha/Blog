@@ -12,7 +12,7 @@ export const MenuItemList: MenuItem[] = [
     },
     {
         title: "算法题",
-        path: "/blog/algorithm/leetCode/1-两数之和.md",
+        path: "/blog/algorithm/leetCode/1-两数之和.mdx",
     },
     // {
     //     title: "联系我",

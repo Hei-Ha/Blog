@@ -9,7 +9,8 @@ import {
     Modal,
     ModalContent,
     ModalBody,
-    Button,
+    Card,
+    CardBody,
 } from '@nextui-org/react'
 import Link from 'next/link';
 
@@ -57,8 +58,8 @@ export default ( { listData, className }: { listData: SideMenuListType[], classN
         </Accordion>
     }
     
-    return <div className={ `${ className } flex flex-row-reverse px-3 box-border border-y border-solid border-#4b4b4b` }>
-        <div onClick={ () => setIsOpen( true ) }>Menu</div>
+    return <Card radius='none' shadow={'sm'} className={ `sticky top-0 flex box-border border-y border-solid border-#4b4b4b ${ className } ` }>
+        <CardBody className='px-3 py-3 text-sm text-right' onClick={ () => setIsOpen( true ) }>Menu</CardBody>
         <Modal
             portalContainer={modalContainer.current}
             radius={ 'sm' }
@@ -73,5 +74,5 @@ export default ( { listData, className }: { listData: SideMenuListType[], classN
                 </ModalBody>
             </ModalContent>
         </Modal>
-    </div>
+    </Card>
 }

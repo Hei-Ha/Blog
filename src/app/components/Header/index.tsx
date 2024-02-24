@@ -19,14 +19,16 @@ import { useStore } from '@src/store'
 import { GithubIcon } from "@src/app/components/Icons";
 
 
-export default () => {
+export default (
+    { className }: { className?: string;}
+) => {
     const switchTheme = useStore( state => state.actions.switchTheme )
     const theme = useStore(state => state.theme)
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>( false );
     
     
-    return <>
-        <Navbar maxWidth="full" isBordered className="sm:hidden h-[64px] box-border px-10">
+    return <div className='sticky top-0'>
+        <Navbar maxWidth="full" isBordered className={`sm:hidden h-[64px] box-border px-10 ${className}`}>
             <NavbarContent>
                 <NavbarBrand>
                     <Link href={ '/' }>
@@ -125,5 +127,5 @@ export default () => {
                 </NavbarMenuItem>
             </NavbarMenu>
         </Navbar>
-    </>
+    </div>
 }
