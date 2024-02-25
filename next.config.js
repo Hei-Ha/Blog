@@ -4,6 +4,7 @@ import rehypeHighlight from "rehype-highlight";
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+    swcMinify: true,
     pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
     images: {
         remotePatterns: [
