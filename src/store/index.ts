@@ -8,16 +8,16 @@ interface StoreType {
 }
 
 
-export const useStore = create<StoreType>((set, get) => {
-    return {
-        theme: 'light',
-        actions: {
-            switchTheme: (params) => set((state) => {
-                localStorage.setItem('localTheme', params)
-                return {
-                    theme: params
-                }
-            })
-        }
-    }
-})
+// export const useStore = create<StoreType>((set, get) => {
+//     return {
+//         theme: 'light',
+//         actions: {
+//             switchTheme: (params) => set((state) => {
+//                 localStorage.setItem('localTheme', params)
+//                 return {
+//                     theme: params
+//                 }
+//             })
+//         }
+//     }
+// })

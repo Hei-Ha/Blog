@@ -1,29 +1,24 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
     Navbar,
     NavbarBrand,
     NavbarContent,
     NavbarItem,
     User,
-    Switch,
     NavbarMenu,
     NavbarMenuItem,
     NavbarMenuToggle,
 } from "@nextui-org/react";
 import Link from 'next/link';
 import { MenuItemList } from "../constants"
-import SunIcon from './components/SunIcon'
-import MoonIcon from './components/MoonIcon'
-import { useStore } from '@src/store'
 import { GithubIcon } from "@src/app/components/Icons";
+import SwitchTheme from './components/SwitchTheme';
 
 
 export default (
     { className }: { className?: string;}
 ) => {
-    const switchTheme = useStore( state => state.actions.switchTheme )
-    const theme = useStore(state => state.theme)
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>( false );
     
     
@@ -55,21 +50,7 @@ export default (
                 <a target='_blank' href={'https://github.com/Hei-Ha'}>
                     <GithubIcon size={'21'} />
                 </a>
-                <Switch
-                    size="sm"
-                    color="default"
-                    className='rounded-md'
-                    isSelected={ theme === 'dark' }
-                    onValueChange={ ( isSelected ) => switchTheme( isSelected ? 'dark' : 'light' ) }
-                    thumbIcon={ ( { isSelected, className } ) => (
-                        isSelected ? (
-                            <MoonIcon className={ className } />
-                        ) : (
-                            <SunIcon className={ className } />
-                        )
-                    )
-                    }
-                />
+                <SwitchTheme />
             </NavbarContent>
         </Navbar>
         <Navbar
@@ -109,21 +90,7 @@ export default (
                 } ) }
                 
                 <NavbarMenuItem className={ 'flex flex-row-reverse justify-center' }>
-                    <Switch
-                        size="sm"
-                        color="default"
-                        className='rounded-md'
-                        isSelected={theme === 'dark'}
-                        onValueChange={ ( isSelected ) => switchTheme( isSelected ? 'dark' : 'light' ) }
-                        thumbIcon={ ( { isSelected, className } ) => (
-                            isSelected ? (
-                                <MoonIcon className={ className } />
-                            ) : (
-                                <SunIcon className={ className } />
-                            )
-                        )
-                        }
-                    >主题</Switch>
+                    <SwitchTheme />
                 </NavbarMenuItem>
             </NavbarMenu>
         </Navbar>
