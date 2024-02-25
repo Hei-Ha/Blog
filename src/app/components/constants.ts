@@ -18,4 +18,8 @@ export const MenuItemList: MenuItem[] = [
     //     title: "联系我",
     //     path: "/connect",
     // },
+    {
+        title: '模型',
+        path: '/module'
+    }
 ];
