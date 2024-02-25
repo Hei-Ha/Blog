@@ -68,30 +68,7 @@ export default {
     },
     darkMode: "class",
     plugins: [
-        nextui( {
-            themes: {
-                light: {
-                    colors: {
-                        background: '#fff',
-                        foreground: '#000',
-                        primary: {
-                            foreground: "#fff",
-                            DEFAULT: "#0052d9",
-                        }
-                    }
-                },
-                dark: {
-                    colors: {
-                        background: '#242424',
-                        foreground: '#9c9c9c',
-                        primary: {
-                            foreground: "#fff",
-                            DEFAULT: "#006FEE",
-                        }
-                    }
-                },
-            }
-        } ),
+        nextui(),
         Typography(),
         TailwindHighlight,
     
