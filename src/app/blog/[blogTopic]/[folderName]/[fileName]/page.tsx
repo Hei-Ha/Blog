@@ -5,7 +5,7 @@ import RenderMDX from "@src/app/components/RenderMDX";
 
 export default async ({params}) => {
     const fileContent = await fetch(
-        `${getAPIUrl()}/api/getFileContent?blogTopic=${params.blogTopic}&folderName=${params.folderName}&fileName=${params.fileName}`,
+        `${getAPIUrl()}/api/getFileContent?path=${params.blogTopic}/${params.folderName}/${params.fileName}`,
         {
             method: "get",
             cache: "no-cache",
