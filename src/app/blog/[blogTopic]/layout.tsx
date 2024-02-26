@@ -6,7 +6,6 @@ import Header from "@src/app/components/Header";
 
 
 export default async ( { params, children } ) => {
-    
     const menuData = await getMenuData( params.blogTopic );
     menuData.forEach( item => {
         item.folderContent.sort( ( a, b ) => Number( a.split( '-' )[0] ) - Number( b.split( '-' )[0] ) )

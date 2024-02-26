@@ -1,20 +1,10 @@
 import React from "react";
-import {getAPIUrl} from "@src/utils/utils";
 import RenderMDX from "@src/app/components/RenderMDX";
+import Fetch from '@src/utils/services'
 
 
 export default async ({params}) => {
-    const fileContent = await fetch(
-        `${getAPIUrl()}/api/getFileContent?path=${params.blogTopic}/${params.folderName}/${params.fileName}`,
-        {
-            method: "get",
-            cache: "no-cache",
-        }
-    )
-        .then(data => data.json())
-        .catch(err => {
-            console.log(err);
-        });
+    const fileContent = await Fetch.GET(`api/getFileContent?path=${params.blogTopic}/${params.folderName}/${params.fileName}`)
 
     return (
         <article className="prose dark:prose-invert my-10 sm:prose-sm sm:px-4">
