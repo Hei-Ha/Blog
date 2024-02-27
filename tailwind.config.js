@@ -31,6 +31,7 @@ export default {
                 }
             } ),
             colors: {
+                '#1cb8b8': '#1cb8b8',
                 '#CCCCCC': '#CCCCCC',
                 '#FFFFFF': '#FFFFFF',
                 '#f0f0f0': '#f0f0f0',
@@ -68,7 +69,22 @@ export default {
     },
     darkMode: "class",
     plugins: [
-        nextui(),
+        nextui({
+            themes: {
+                dark: {
+                    colors: {
+                        'chipTextEasy': '#46c6c2',
+                        'chipBg': '#3c3c3c',
+                    }
+                },
+                light: {
+                    colors: {
+                        'chipTextEasy': '#46c6c2',
+                        'chipBg': '#f0f0f0',
+                    }
+                },
+            }
+        }),
         Typography(),
         TailwindHighlight,
     
