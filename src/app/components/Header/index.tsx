@@ -12,7 +12,7 @@ import {
 } from "@nextui-org/react";
 import Link from 'next/link';
 import { MenuItemList } from "../constants"
-import { GithubIcon } from "@src/app/components/Icons";
+import Icons from "@src/app/components/Icons";
 import SwitchTheme from './components/SwitchTheme';
 
 
@@ -47,9 +47,9 @@ export default (
                         </NavbarItem>
                     )
                 } ) }
-                <a target='_blank' href={'https://github.com/Hei-Ha'}>
-                    <GithubIcon size={'21'} />
-                </a>
+                <Link target="_blank" href={'https://github.com/Hei-Ha'}>
+                    <Icons iconName='blog-github' className='text-lg' />
+                </Link>
                 <SwitchTheme />
             </NavbarContent>
         </Navbar>

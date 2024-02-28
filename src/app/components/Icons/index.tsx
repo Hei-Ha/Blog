@@ -1,11 +1,9 @@
-'use client'
-import { Github } from '@icon-park/react'
+import React from "react";
 
-const GithubIcon = (props) => {
-    return <Github theme="outline" size="32" fill="#333" {...props} />
+const Icons = ({iconName, className}: { iconName: string; className?: string }) => {
+    return <svg className={`icon ${className}`} aria-hidden="true">
+        <use xlinkHref={`#${iconName}`} />
+    </svg>
 }
 
-
-export {
-    GithubIcon,
-}
+export default Icons;

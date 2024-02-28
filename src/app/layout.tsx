@@ -1,7 +1,7 @@
 import React from "react";
 import Provider from "./provider";
 import "@src/style/global.scss";
-import '@icon-park/react/styles/index.css'
+import Script from 'next/script'
 
 export default async ( { children }: { children: React.ReactNode } ) => {
     return (
@@ -11,6 +11,7 @@ export default async ( { children }: { children: React.ReactNode } ) => {
                     { children }
                 </Provider>
             </body>
+            <Script src='//at.alicdn.com/t/c/font_4434854_dezmhcagoqu.js' />
         </html>
     );
 };
