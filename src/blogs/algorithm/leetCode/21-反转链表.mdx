@@ -1,0 +1,46 @@
+## No. 21-反转链表
+<div className='flex items-center'>
+    <ChipDifficult content={'简单'} className='mr-2 text-easyText' />
+    <ChipLink
+        href={'https://leetcode.cn/problems/reverse-linked-list/description/'}
+        content={'No.206 反转链表'}
+    />
+</div>
+
+### 题目：
+给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。    
+**示例 1**：  
+![示例1image](https://assets.leetcode.com/uploads/2021/02/19/rev1ex1.jpg)
+输入：head = [1,2,3,4,5]  
+输出：[5,4,3,2,1]  
+**示例 2**：  
+![示例2image](https://assets.leetcode.com/uploads/2021/02/19/rev1ex2.jpg)
+输入：head = [1,2]  
+输出：[2,1]  
+**示例 3**：  
+输入：head = []  
+输出：[]  
+
+### 解题思路：
+**双指针** <br/>
+1、声明两个指针，一个指向当前链表的 `head`，记为: `cur` ，另一个指向 `head` 前一个位置（初始状态为 null）,记为: `pre`。<br/>
+2、将 `cur.next` 指向 `pre`， 然后向后移动 `cur` 和 `pre` 的位置，即可完成链表的反转。<br/>
+
+### 代码实现：
+```javascript
+const fun = (head) => {
+    let pre = null;
+    let cur = head;
+    while(cur) {
+        let temp = cur.next; // 暂存 cur.next 位置，为移动 cur 和 pre 指针做准备。
+        cur.next = pre;
+        pre = cur;
+        cur = temp;
+    }
+
+    return pre
+}
+```
+
+
+
