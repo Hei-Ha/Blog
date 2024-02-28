@@ -43,6 +43,9 @@ export default {
                 '#70717a': '#70717a',
                 '#e7e7e7': '#e7e7e7',
                 '#4b4b4b': '#4b4b4b',
+                'easyText': '#46c6c2',
+                'middleText': '#feb802',
+                'hardText': '#ff2d55',
             },
             height: {
                 '32px': '32px',
@@ -73,13 +76,11 @@ export default {
             themes: {
                 dark: {
                     colors: {
-                        'chipTextEasy': '#46c6c2',
                         'chipBg': '#3c3c3c',
                     }
                 },
                 light: {
                     colors: {
-                        'chipTextEasy': '#46c6c2',
                         'chipBg': '#f0f0f0',
                     }
                 },
