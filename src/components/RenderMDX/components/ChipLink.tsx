@@ -1,5 +1,5 @@
 import { Chip, Link } from "@nextui-org/react";
-import { ThemeIcons } from "@src/app/components/Icons";
+import { ThemeIcons } from "@src/components/Icons";
 import React from "react";
 
 export const ChipLink = (

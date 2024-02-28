@@ -2,7 +2,7 @@
 import { useTheme } from 'next-themes'
 import { Switch, Skeleton } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
-import { Icon } from "@src/app/components/Icons";
+import { Icon } from "@src/components/Icons";
 
 export default () => {
     const [mounted, setMounted] = useState<boolean>(false);

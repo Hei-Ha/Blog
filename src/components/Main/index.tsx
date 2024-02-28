@@ -3,7 +3,7 @@ import { Card, CardHeader, CardBody, Avatar } from "@nextui-org/react";
 import { MainCardList } from "./constants";
 import Link from "next/link";
 import Image from 'next/image'
-import { ThemeIcons } from "@src/app/components/Icons";
+import { ThemeIcons } from "@src/components/Icons";
 export default () => {
     return (
         <section className={'flex flex-col flex-1 min-h-[100vh] items-center'}>

@@ -12,7 +12,7 @@ import {
 } from "@nextui-org/react";
 import Link from 'next/link';
 import { MenuItemList } from "../constants"
-import { ThemeIcons } from "@src/app/components/Icons";
+import { ThemeIcons } from "@src/components/Icons";
 import SwitchTheme from './components/SwitchTheme';
 
 

@@ -1,8 +1,8 @@
 import React from "react";
-import SideMenu from "@src/app/components/SideMenu";
+import SideMenu from "@src/components/SideMenu";
 import { getMenuData } from './constants'
-import TopicList from '@src/app/components/TopicList'
-import Header from "@src/app/components/Header";
+import TopicList from '@src/components/TopicList'
+import Header from "@src/components/Header";
 
 
 export default async ( { params, children } ) => {
