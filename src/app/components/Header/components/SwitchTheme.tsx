@@ -2,7 +2,7 @@
 import { useTheme } from 'next-themes'
 import { Switch, Skeleton } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
-import Icons from "@src/app/components/Icons";
+import { Icon } from "@src/app/components/Icons";
 
 export default () => {
     const [mounted, setMounted] = useState<boolean>(false);
@@ -13,7 +13,7 @@ export default () => {
     }, [])
 
     if ( !mounted ) {
-        return <Skeleton />
+        return <Skeleton className="h-6 w-12 rounded-lg"/>
     }
     
     return <Switch
@@ -27,9 +27,9 @@ export default () => {
         thumbIcon={ ( { isSelected, className } ) => {
             return (
                 isSelected ? (
-                    <Icons iconName='blog-theme-dark' />
+                    <Icon iconName='blog-theme-dark' />
                 ) : (
-                    <Icons iconName='blog-theme-light' />
+                    <Icon iconName='blog-theme-light' />
                 )
             )
         }

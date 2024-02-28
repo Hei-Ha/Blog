@@ -12,16 +12,14 @@ import {
 } from "@nextui-org/react";
 import Link from 'next/link';
 import { MenuItemList } from "../constants"
-import Icons from "@src/app/components/Icons";
+import { ThemeIcons } from "@src/app/components/Icons";
 import SwitchTheme from './components/SwitchTheme';
-import { useTheme } from "next-themes";
 
 
 export default (
     { className }: { className?: string;}
 ) => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>( false );
-    const { theme } = useTheme();
     
     return <div className='sticky top-0'>
         <Navbar maxWidth="full" isBordered className={`sm:hidden h-[64px] box-border px-10 ${className}`}>
@@ -49,12 +47,7 @@ export default (
                     )
                 } ) }
                 <Link target="_blank" href={'https://github.com/Hei-Ha'}>
-                    {
-                        theme === 'dark' ?
-                            <Icons iconName='blog-github-dark' className='text-lg' />
-                            :
-                            <Icons iconName='blog-github-light' className='text-lg' />
-                    }
+                    <ThemeIcons lightIconName={'blog-github-light'} darkIconName={'blog-github-dark'} />
                 </Link>
                 <SwitchTheme />
             </NavbarContent>
