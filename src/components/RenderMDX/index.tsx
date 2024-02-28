@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
-import { useMDXComponents } from '@src/app/components/RenderMDX/mdx-components';
+import { useMDXComponents } from '@src/components/RenderMDX/mdx-components';
 import * as CustomComponents from './components'
 
 export default async ({ sourceData }) => {

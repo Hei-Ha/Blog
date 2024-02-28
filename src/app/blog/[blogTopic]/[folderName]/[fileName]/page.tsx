@@ -1,5 +1,5 @@
 import React from "react";
-import RenderMDX from "@src/app/components/RenderMDX";
+import RenderMDX from "@src/components/RenderMDX";
 import Fetch from '@src/utils/services'
 
 
