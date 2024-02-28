@@ -1,9 +1,8 @@
 'use client'
 import { useTheme } from 'next-themes'
-import MoonIcon from "@src/app/components/Header/components/MoonIcon";
-import SunIcon from "@src/app/components/Header/components/SunIcon";
 import { Switch, Skeleton } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
+import Icons from "@src/app/components/Icons";
 
 export default () => {
     const [mounted, setMounted] = useState<boolean>(false);
@@ -12,7 +11,7 @@ export default () => {
     useEffect(() => {
         setMounted(true)
     }, [])
-    
+
     if ( !mounted ) {
         return <Skeleton />
     }
@@ -20,16 +19,20 @@ export default () => {
     return <Switch
         size="sm"
         color="default"
-        className='rounded-md'
+        classNames={{
+            thumb: theme === 'dark' ? 'bg-#4b4b4b shadow-none' : 'shadow-none',
+        }}
         isSelected={ theme === 'dark' }
         onValueChange={ ( isSelected ) => setTheme( isSelected ? 'dark' : 'light' ) }
-        thumbIcon={ ( { isSelected, className } ) => (
-            isSelected ? (
-                <MoonIcon className={ className } />
-            ) : (
-                <SunIcon className={ className } />
+        thumbIcon={ ( { isSelected, className } ) => {
+            return (
+                isSelected ? (
+                    <Icons iconName='blog-dark' />
+                ) : (
+                    <Icons iconName='blog-a-LightTheme' />
+                )
             )
-        )
+        }
         }
     />
 }

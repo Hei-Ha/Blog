@@ -14,12 +14,14 @@ import Link from 'next/link';
 import { MenuItemList } from "../constants"
 import Icons from "@src/app/components/Icons";
 import SwitchTheme from './components/SwitchTheme';
+import { useTheme } from "next-themes";
 
 
 export default (
     { className }: { className?: string;}
 ) => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>( false );
+    const { theme } = useTheme();
     
     
     return <div className='sticky top-0'>
@@ -48,7 +50,12 @@ export default (
                     )
                 } ) }
                 <Link target="_blank" href={'https://github.com/Hei-Ha'}>
-                    <Icons iconName='blog-github' className='text-lg' />
+                    {
+                        theme === 'dark' ?
+                            <Icons iconName='blog-github_dark' className='text-lg' />
+                            :
+                            <Icons iconName='blog-github' className='text-lg' />
+                    }
                 </Link>
                 <SwitchTheme />
             </NavbarContent>

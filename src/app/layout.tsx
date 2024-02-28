@@ -11,7 +11,7 @@ export default async ( { children }: { children: React.ReactNode } ) => {
                     { children }
                 </Provider>
             </body>
-            <Script src='//at.alicdn.com/t/c/font_4434854_dezmhcagoqu.js' />
+            <Script src='//at.alicdn.com/t/c/font_4434854_jci7oqrx73j.js' />
         </html>
     );
 };
