@@ -23,7 +23,6 @@ export default (
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>( false );
     const { theme } = useTheme();
     
-    
     return <div className='sticky top-0'>
         <Navbar maxWidth="full" isBordered className={`sm:hidden h-[64px] box-border px-10 ${className}`}>
             <NavbarContent>
@@ -52,9 +51,9 @@ export default (
                 <Link target="_blank" href={'https://github.com/Hei-Ha'}>
                     {
                         theme === 'dark' ?
-                            <Icons iconName='blog-github_dark' className='text-lg' />
+                            <Icons iconName='blog-github-dark' className='text-lg' />
                             :
-                            <Icons iconName='blog-github' className='text-lg' />
+                            <Icons iconName='blog-github-light' className='text-lg' />
                     }
                 </Link>
                 <SwitchTheme />

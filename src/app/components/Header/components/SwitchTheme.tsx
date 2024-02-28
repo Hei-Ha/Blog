@@ -27,9 +27,9 @@ export default () => {
         thumbIcon={ ( { isSelected, className } ) => {
             return (
                 isSelected ? (
-                    <Icons iconName='blog-dark' />
+                    <Icons iconName='blog-theme-dark' />
                 ) : (
-                    <Icons iconName='blog-a-LightTheme' />
+                    <Icons iconName='blog-theme-light' />
                 )
             )
         }
