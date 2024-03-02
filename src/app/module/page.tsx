@@ -23,13 +23,14 @@ export default () => {
     // }, [] )
     
     
-    return <>
+    return <div className='flex justify-center items-center mt-20 w-3/4 mx-auto'>
         <gradio-app
             class={ 'gradioApp' }
+            style={{ width: '800px' }}
             src="https://hei-ha-testspace.hf.space"
             initial_hieght={ '500px' }
             container={ false }
             theme_mode={ theme === 'dark' ? 'dark' : 'light' }
         />
-    </>
+    </div>
 }
