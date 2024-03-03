@@ -19,7 +19,7 @@ export const MenuItemList: MenuItem[] = [
     //     path: "/connect",
     // },
     {
-        title: '模型',
+        title: '模型(Hugging face)',
         path: '/module'
     }
 ];
