@@ -1,11 +1,9 @@
-import withMDX from '@next/mdx'
-import rehypeHighlight from "rehype-highlight";
-
 /** @type {import('next').NextConfig} */
+// import createMDX from '@next/mdx'
 
 const nextConfig = {
     swcMinify: true,
-    pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+    pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
     images: {
         remotePatterns: [
             {
@@ -18,13 +16,12 @@ const nextConfig = {
     },
 }
 
-const MDXConfig = withMDX({
-    extension: /\.(md|mdx)?$/,
-    options: {
-        remarkPlugins: [],
-        rehypePlugins: [rehypeHighlight],
-        providerImportSource: "@mdx-js/react",
-    },
-})
+// const MDXConfig = createMDX({
+//     extension: /\.mdx?$/,
+//     options: {
+//         remarkPlugins: [],
+//         rehypePlugins: [],
+//     },
+// })
 
-export default MDXConfig(nextConfig);
+export default nextConfig
