@@ -47,7 +47,12 @@ export default (
                     )
                 } ) }
                 <Link target="_blank" href={'https://github.com/Hei-Ha'}>
-                    <ThemeIcons lightIconName={'blog-github-light'} darkIconName={'blog-github-dark'} />
+                    <ThemeIcons
+                        lightIconName={'blog-github-light'}
+                        darkIconName={'blog-github-dark'}
+                        className='text-2xl'
+                        placeholderWidth='text-2xl'
+                    />
                 </Link>
                 <SwitchTheme />
             </NavbarContent>

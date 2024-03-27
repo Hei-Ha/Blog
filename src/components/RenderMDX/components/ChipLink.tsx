@@ -12,7 +12,14 @@ export const ChipLink = (
         target='_blank'
         size='md'
         className={ `bg-chipBg select-none cursor-pointer ${ className }` }
-        startContent={<ThemeIcons lightIconName='blog-leetcode-light' darkIconName={'blog-leetcode-dark'} className='text-4xl mr-2' />}
+        startContent={
+        <ThemeIcons
+            lightIconName='blog-leetcode-light'
+            darkIconName='blog-leetcode-dark'
+            className='text-4xl mr-2'
+            placeholderWidth='w-8'
+        />
+    }
     >
         { content }
     </Chip>
