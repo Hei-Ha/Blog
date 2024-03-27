@@ -11,7 +11,7 @@ const Icon = ( { iconName, className }: { iconName: string; className?: string }
 
 
 const ThemeIcons = (
-    { lightIconName, darkIconName, className }: { lightIconName: string; darkIconName: string; className?: string }
+    { lightIconName, darkIconName, placeholderWidth, className }: { lightIconName: string; darkIconName: string; placeholderWidth?: string; className?: string }
 ) => {
     const [mounted, setMounted] = useState<boolean>( false )
     const { theme } = useTheme();
@@ -21,7 +21,7 @@ const ThemeIcons = (
     }, [] )
     if ( !mounted ) {
         return (
-            <Skeleton className={'rounded-lg'}>
+            <Skeleton className={`rounded-lg ${placeholderWidth}`}>
                 <svg className={ `icon` } aria-hidden="true">
                     <use xlinkHref={''} />
                 </svg>
