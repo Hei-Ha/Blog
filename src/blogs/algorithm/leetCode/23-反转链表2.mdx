@@ -22,6 +22,8 @@
 - 2、反转 left 至 right 的链表。  
 - 3、再拼接回原的链表  
 ## 代码
+
+### 方法一：
 ```javascript
 /**
  * Definition for singly-linked list.
@@ -74,6 +76,32 @@ const reverseBetween = (head, left, right) => {
     pre.next = rightNode;
     newListLeft.next = endNode; // 反转完后，rightNode 在左端，newListLeft 在右端
     
+    return resultNode.next
+}
+```
+
+### 方法二
+```javascript
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+}
+
+const reverseBetween = (head, left, right) => {
+    const resultNode = new ListNode(-1);
+    resultNode.next = head;
+    let pre = resultNode
+    for(let i = 0; i < left - 1; i++) {
+        pre = pre.next;
+    }
+
+    let cur = pre.next;
+    for(let i = 0; i < right - left; i++) {
+        let q = cur.next;
+        cur.next = q.next;
+        q.next = pre.next;
+        pre.next = q;
+    }
     return resultNode.next
 }
 ```
