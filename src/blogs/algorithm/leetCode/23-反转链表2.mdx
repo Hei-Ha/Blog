@@ -1,0 +1,80 @@
+## 反转链表2
+<div className='flex items-center'>
+    <ChipDifficult content={'中等'} className='mr-2 text-middleText' />
+    <ChipLink
+        href={'https://leetcode.cn/problems/reverse-linked-list-ii/description/'}
+        content={'No.92 反转链表2'}
+    />
+</div>
+
+## 题目
+给你单链表的头指针 head 和两个整数，left 和 right，其中 `left <= right`。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。  
+**实例1**:  
+![实例1](https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg)
+输入：head = [1,2,3,4,5], left = 2, right = 4  
+输出：[1,4,3,2,5]  
+
+**实例2**:  
+输入：head = [5], left = 1, right = 1  
+输出：[5]
+## 思路
+- 1、将 left 到 right 位置的链表截取出来。  
+- 2、反转 left 至 right 的链表。  
+- 3、再拼接回原的链表  
+## 代码
+```javascript
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+}
+
+// 反转链表
+const reverseNode = (head) => {
+    let pre = null;
+    let q = head;
+    while(q) {
+        let temp = q.next;
+        q.next = pre;
+        pre = q;
+        q = temp;
+    }
+}
+
+const reverseBetween = (head, left, right) => { 
+    const resultNode = new ListNode();
+    resultNode.next = head;
+    let pre = resultNode;
+    for (let i = 0; i < left - 1; i++) { // 此循环是为了取到 left 的前一个位置 pre
+        pre = pre.next;
+    }
+    
+    let rightNode = pre;
+    for (let i = 0; i < right - left + 1; i++) { // 此循环是为了取到 right 位置的指针
+        rightNode = rightNode.next
+    }
+    
+    // 截取 left 至 right 的链表
+    let newListLeft = pre.next; // 暂存 left 至 right 链表的头指针位置。
+    let endNode = rightNode.next; // 暂存 right.next 所指的位置
+    
+    // 截断 left 至 right 指针
+    pre.next = null;
+    rightNode.next = null;
+
+    reverseNode(newListLeft);
+    
+    // 反转完后，接回原链表
+    pre.next = rightNode;
+    newListLeft.next = endNode; // 反转完后，rightNode 在左端，newListLeft 在右端
+    
+    return resultNode.next
+}
+```
+
