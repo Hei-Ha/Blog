@@ -1,4 +1,4 @@
-## 比较给定的两个版本号
+## 比较两个版本号
 <ChipDifficult content={'中等'} className='mr-2 text-middleText' />
 ## 题目
 现在给你2个版本号 version1 和 version2，请比较他们的大小。  
@@ -27,8 +27,7 @@ const compare = (version1, version2) => {
     while (i < maxLength) {
         let v1 = Number(ver1[i]) || 0,
             v2 = Number(ver2[i]) || 0;
-            // 先取值，再 i++
-        i++;
+        i++; // 先取值，再 i++
 
         if (v1 === v2) {
             continue
