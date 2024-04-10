@@ -1,0 +1,74 @@
+## 颜色分类
+<div className='flex items-center'>
+    <ChipDifficult content={'中等'} className='mr-2 text-middleText' />
+    <ChipLink
+        href={'https://leetcode.cn/problems/sort-colors/description/'}
+        content={'No.75 颜色分类'}
+    />
+</div>
+
+## 题目
+给定一个包含红色、白色和蓝色、共 n 个元素的数组 nums ，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。  
+我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。  
+必须在不使用库内置的 sort 函数的情况下解决这个问题。  
+
+
+**示例 1：**  
+输入：nums = [2,0,2,1,1,0]  
+输出：[0,0,1,1,2,2]  
+
+**示例 2：**  
+输入：nums = [2,0,1]  
+输出：[0,1,2]  
+
+## 思路
+**方法一：**  
+冒泡排序，将数据按从小到大排序，（重点：题目要求在原数组上修改）
+
+**方法二：**  
+三指针：
+题目要求将 0 放在前面，2 放在后面，1 放在中间。
+那么声明left，right 两个指针，遍历数组，每次将当前元素和 0 或者 2 做比较
+- 如果当前元素等于 0 ，则将当前元素换到 left 指针所指的位置，同时 `left++`
+- 如果当前元素等于2， 则将当前元素换到 right 指针所指的位置，同时 `right--`，
+    - 且当前循环的下标 i 需要左移一个位置，因为换完位置后，当前 `arr[i]` 还没有和 0 或者 2 进行比较。
+
+注意： for 循环的第二个条件，循环下标 i 需要小于等于右指针 `right`，因为 `right` 右边的元素已经符合题目要求。
+
+
+
+
+## 代码：
+```javascript
+// 方法一：
+const sortColors1 = (nums) => {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = 0; j < nums.length - 1- i; j++) {
+            if (nums[j] > nums[j + 1]) {
+                [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]]
+            }
+        }
+    }
+    return nums
+}
+
+
+
+// 方法二：
+const sortColors2 = (nums) => {
+    let left = 0,
+        right = nums.length - 1;
+
+    for (let i = 0; i <= right; i++) {
+        if (nums[i] === 0) {
+            [nums[left], nums[i]] = [nums[i], nums[left]]
+            left  = left + 1;
+        } else if (nums[i] === 2) {
+            [nums[right], nums[i]] = [nums[i], nums[right]]
+            right = right - 1
+            i = i - 1; // 这里 i-1 是因为换完为止后，当前位置的元素没有进行比较。
+        }
+    }
+    return nums
+}
+```
