@@ -49,8 +49,8 @@ var combine = function(n, k) {
         }
         for (let i = startIndex; i < n; i++) { 
             curArr.push(nums[i]) // 从 nums 某一位下标开始，依次循环后面的元素，push 进 curArr,
-            helper(curArr, i + 1); // 然后接着递归
-            curArr.pop()
+            helper(curArr, i + 1); // 然后进行下次递归
+            curArr.pop() // 撤销刚才的 push 操作，继续本次递归的 for 循环
         }
     }
 
