@@ -7,7 +7,8 @@ export default async ({params}) => {
     const fileContent = await Fetch.GET(`api/getFileContent?path=${params.blogTopic}/${params.folderName}/${params.fileName}`)
     
     return (
-        <article className="prose dark:prose-invert my-10 sm:prose-sm sm:px-4">
+        <article
+            className="prose prose-slate dark:prose-invert my-10 prose-base sm:prose-sm sm:px-4">
             <RenderMDX sourceData={fileContent.content || ''}/>
         </article>
     );

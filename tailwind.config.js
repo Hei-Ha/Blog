@@ -14,22 +14,32 @@ export default {
         screens: {
             'sm': { 'max': '767px' },
             // => @media (min-width: 640px and max-width: 767px) { ... }
-            
+
             'md': { 'min': '768px', 'max': '1279px' },
             // => @media (min-width: 768px and max-width: 1023px) { ... }
-            
+
             'lg': { 'min': '1280px' },
         },
         extend: {
-            typography: ( { theme } ) => ( {
+            typography: ({ theme }) => ({
                 DEFAULT: {
                     css: {
-                        'invert-color': 'rgba(255, 255, 255, 0.9)',
-                        '--tw-prose-invert-headings': '#eaeaea',
-                        '--tw-prose-invert-bold': '#e8e8e8',
+                        // 'invert-color': 'rgba(255, 255, 255, 0.9)',
+                        // '--tw-prose-invert-headings': '#eaeaea',
+                        // '--tw-prose-invert-bold': '#e8e8e8',
+                        'code::before': null,
+                        'code::after': null,
+                        'code': {
+                            color: theme('colors.gray.800'),
+                            backgroundColor: theme('colors.gray.100'),
+                            padding: '2px 4px',
+                            borderRadius: theme('borderRadius.sm'),
+                            fontSize: theme('fontSize.sm'),
+                            fontFamily: theme('fontFamily.mono'),
+                        },
                     }
                 }
-            } ),
+            }),
             colors: {
                 '#1cb8b8': '#1cb8b8',
                 '#CCCCCC': '#CCCCCC',
@@ -88,7 +98,7 @@ export default {
         }),
         Typography(),
         TailwindHighlight,
-    
+
     ],
     safelist: [
         {
