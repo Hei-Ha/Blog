@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html {
     padding: 0;
     margin: 0;
@@ -31,4 +32,12 @@ html {
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
+}
+
+
+
+@layer base {
+  .prose pre {
+    padding: 5px ; /* 设置内边距 */
+  }
 }
