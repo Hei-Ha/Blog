@@ -36,6 +36,7 @@ html {
 
 
 
+// 覆盖 tailwindcss 样式： 代码框
 @layer base {
   .prose pre {
     padding: 5px ; /* 设置内边距 */
