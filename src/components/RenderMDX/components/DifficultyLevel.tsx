@@ -1,7 +1,7 @@
 import { Chip } from "@nextui-org/react";
 
 
-const DifficultyLevel = ({ level, className }: { level: string; className: string }) => {
+const DifficultyLevel = ({ level, className }: { level: string; className?: string }) => {
     const levelArr = {
         'easy': { 
             text: '简单',
