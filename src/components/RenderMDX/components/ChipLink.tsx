@@ -2,7 +2,7 @@ import { Chip, Link } from "@nextui-org/react";
 import { ThemeIcons } from "@src/components/Icons";
 import React from "react";
 
-export const ChipLink = (
+const ChipLink = (
     { href, content, className }: { href: string; content: string; className?: string; }
 ) => {
     
@@ -24,3 +24,5 @@ export const ChipLink = (
         { content }
     </Chip>
 }
+
+export default ChipLink

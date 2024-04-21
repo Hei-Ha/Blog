@@ -1,5 +1,6 @@
-import { Chip, Link, Button } from '@nextui-org/react'
-import { ChipLink } from './ChipLink'
+import { Chip, Button } from '@nextui-org/react'
+import ChipLink from './ChipLink'
+import TitleMsg from './TitleMsg'
 
 const ChipDifficult = (
     { content, className }: { content: string; className?: string; }
@@ -17,4 +18,5 @@ export {
     Button,
     ChipLink,
     ChipDifficult,
+    TitleMsg,
 }
