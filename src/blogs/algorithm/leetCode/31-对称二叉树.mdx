@@ -1,0 +1,53 @@
+## 对称二叉树
+<TitleMsg
+    link='https://leetcode.cn/problems/symmetric-tree/description/'
+    level='easy'
+    title='No.101 对称二叉树'
+/>
+
+
+## 题目
+给你一个二叉树的根节点 root ， 检查它是否轴对称。
+
+**示例1**：  
+![示例1](https://pic.leetcode.cn/1698026966-JDYPDU-image.png)
+输入：root = [1,2,2,3,4,4,3]  
+输出：true  
+**示例二:**  
+![示例二](https://pic.leetcode.cn/1698027008-nPFLbM-image.png)
+输入：root = [1,2,2,null,3,null,3]  
+输出：false  
+提示：  
+树中节点数目在范围 [1, 1000] 内
+`-100 <= Node.val <= 100`
+
+
+## 思路
+对称二叉树，即一棵树的左子树和右子树是对称的。
+同时循环左子树和右子树，每次循环的时候取对饮位置的值，进行比较，然后进行递归。
+
+- 声明一个函数，用于比较传入的两颗树 `leftTree` `rightTree` 是否是对称的。
+    - 当 `leftTree` 和 `rightTree` 都是 null 时，`return true`
+    - 当 leftTree 和 rightTree 的值相等时，需要继续比较对应位置的值是否相等：
+    即：leftTree 的左节点的值 和 rightTree 的右节点的值是否相等
+        leftTree 的右节点 和 rightTree 的左节点的值是否相等。
+
+
+
+
+## 代码
+```javascript
+const fun = (root) => {
+    if(!root) return true
+
+    const compare = (leftTree, rightTree) => {
+        if (!leftTree && !rightTree) return true
+        if (leftTree && rightTree && leftTree.val === rightTree.val) {
+            return compare(leftTree.left, rightTree.right) && compare(leftTree.right, rightTree.left)
+        }
+        return false
+    }
+    
+    return compare(root.left, root.right)
+}
+```
