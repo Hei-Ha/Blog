@@ -1,0 +1,40 @@
+## 二叉树的最大深度
+<TitleMsg
+    link='https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/'
+    level='easy'
+    title='No.104 二叉树的最大深度'
+/>
+
+## 题目
+给定一个二叉树 root ，返回其最大深度。  
+二叉树的 最大深度 是指从根节点到最远叶子节点的最长路径上的节点数。
+
+**示例1**  
+![示例1](https://assets.leetcode.com/uploads/2020/11/26/tmp-tree.jpg)
+输入：root = [3,9,20,null,null,15,7]  
+输出：3  
+**示例 2：**  
+输入：root = [1,null,2]  
+输出：2  
+
+## 思路
+递归
+声明一个函数，接受两个参数，`root`，`deep`
+然后进行递归，每次将 `deep + 1`, 比较后返回。
+
+
+## 代码
+```javascript
+var maxDepth = function (root) {
+    if (!root) return 0
+
+    const helper = (root, deep) => {
+        if (!root) return deep
+        return Math.max(helper(root.left, deep + 1), helper(root.right, deep + 1))
+    }
+
+    return helper(root, 0)
+};
+```
+
+
