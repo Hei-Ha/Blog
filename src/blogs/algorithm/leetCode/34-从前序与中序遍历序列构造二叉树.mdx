@@ -1,0 +1,43 @@
+##  从前序与中序遍历序列构造二叉树
+<TitleMsg
+    link='https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/'
+    level='middle'
+    title='No.105 从前序与中序遍历序列构造二叉树'
+/>
+
+
+## 题目
+给定两个整数数组 preorder 和 inorder ，其中 preorder 是二叉树的先序遍历， inorder 是同一棵树的中序遍历，请构造二叉树并返回其根节点。
+
+**示例1**  
+![示例1](https://assets.leetcode.com/uploads/2021/02/19/tree.jpg)
+输入: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]  
+输出: [3,9,20,null,null,15,7]  
+
+**示例 2:**  
+输入: preorder = [-1], inorder = [-1]  
+输出: [-1]  
+
+
+## 思路
+1. 从先序排列中取出第一个元素，即为整棵树的根节点
+2. 在中序排列中，以根节点为界限，分出左子树和右子树。
+3. 循环先序排列中的数组，以每个元素为根节点，区分左子树和右子树，递归解决。
+
+
+## 代码
+```javascript
+var buildTree = function(preorder, inorder) {
+    if (preorder.length === 0 || inorder.length === 0) return null
+    const root = new TreeNode(preorder[0])
+
+    const index = inorder.indexOf(preorder.shift())
+
+
+    root.left = buildTree(preorder, inorder.slice(0, index))
+    root.right = buildTree(preorder, inorder.slice(index + 1))
+
+    return root
+};
+
+```
