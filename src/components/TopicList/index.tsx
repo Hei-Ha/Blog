@@ -16,11 +16,11 @@ import Link from 'next/link';
 
 export default ( { listData, className }: { listData: SideMenuListType[], className?: string, } ) => {
     const [isOpen, setIsOpen] = useState( false );
-    const modalContainer = useRef<Element | null>(null);
+    // const modalContainer = useRef<Element | null>(null);
     
-    useEffect(() => {
-        modalContainer.current = document.getElementsByClassName('articleContent')[0]
-    }, [])
+    // useEffect(() => {
+    //     modalContainer.current = document.getElementsByClassName('articleContent')[0]
+    // }, [])
     
     const ContentAccordion = () => {
         return <Accordion
@@ -61,7 +61,7 @@ export default ( { listData, className }: { listData: SideMenuListType[], classN
     return <Card radius='none' shadow={'sm'} className={ `sticky top-0 flex box-border border-y border-solid border-#4b4b4b ${ className } ` }>
         <CardBody className='px-3 py-3 text-sm text-right' onClick={ () => setIsOpen( true ) }>Menu</CardBody>
         <Modal
-            portalContainer={modalContainer.current}
+            // portalContainer={modalContainer.current}
             radius={ 'sm' }
             isOpen={ isOpen }
             placement={ 'top' }
