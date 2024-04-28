@@ -58,6 +58,7 @@ export default {
                 'hardText': '#ff2d55',
             },
             height: {
+                '10px': '10px',
                 '32px': '32px',
                 '48px': '48px',
                 '64px': '64px',
