@@ -8,7 +8,7 @@ export default async ({params}) => {
     
     return (
         <article
-            className="prose dark:prose-invert my-10 prose-base sm:prose-sm sm:px-2 -z-40">
+            className="w-full prose dark:prose-invert my-10 prose-base sm:prose-sm sm:px-2 -z-40">
             <RenderMDX sourceData={fileContent.content || ''}/>
         </article>
     );
