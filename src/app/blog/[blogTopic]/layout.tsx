@@ -20,11 +20,11 @@ export default async ({ params, children }) => {
                     <SideMenu listData={menuData} />
                 </div>
                 
-                <div className="sm:hidden grow flex flex-col items-center"> {/* 大屏显示内容 */}
+                <div className="sm:hidden grow flex flex-col items-center"> {/* 大屏、中屏 显示内容 */}
                     {children}
                 </div>
                 
-                <div className="lg:hidden w-[100vw]">{/* 小屏显示内容 */}
+                <div className="md:hidden lg:hidden w-[100vw]">{/* 小屏显示内容 */}
                     <TopicList listData={menuData} className={"w-full h-48px"} />
                     <div className="overflow-scroll h-[calc(100vh-64px-48px)]">
                         {children}
