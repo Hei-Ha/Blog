@@ -1,0 +1,62 @@
+## 单词拆分
+<TitleMsg
+    link='https://leetcode.cn/problems/word-break/description/'
+    level='middle'
+    title='No.139 单词拆分'
+/>
+
+## 题目
+给你一个字符串 s 和一个字符串列表 wordDict 作为字典。如果可以利用字典中出现的一个或多个单词拼接出 s 则返回 true。  
+注意：不要求字典中出现的单词全部都使用，并且字典中的单词可以重复使用。
+
+**示例 1：**  
+输入: s = "leetcode", wordDict = ["leet", "code"]  
+输出: true  
+解释: 返回 true 因为 "leetcode" 可以由 "leet" 和 "code" 拼接成。  
+
+**示例 2：**  
+输入: s = "applepenapple", wordDict = ["apple", "pen"]  
+输出: true  
+解释: 返回 true 因为 "applepenapple" 可以由 "apple" "pen" "apple" 拼接成。
+     注意，你可以重复使用字典中的单词。
+
+**示例 3：**  
+输入: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]  
+输出: false  
+
+
+## 思路
+用一个指针，将给定 s 分为两部分，左边 和 右边。
+    - 对于左边，判断是否在 wordDict 中，
+    - 对于右边，可能有多个单词组成，类似左边的逻辑，进行递归。
+当 左边 和 右边 的结果同时返回 true 的时候，最终结果才是 true。
+
+声明一个 map 存储结果，每次循环前，先判断 map 中是否已经有结果，如果有，直接返回存储的结果即可。
+
+## 代码
+```javascript
+const wordBreak = (s, wordDict) => {
+    const setWord = new Set(wordDict) // 建立 set 映射
+    const map = new Map() // 建立一个 map,用于存储已经得到的结果。
+
+    const help = (start) => {
+        if (start === s.length) { // 如果指针到最后一位，结束递归。
+            return true
+        }
+        if (map.has(start)) {  // 如果在 map 中已经有结果了，则直接返回结果。
+            return map.get(start)
+        } 
+
+        for (let i = start + 1; i <= s.length; i++) { // 从 start + 1 位置开始，截取左右两个字符串，判断是否在 wordDict 内。
+            let prefix = s.slice(start, i);
+            if (setWord.has(prefix) && help(i)) { // 递归的判断 左右 字符串是否都在 wordDict 中。
+                map.set(start, true); // 存储一下当前 start 的结果，以便后续节省递归时间。
+                return true
+            }
+        }
+        map.set(start, false) // 存储一下当前 start 的结果，以便后续节省递归时间。
+        return false
+    }
+    return help(0) // 从第 0 位置开始递归。
+}
+```

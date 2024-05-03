@@ -21,7 +21,9 @@ export default async ({ params, children }) => {
                 </div>
                 
                 <div className="sm:hidden grow flex flex-col items-center"> {/* 大屏、中屏 显示内容 */}
-                    {children}
+                    <div>
+                        {children}
+                    </div>
                 </div>
                 
                 <div className="md:hidden lg:hidden w-[100vw]">{/* 小屏显示内容 */}
