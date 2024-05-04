@@ -1,0 +1,54 @@
+## 排序链表
+
+<TitleMsg
+    link='https://leetcode.cn/problems/sort-list/description/'
+    level='middle'
+    title='No.148 排序链表'
+/>
+
+### 题目
+给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。
+
+**示例1：**  
+![示例1](https://assets.leetcode.com/uploads/2020/09/14/sort_list_1.jpg)
+```text
+输入：head = [4,2,1,3]
+输出：[1,2,3,4]
+```
+
+**示例2:**  
+![示例2](https://assets.leetcode.com/uploads/2020/09/14/sort_list_2.jpg)
+```text
+输入：head = [-1,5,3,4,0]
+输出：[-1,0,3,4,5]
+```
+
+**示例3**  
+```text
+输入：head = []
+输出：[]
+```
+
+### 思路
+先遍历链表，取出链表中的值，按从小到达排序，然后再将排好序的数组，转为链表
+
+### 代码
+```javascript
+var sortList = function (head) {
+    const arr = []
+    while (head) {
+        arr.push(head.val)
+        head = head.next;
+    }
+    arr.sort((a, b) => a - b);
+    
+    let node = new ListNode();
+    let p = node;
+    for (let i = 0; i < arr.length; i++) {
+        p.next = new ListNode(arr[i])
+        p = p.next
+    }
+
+    return node.next
+};
+```
