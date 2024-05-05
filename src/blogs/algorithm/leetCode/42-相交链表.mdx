@@ -53,11 +53,12 @@ skipB - 在 listB 中（从头节点开始）跳到交叉节点的节点数
 这两个链表不相交，因此返回 null 。
 ```
 
-### 思路
+### 思路1
+
 最简单的方法，使用 Map 结构存储一条链表上的节点，然后遍历另一条，看在 Map 中是否能找到相同的节点。
 如果找到即相交，找不到即没有相交。
 
-### 代码
+#### 代码
 ```javascript
 var getIntersectionNode = function(headA, headB) {
     const map = new Map()
@@ -71,6 +72,51 @@ var getIntersectionNode = function(headA, headB) {
             return headB;
         }
         headB = headB.next;
+    }
+
+    return null
+};
+```
+
+### 思路2
+刚开始，当 headA 或者 headB 有一个为空的时候，说明两个链表不相交，直接返回 null  
+声明两个指针 hA 和 hB, 分别只想 headA 和 headB, 然后在 while 循环里面同时遍历 headA 和 headB  
+由于两个链表长度不一样，所以必然会有一个指针先为 null
+- 当 hA 为 null 时，将 hA 指向 headB;
+- 当 hB 为 null 时，将 hB 指向 headA;
+继续遍历
+- 当 hA === hB 时，说明两条链表相交，结束循环
+- 当 hA === null && hB === null 时候，说明两条链表不相交，结束循环。
+
+因为两条链表长度如果不一样（headA, headB, 假设 A.length 大于 B.length ），同时开始遍历，必然是 hB 先遍历完 headB,
+hB 遍历完 headB 后转去遍历 headA,
+后面当 hA 遍历完 headA，转去遍历 headB 时,
+hB 此时已经多遍历了 headA.length - headB.length 
+后面两个指针的遍历速度，相对于相交点，就可以看作是同步的位置了。
+
+#### 代码
+```javascript
+var getIntersectionNode = function (headA, headB) {
+    if(!headA || !headB) return null
+    let hA = headA;
+    let hB = headB;
+
+    while(hA || hB) { // 当 hA 或者 hB 不为空时，遍历继续。
+        if(hA === hB) {
+            return hA
+        }
+        if(hA === null) {
+            hA = headB;
+        } else {
+            hA = hA.next;
+        }
+        
+        if(hB === null) {
+            hB = headA;
+        } else {
+            hB = hB.next;
+        }
+        
     }
 
     return null
