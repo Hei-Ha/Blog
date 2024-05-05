@@ -88,11 +88,11 @@ var getIntersectionNode = function(headA, headB) {
 - 当 hA === hB 时，说明两条链表相交，结束循环
 - 当 hA === null && hB === null 时候，说明两条链表不相交，结束循环。
 
-因为两条链表长度如果不一样（headA, headB, 假设 A.length 大于 B.length ），同时开始遍历，必然是 hB 先遍历完 headB,
-hB 遍历完 headB 后转去遍历 headA,
-后面当 hA 遍历完 headA，转去遍历 headB 时,
-hB 此时已经多遍历了 headA.length - headB.length 
-后面两个指针的遍历速度，相对于相交点，就可以看作是同步的位置了。
+因为两条链表长度如果不一样（headA, headB, 假设 A.length 大于 B.length ），同时开始遍历，必然是 hB 先遍历完 headB,  
+hB 遍历完 headB 后转去遍历 headA,  
+后面当 hA 遍历完 headA，转去遍历 headB 时,  
+hB 此时已经多遍历了 headA.length - headB.length   
+后面两个指针的遍历速度，相对于相交点，就可以看作是同步的位置了。  
 
 #### 代码
 ```javascript
