@@ -21,7 +21,7 @@ export default async ({ params, children }) => {
                     <SideMenu listData={menuData} />
                 </div>
                 
-                <div className="sm:hidden w-full flex grow flex-col items-center justify-center"> {/* 大屏、中屏 显示内容 */}
+                <div className="sm:hidden w-full flex grow flex-col items-center"> {/* 大屏、中屏 显示内容 */}
                     {children}
                 </div>
                 
