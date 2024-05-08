@@ -1,0 +1,46 @@
+## 多数元素
+<TitleMsg
+    link='https://leetcode.cn/problems/majority-element/description/'
+    level='easy'
+    title='No.169 多数元素'
+/>
+
+### 题目
+给定一个大小为 n 的数组 nums ，返回其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。  
+你可以假设数组是非空的，并且给定的数组总是存在多数元素。  
+
+**示例 1：**
+```text
+输入：nums = [3,2,3]
+输出：3
+```
+**示例 2：**  
+```text
+输入：nums = [2,2,1,1,1,2,2]
+输出：2
+```
+### 思路
+先循环数组，利用 map 存储数组每个元素在数组中出现的次数，
+然后遍历 map 的 key,如果符合 多数元素 的定义，则存储在结果集中，
+为了节省空间，使用了 reduce 
+
+```javascript
+var majorityElement = function(nums) {
+    const mapNums = new Map();
+
+    for (let i = 0; i < nums.length; i++) {
+        if (mapNums.has(nums[i])) {
+            mapNums.set(nums[i], mapNums.get(nums[i]) + 1)
+        } else {
+            mapNums.set(nums[i], 1)
+        }
+    }
+
+    return Array.from(mapNums.keys()).reduce((acc, currentValue) => {
+        if (mapNums.get(currentValue) > nums.length / 2) {
+            acc.push(currentValue)
+        }
+        return acc
+    }, [])
+};
+```
