@@ -25,7 +25,7 @@ export default async ({ params, children }) => {
                     {children}
                 </div>
                 
-                <div className="md:hidden lg:hidden w-[100vw] relative">{/* 小屏显示内容 */}
+                <div className="md:hidden lg:hidden w-[100vw]">{/* 小屏显示内容 */}
                     <TopicList listData={menuData} className={"w-full h-48px"} />
                     <div className="overflow-scroll h-[calc(100vh-64px-48px)]">
                         {children}
