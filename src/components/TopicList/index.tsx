@@ -58,7 +58,7 @@ export default ( { listData, className }: { listData: SideMenuListType[], classN
         </Accordion>
     }
     
-    return <Card radius='none' shadow={'sm'} className={ `sticky top-0 flex box-border border-y border-solid border-#4b4b4b ${ className } ` }>
+    return <Card radius='none' shadow={'sm'} className={ `flex box-border border-y border-solid border-#4b4b4b ${ className } ` }>
         <CardBody className='px-3 py-3 text-sm text-right' onClick={ () => setIsOpen( true ) }>Menu</CardBody>
         <Modal
             // portalContainer={modalContainer.current}
