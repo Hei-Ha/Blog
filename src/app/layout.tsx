@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react"
 export default async ( { children }: { children: React.ReactNode } ) => {
     return (
         <html suppressHydrationWarning>
-            <body className="min-w-375px">
+            <body className="min-w-375px w-full h-full">
                 <Provider>
                     { children }
                     <Analytics />
