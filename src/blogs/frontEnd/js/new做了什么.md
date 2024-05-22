@@ -22,7 +22,7 @@ const obj = {};
 ```
 2、将临时对象的原型指向构造函数的原型。
 ```js
-obj.prototype = Object.prototype
+obj.__proto__ = Object.prototype
 ```
 
 3、将 this 指向这个临时对象，便于后面访问临时对象。
@@ -30,6 +30,6 @@ obj.prototype = Object.prototype
 this = obj
 ```
 4、执行构造函数
-
+这里是为了给新对象添加一些自有属性。
 
 5、返回创建的临时对象。
