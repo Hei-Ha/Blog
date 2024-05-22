@@ -24,8 +24,8 @@
 - 使用场景: 例如 tooltip 的显示位置。
 #### useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?)
 - 订阅外部的 store ，例如第三方状态库...
-
-[//]: # (#### UseImperativeHandle&#40;ref, &#40;&#41; => {return {}}&#41;)
+#### useImperativeHandle(ref, createHandle, dependencies?)
+- 向父组件暴露一个自定义的 ref 句柄 (可用于父组件调用子组件的函数)
 
 [//]: # (- 能让你自定义由 [ref]&#40;https://zh-hans.react.dev/learn/manipulating-the-dom-with-refs&#41; 暴露出来的句柄。（向父组件暴露一个自定义的 ref 句柄 ，更改 ref.current 的值）)
 

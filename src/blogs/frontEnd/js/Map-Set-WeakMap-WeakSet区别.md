@@ -2,11 +2,11 @@
 
 ### Map、WeakMap 的区别
 **Map**
-1. 类似于对象，也是键值对的集合，但是 key 的范围不限于字符串，各种类型的值（包括对象）都可以作为 key.
+1. 类似于对象，也是键值对的集合，但是 key 的范围不限于字符串，各种类型的值（包括对象，包括 null）都可以作为 key.
 2. Map 有迭代器属性，可以使用 forEach 等方法。
 3. Map 中的 key 对 value 的引用是强引用，即：即使该 value 在其他地方没有被引用，只要 Map 存在，该 value 就不会被垃圾回收。
 
-**WeapMap**
+**WeakMap**
 1. 只接受对象（null 除外）和 Symbol 值作为间键名，不接受其他类型的值作为键名。
 2. WeakMap 的 key 对 value 是弱引用，即： 如果 value 在其他地方没有被引用，即使 WeakMap 存在，该 value 也会被垃圾回收掉，并且当前 key - value 自动从 WeakMap 中移除。
 3. WeakMap 没有迭代器属性，不能使用 forEach 等迭代方法，只有四个方法可以使用：get(), set(), has(), delete()
