@@ -56,11 +56,11 @@ for (let key of arr) {
 ```
 
 ### 总结
-`for in` 循环会遍历对象上的可枚举属性，包括该对象从原型上继承下来的可枚举属性。
-由于对象和数组都是可枚举的，所以 `for in` 都可以遍历,但遍历数组的时候，遍历的 key 是数组的下标。
+`for in` 循环会遍历对象上的可枚举属性，包括该对象从原型上继承下来的可枚举属性。  
+由于对象和数组都是可枚举的，所以 `for in` 都可以遍历,但遍历数组的时候，遍历的 `key` 是数组的下标。
 
-`for of` 循环遍历的是含有 **迭代器** 的数据结构，比如 Array, String, Map, Set, NodeList, arguments 等，
-只要该数据结构或者其原型上含有 `Symbol(Symbol.iterator)` 方法，即可使用 for of 迭代.
+`for of` 循环遍历的是含有 **迭代器** 的数据结构，比如 `Array`, `String`, `Map`, `Set`, `NodeList`, `arguments` 等。  
+只要该数据结构或者其原型上含有 `Symbol(Symbol.iterator)` 方法，即可使用 for of 迭代。
 由于 `Object` 上没有 `Symbol(Symbol.iterator)`, 所以 `for of` 不可以用于遍历对象。
 
 
