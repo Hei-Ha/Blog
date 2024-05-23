@@ -1,0 +1,67 @@
+## `for in` 和 `for of` 的区别
+
+### `for in`
+`for in` 语句迭代一个对象所有的可枚举字符串属性（除 Symbol 以外），包括继承的可枚举属性.
+举例：
+```javascript
+// 遍历对象
+    Object.prototype.a = 1
+    const obj = {
+        'b': 'bVal',
+        'c': 'cVal',
+        'd': 'dVal'
+    }
+    
+    for (let key in obj ) {
+        console.log(key)
+    }
+    // b
+    // c
+    // d
+    // a
+// 遍历数组
+    Array.prototype.a = 1
+    const arr = [11, 22, 33, 44, 55]
+
+    for (let i in arr) {
+        console.log(i)
+    }
+    // 0
+    // 1
+    // 2
+    // 3
+    // 4
+    // a
+```
+### `for of` 
+ES6 新方法
+`for of` 执行一个循环，该循环处理来自可迭代对象的值序列。可迭代对象包括内置对象的实例，
+例如 `Array`, `String`, `TypedArray`, `Map`, `Set`, `NodeList` (以及其他 DOM 集合),
+还包括 `arguments`，由生成器函数生成的生成器，以及用户定义的可迭代对象。
+举例：
+```javascript
+// for of 循环不能遍历对象，因为对象上没有迭代器，即没有： Symbol(Symbol.iterator)
+Array.prototype.a = 1
+const arr = [11, 22, 33, 44, 55]
+
+for (let key of arr) {
+    console.log(key)
+}
+
+// 11
+// 22
+// 33
+// 44
+// 55
+```
+
+### 总结
+`for in` 循环会遍历对象上的可枚举属性，包括该对象从原型上继承下来的可枚举属性。
+由于对象和数组都是可枚举的，所以 `for in` 都可以遍历,但遍历数组的时候，遍历的 key 是数组的下标。
+
+`for of` 循环遍历的是含有 **迭代器** 的数据结构，比如 Array, String, Map, Set, NodeList, arguments 等，
+只要该数据结构或者其原型上含有 `Symbol(Symbol.iterator)` 方法，即可使用 for of 迭代.
+由于 `Object` 上没有 `Symbol(Symbol.iterator)`, 所以 `for of` 不可以用于遍历对象。
+
+
+
