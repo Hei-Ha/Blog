@@ -1,0 +1,82 @@
+## 数组中重复的数据
+
+<TitleMsg
+    link='https://leetcode.cn/problems/find-all-duplicates-in-an-array/description/'
+    level='middle'
+    title='No.442 数组中重复的数据'
+/>
+
+### 题目
+给你一个长度为 n 的整数数组 nums ，其中 nums 的所有整数都在范围 [1, n] 内，且每个整数出现 一次 或 两次 。请你找出所有出现 两次 的整数，并以数组形式返回。  
+你必须设计并实现一个时间复杂度为 O(n) 且仅使用常量额外空间的算法解决此问题。
+
+**示例 1：**  
+```text
+输入：nums = [4,3,2,7,8,2,3,1]
+输出：[2,3]
+```
+**示例 2：**  
+```text
+输入：nums = [1,1,2]
+输出：[1]
+```
+
+**示例 3：**
+```text
+输入：nums = [1]
+输出：[]
+```
+
+### 方法一
+循环给定数组，利用 `map` 建立映射关系，`key`: 当前元素，`value`: 当前元素在数组中出现的次数。
+最后遍历 `map`，过滤调不符合提议的，返回正确结果。
+#### 代码实现
+```javascript
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+const findDuplicates = (arr) => {
+    const result = []
+    const map = new Map()
+    for (let i = 0; i < arr.length; i++) {
+        if (map.get(arr[i])) {
+            map.set(arr[i], map.get(arr[i]) + 1)
+        } else {
+            map.set(arr[i], 1)
+        }
+    }
+    map.forEach((item, key) => {
+        if (item > 1) {
+            result.push(key)
+        }
+    })
+    return result
+}
+```
+
+
+
+
+### 方法二
+创建一个新数组 arr，长度和给定数组 `nums` 长度相同，由于 `nums` 中所有元素都在 [1, n] 中，所以下标不会越界，  
+循环数组，以当前元素 `i` 作为 arr 的下标，
+- 如果能访问到 `arr[i]`，说明 `nums[i]` 出现了 2次以上，存入结果集中，  
+- 如果不能访问到 `arr[i]`,说明当前循环是第一次遇到 `num[i]`, 执行 `arr[i] = 1` 后，继续循环.
+#### 代码实现
+```javascript
+const findDuplicates = (nums) => {
+    const arr = new Array(nums.length).fill(0)
+    const result = []
+
+    for (let i = 0; i < nums.length; i++) {
+        if (!arr[nums[i]]) {
+            arr[nums[i]] = 1
+        } else {
+            result.push(nums[i])
+        }
+    }
+    return result
+}
+```
+
