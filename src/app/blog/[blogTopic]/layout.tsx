@@ -13,7 +13,7 @@ export default async ({ params, children }) => {
     });
 
     return (
-        <div className={'w-[calc(70%)] flex flex-col mx-auto'} style={{
+        <div className={'lg:w-[calc(70%)] lg:flex lg:flex-col lg:mx-auto'} style={{
             boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
         }}>
             <Header />
