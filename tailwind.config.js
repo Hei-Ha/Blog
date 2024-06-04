@@ -93,6 +93,7 @@ export default {
                 light: {
                     colors: {
                         'chipBg': '#f0f0f0',
+                        'background': '#F6F5F2'
                     }
                 },
             }
