@@ -13,7 +13,9 @@ export default async ({ params, children }) => {
     });
 
     return (
-        <>
+        <div className={'w-[calc(70%)] flex flex-col mx-auto'} style={{
+            boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
+        }}>
             <Header />
             <div className="flex">
                 <div className="sm:hidden w-280px shrink-0 sideMenuScroll overflow-auto sticky top-16 h-[calc(100vh-64px)] border-r border-solid border-#e7e7e7">
@@ -31,6 +33,6 @@ export default async ({ params, children }) => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
