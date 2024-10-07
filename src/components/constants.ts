@@ -14,10 +14,10 @@ export const MenuItemList: MenuItem[] = [
         title: "算法题",
         path: "/blog/algorithm/leetCode/1-两数之和.mdx",
     },
-    // {
-    //     title: "联系我",
-    //     path: "/connect",
-    // },
+    {
+      title: '书',
+      path: '/book'
+    },
     {
         title: '模型(Hugging face)',
         path: '/module'
